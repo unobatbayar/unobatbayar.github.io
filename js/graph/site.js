@@ -10,15 +10,14 @@ sys.renderer = Renderer("#viewport");
 var data = {
   nodes:{
 
-  user:{'color':'deepskyblue','shape':'dot','label':'Uno'},
+  user:{'color':'deepskyblue','shape':'dot','label':'Usukhbayar Batbayar'},
 
-  programming:{'color':'lightskyblue','shape':'dot','label':'programming'},
-  interests:{'color':'lightskyblue','shape':'dot','label':'interests'},
-  tools:{'color':'lightskyblue','shape':'dot','label':'tools'},
+  programming:{'color':'lightskyblue','shape':'dot','label':'Programming'},
+  interests:{'color':'lightskyblue','shape':'dot','label':'Interests'},
 
   },
   edges:{
-    user:{ programming:{}, interests:{}, tools:{}},
+    user:{ programming:{}, interests:{}},
 
   }
 };
@@ -29,25 +28,21 @@ setTimeout(function(){
 var postLoadData = {
 nodes:{
   // programming
-  swift:{'color':'slategrey','shape':'square','label':'swift'},
-  csharp:{'color':'slategrey','shape':'square','label':'c#'},
-  python:{'color':'slategrey','shape':'square','label':'python'},
-
-  // tools
-  iOS:{'color':'slategrey','shape':'square','label':'iOS'},
-  unity:{'color':'slategrey','shape':'square','label':'unity3d'},
-  flutter:{'color':'slategrey','shape':'square','label':'flutter'},
+  lang1:{'color':'tomato','shape':'square','label':'Swift'},
+  lang2:{'color':'navy','shape':'square','label':'C++'},
+  lang3:{'color':'dodgerblue','shape':'square','label':'python'},
 
   // interests
-  interest1:{'color':'slategrey','shape':'square','label':'piano'},
-  // interest2:{'color':'slategrey','shape':'square','label':'programming'},
-  interest3:{'color':'slategrey','shape':'square','label':'mathematics'},
+  interest1:{'color':'cornflowerblue','shape':'square','label':'Apps'},
+  interest2:{'color':'teal','shape':'square','label':'Chess'},
+  interest3:{'color':'palegreen','shape':'square','label':'Music'},
+  interest4:{'color':'slategrey','shape':'square','label':'Mathematics'},
+
 },
 edges:{
-  interests:{interest1:{}, interest3:{}},
-  programming:{swift:{}, csharp:{}, python:{}},
-  tools:{iOS:{}, unity:{}, flutter:{}}
+  interests:{interest1:{}, interest2:{}, interest3:{}, interest4:{}},
+  programming:{lang1:{}, lang2:{}, lang3:{}},
 }
 };
 sys.graft(postLoadData);
-},4000);
+},2000);
