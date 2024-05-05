@@ -10,7 +10,7 @@ sys.renderer = Renderer("#viewport");
 var data = {
   nodes:{
 
-  user:{'color':'deepskyblue','shape':'dot','label':'Usukhbayar Batbayar'},
+  user:{'color':'lightskyblue','shape':'dot','label':'Usukhbayar Batbayar'},
 
   programming:{'color':'lightskyblue','shape':'dot','label':'Programming'},
   interests:{'color':'lightskyblue','shape':'dot','label':'Interests'},
@@ -34,8 +34,8 @@ nodes:{
 
   // interests
   interest1:{'color':'cornflowerblue','shape':'square','label':'Apps'},
-  interest2:{'color':'teal','shape':'square','label':'Chess'},
-  interest3:{'color':'purple','shape':'square','label':'Music'},
+  interest2:{'color':'teal','shape':'square','label':'Games'},
+  interest3:{'color':'purple','shape':'square','label':'Running'},
   interest4:{'color':'darkslategrey','shape':'square','label':'Mathematics'},
 
 },
