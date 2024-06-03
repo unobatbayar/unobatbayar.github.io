@@ -13,7 +13,7 @@ var data = {
   user:{'color':'lightskyblue','shape':'dot','label':'Usukhbayar Batbayar'},
 
   programming:{'color':'lightskyblue','shape':'dot','label':'Programming'},
-  interests:{'color':'lightskyblue','shape':'dot','label':'Interests'},
+  interests:{'color':'lightskyblue','shape':'dot','label':'Hobby'},
 
   },
   edges:{
