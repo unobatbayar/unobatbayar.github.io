@@ -16,7 +16,7 @@
         var percent = (currentDuration / totalDuration) * 100;
 
         // Set title
-        title.innerText = now.getFullYear();
+        title.innerText = now.getFullYear() + " Year Progress";
         titlePercent.innerText = percent.toFixed(6) + "%";
         
         // Set bar
