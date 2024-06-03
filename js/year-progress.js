@@ -1,4 +1,4 @@
-﻿function startYearProgress(){
+function startYearProgress(){
     let title = document.getElementById("year-progress-title");
     let titlePercent = document.getElementById("year-progress-percent");
     var bar = document.getElementById('year-progressbar');
@@ -16,7 +16,7 @@
         var percent = (currentDuration / totalDuration) * 100;
 
         // Set title
-        title.innerText = now.getFullYear() + " Year Progress Bar";
+        title.innerText = now.getFullYear() + " Year Progress";
         titlePercent.innerText = percent.toFixed(6) + "%";
         
         // Set bar
