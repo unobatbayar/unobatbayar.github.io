@@ -36,11 +36,11 @@ nodes:{
   interest1:{'color':'cornflowerblue','shape':'square','label':'Apps'},
   interest2:{'color':'teal','shape':'square','label':'Chess'},
   interest3:{'color':'purple','shape':'square','label':'Running'},
-  interest4:{'color':'darkslategrey','shape':'square','label':'Mathematics'},
+  interest4:{'color':'darkslategrey','shape':'square','label':''},
 
 },
 edges:{
-  interests:{interest1:{}, interest2:{}, interest3:{}, interest4:{}},
+  interests:{interest1:{}, interest2:{}, interest3:{}},
   programming:{lang1:{}, lang2:{}, lang3:{}},
 }
 };
