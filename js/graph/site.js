@@ -35,8 +35,8 @@ nodes:{
   // interests
   interest1:{'color':'cornflowerblue','shape':'square','label':'Apps'},
   interest2:{'color':'teal','shape':'square','label':'Chess'},
-  interest3:{'color':'tomato','shape':'square','label':'Running'},
-  interest4:{'color':'darkslategrey','shape':'square','label':'Piano'},
+  interest3:{'color':'orange','shape':'square','label':'Running'},
+  interest4:{'color':'slateblue','shape':'square','label':'Piano'},
 
 },
 edges:{
