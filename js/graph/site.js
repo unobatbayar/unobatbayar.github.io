@@ -34,13 +34,13 @@ nodes:{
 
   // interests
   interest1:{'color':'cornflowerblue','shape':'square','label':'Apps'},
-  interest2:{'color':'teal','shape':'square','label':'Chess'},
-  interest3:{'color':'slateblue','shape':'square','label':'Basketball'},
-  interest4:{'color':'slateblue','shape':'square','label':'Piano'},
+  // interest2:{'color':'teal','shape':'square','label':'Chess'},
+  // interest3:{'color':'slateblue','shape':'square','label':'Basketball'},
+  // interest4:{'color':'slateblue','shape':'square','label':'Piano'},
 
 },
 edges:{
-  interests:{interest1:{}, interest2:{}, interest3:{}, interest4:{}},
+  // interests:{interest1:{}, interest2:{}, interest3:{}, interest4:{}},
   programming:{lang1:{}, lang2:{}, lang3:{}},
 }
 };
