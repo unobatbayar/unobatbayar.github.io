@@ -32,7 +32,7 @@ nodes:{
   // interests
   interest1:{'color':'cornflowerblue','shape':'square','label':'Apps'},
   interest2:{'color':'teal','shape':'square','label':'Mathematics'},
-  interest3:{'color':'orange','shape':'square','label':'Basketball'},
+  interest3:{'color':'orange','shape':'square','label':'Running'},
 
 },
 edges:{
