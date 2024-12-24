@@ -5,7 +5,7 @@ npm install express
 npm install -g http-server
 ```
 
-http-server (simple, light)
+[http-server](https://www.npmjs.com/package/http-server) (simple, light)
 ```
 npm install -g http-server
 
