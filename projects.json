@@ -1,0 +1,20 @@
+﻿[
+    {
+        "title": "Portfolio Website",
+        "description": "A personal portfolio built with HTML, CSS, and JavaScript.",
+        "url": "https://example.com/project1",
+        "image": "images/uno.png"
+    },
+    {
+        "title": "Weather App",
+        "description": "A weather app built with React and the OpenWeather API.",
+        "url": "https://example.com/project2",
+        "image": "images/uno.png"
+    },
+    {
+        "title": "E-commerce Store",
+        "description": "An e-commerce platform built with Node.js, Express, and MongoDB.",
+        "url": "https://example.com/project3",
+        "image": "../images/uno.png"
+    }
+]
