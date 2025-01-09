@@ -5,6 +5,4 @@ module.exports = {
   images: {
     unoptimized: true,  // Optional: Disable image optimization if needed
   },
-  // Set the base path for GitHub Pages (optional, if your repo is not a personal one)
-  basePath: '/unobatbayar.github.io',
 }
