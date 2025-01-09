@@ -11,27 +11,28 @@ jobs:
     steps:
       # Step 1: Checkout the code
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3  # Updated to the latest version of actions/checkout
 
       # Step 2: Set up PNPM
       - name: Set up PNPM
         run: |
-          curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
+          curl -fsSL https://get.pnpm.io/v6.16.js | node - add --global pnpm
 
       # Step 3: Install dependencies
       - name: Install dependencies
         run: pnpm install
 
       # Step 4: Build the app
-      - name: Build
+      - name: Build Next.js app
         run: pnpm build
 
-      # Step 5: Export static files (if deploying to GitHub Pages)
-      - name: Export static files
+      # Step 5: Export static files (for static site export)
+      - name: Export static site
         run: pnpm export
 
-      # Step 6: Deploy (You can use GitHub Pages deployment here)
+      # Step 6: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_dir: ./out
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Automatically provided by GitHub Actions
