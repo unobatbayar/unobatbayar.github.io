@@ -42,10 +42,6 @@ jobs:
       - name: Build with Next.js
         run: pnpm next build
 
-      # Static HTML export with Next.js (Uncomment if deploying statically)
-      - name: Static HTML export with Next.js (Uncomment if deploying statically)
-        run: pnpm next export
-
       # Upload the build artifact to GitHub Pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
