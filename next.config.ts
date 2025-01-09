@@ -1,44 +1,10 @@
-
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  output: "export",
+// next.config.js
+module.exports = {
+  // Ensure the app is ready for static export
+  output: 'export',
   images: {
-    unoptimized:true,
+    unoptimized: true,  // Optional: Disable image optimization if needed
   },
-  reactStrictMode: true,
-  async rewrites() {
-    return [
-      {
-        source: "/rss.xml",
-        destination: "/feed/rss.xml",
-      },
-      {
-        source: "/atom.xml",
-        destination: "/feed/atom.xml",
-      },
-      {
-        source: "/feed.json",
-        destination: "/feed/feed.json",
-      },
-      {
-        source: "/rss",
-        destination: "/feed/rss.xml",
-      },
-      {
-        source: "/feed",
-        destination: "/feed/rss.xml",
-      },
-      {
-        source: "/atom",
-        destination: "/feed/atom.xml",
-      },
-      {
-        source: "/json",
-        destination: "/feed/feed.json",
-      },
-    ];
-  },
-};
-
-export default nextConfig;
+  // Set the base path for GitHub Pages (optional, if your repo is not a personal one)
+  basePath: '/unobatbayar.github.io',
+}
