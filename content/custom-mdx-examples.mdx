@@ -51,7 +51,7 @@ Nextfolio uses [Next.js Image](https://nextjs.org/docs/basic-features/image-opti
 
 ```
 <Image
-  src="/opengraph-image.png"
+  src="./opengraph-image.png"
   alt="OpenGraph image"
   width={640}
   height={500}
@@ -61,7 +61,7 @@ Nextfolio uses [Next.js Image](https://nextjs.org/docs/basic-features/image-opti
 Renders:
 
 <Image
-  src="/opengraph-image.png"
+  src="./opengraph-image.png"
   alt="OpenGraph image"
   width={640}
   height={500}
@@ -75,9 +75,9 @@ Nextfolio uses a custom [image grid component](https://github.com/1msirius/Nextf
 <ImageGrid
   columns={3} // Accepts 2, 3, or 4 columns
   images={[
-    { src: "/photos/photo1.jpg", alt: "Photo1", href: "#" }, // 'href' is optional
-    { src: "/photos/photo2.jpg", alt: "Photo2", href: "#" },
-    { src: "/photos/photo3.jpg", alt: "Photo3"},
+    { src: "./photos/photo1.jpg", alt: "Photo1", href: "#" }, // 'href' is optional
+    { src: "./photos/photo2.jpg", alt: "Photo2", href: "#" },
+    { src: "./photos/photo3.jpg", alt: "Photo3"},
   ]}
 />
 ```
@@ -87,9 +87,9 @@ Renders:
 <ImageGrid
   columns={3}
   images={[
-    { src: "/photos/photo1.jpg", alt: "Photo1", href: "#" },
-    { src: "/photos/photo2.jpg", alt: "Photo2", href: "#" },
-    { src: "/photos/photo3.jpg", alt: "Photo3" },
+    { src: "./photos/photo1.jpg", alt: "Photo1", href: "#" },
+    { src: "./photos/photo2.jpg", alt: "Photo2", href: "#" },
+    { src: "./photos/photo3.jpg", alt: "Photo3" },
   ]}
 />
 

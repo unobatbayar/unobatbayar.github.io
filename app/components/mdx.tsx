@@ -13,7 +13,7 @@ import "katex/dist/katex.min.css";
 
 function CustomLink(props) {
   let href = props.href;
-  if (href.startsWith("/")) {
+  if (href.startsWith("./")) {
     return (
       <Link href={href} {...props}>
         {props.children}

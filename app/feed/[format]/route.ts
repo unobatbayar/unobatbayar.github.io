@@ -25,7 +25,7 @@ export async function GET(
     );
   }
 
-  const BaseUrl = metaData.baseUrl.endsWith("/")
+  const BaseUrl = metaData.baseUrl.endsWith("./")
     ? metaData.baseUrl
     : `${metaData.baseUrl}/`;
 
