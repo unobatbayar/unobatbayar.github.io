@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
   },
   icons: {
-    icon: "./favicon.ico",
+    icon: "/favicon.ico",
   },
 };
 
@@ -58,19 +58,19 @@ export default function RootLayout({
         <link
           rel="alternate"
           type="application/rss+xml"
-          href="./rss.xml"
+          href="/rss.xml"
           title="RSS Feed"
         />
         <link
           rel="alternate"
           type="application/atom+xml"
-          href="./atom.xml"
+          href="/atom.xml"
           title="Atom Feed"
         />
         <link
           rel="alternate"
           type="application/feed+json"
-          href="./feed.json"
+          href="/feed.json"
           title="JSON Feed"
         />
       </head>
