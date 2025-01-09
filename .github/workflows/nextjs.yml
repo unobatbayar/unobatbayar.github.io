@@ -3,33 +3,35 @@ name: Deploy Next.js to GitHub Pages
 on:
   push:
     branches:
-      - main  # Deploy on every push to the main branch
+      - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      # Step 1: Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16'  # You can specify the Node version you want to use
+      # Step 2: Set up PNPM
+      - name: Set up PNPM
+        run: |
+          curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
 
-    - name: Install dependencies
-      run: |
-        pnpm install
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: pnpm install
 
-    - name: Build and export Next.js app
-      run: |
-        pnpm run build
-        pnpm run export
+      # Step 4: Build the app
+      - name: Build
+        run: pnpm build
 
-    - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        branch: gh-pages  # The branch to deploy to (create if it doesn't exist)
-        folder: out  # The folder containing the exported static files
-        token: ${{ secrets.GITHUB_TOKEN }}  # GitHub token for authentication
+      # Step 5: Export static files (if deploying to GitHub Pages)
+      - name: Export static files
+        run: pnpm export
+
+      # Step 6: Deploy (You can use GitHub Pages deployment here)
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_dir: ./out
