@@ -17,50 +17,25 @@ export default function Page() {
       </a>
 
       <h1 className="mb-8 text-2xl font-medium tracking-tight">
-        Portfolio, made simple!
+        I like building things!
       </h1>
 
       <div className="prose prose-neutral dark:prose-invert">
         <p>
-          A clean, fast, and lightweight portfolio template built with Next.js,
-          Vercel, and Tailwind CSS for optimal performance.
-        </p>
-        <p>
-          Nextfolio includes all the essentials for a stunning portfolio: SEO,
-          MDX support, RSS, Atom, & JSON feeds, analytics, tweet & YouTube
-          embeds, KaTeX integration, and{" "}
-          <a
-            target="_blank"
-            href="https://github.com/1msirius/Nextfolio?tab=readme-ov-file#features"
-          >
-            more
-          </a>
+          Hi, I'm Usukhbayar Batbayar (but please me Uno)! I'm a software engineer based in Japan, originally from Mongolia. My journey into programming was shaped by a childhood spent immersed in video games, and it's this same spark of excitement and wonder that fuels my work today.
           .
         </p>
         <p>
-          Nextfolio is{" "}
-          <a href={socialLinks.github} target="_blank">
-            open-source
-          </a>{" "}
-          and fully customizable, making it easy to add more features.
+          Growing up, I spent countless hours with classic handhelds like the <span className="italic">Game Boy Advance</span>and <span className="italic">PlayStation 2</span>, as well as diving into immersive worlds like <span className="italic">World of Warcraft: Wrath of the Lich King</span> and <span className="italic">League of Legends</span>. After growing up and becoming an engineer, I realized just how many countless hours and how much hard work went into creating these games. It's this appreciation for craftsmanship that inspires my own work and drives my passion for building things that people would use.
         </p>
         <p>
-          <a
-            href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2F1msirius%2FNextfolio"
-            target="_blank"
-          >
-            Deploy
-          </a>{" "}
-          your Nextfolio site with Vercel in minutes and follow the set up
-          instructions in the{" "}
-          <a href="/blog/getting-started">Getting Started</a> post.
+          I started my career focusing on mobile app development, but recently, I've expanded into building dynamic web applications. Now, I'm committed to creating experiences that are not only functional but also enjoyable, seamless, and impactful.
         </p>
         <p>
-          Built and maintained by{" "}
-          <a href="https://imsirius.xyz/" target="_blank">
-            Sirius
-          </a>
-          .
+          When I'm not coding, you'll find me challenging my mind with a game of chess, where strategy and patience come into play.
+        </p>
+        <p>
+          Feel free to reach out if you'd like to connect. I'm always excited to collaborate or have a chat!
         </p>
       </div>
     </section>
