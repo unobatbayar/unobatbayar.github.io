@@ -17,12 +17,12 @@ export default function Page() {
       </a>
 
       <h1 className="mb-8 text-2xl font-medium tracking-tight">
-        I like building things!
+        I like building things.
       </h1>
 
       <div className="prose prose-neutral dark:prose-invert">
         <p>
-          Hi, I'm Usukhbayar Batbayar (but please me Uno)! I'm a software engineer based in Japan, originally from Mongolia.
+          Hello! I'm Usukhbayar Batbayar, but you can call me Uno. I'm a software engineer based in Japan, originally from Mongolia.
         </p>
         <p>
           I started my career focusing on mobile app development, but recently, I've expanded into building dynamic web applications. Now, I'm committed to creating experiences that are not only functional but also enjoyable, seamless, and impactful.
@@ -34,7 +34,7 @@ export default function Page() {
           When I'm not coding, you'll find me challenging my mind with a game of chess, where strategy and patience come into play.
         </p>
         <p>
-          Feel free to reach out if you'd like to connect. I'm always excited to collaborate or have a chat!
+          Feel free to reach out if you'd like to connect. I'm always excited to collaborate or have a chat.
         </p>
       </div>
     </section>
