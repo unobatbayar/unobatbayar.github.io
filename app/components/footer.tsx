@@ -43,7 +43,7 @@ export default function Footer() {
       <a
         className="no-underline"
         // it was for twitter
-        href={socialLinks.appstore}
+        href={socialLinks.linkedin}
         target="_blank"
         rel="noopener noreferrer"
       >
