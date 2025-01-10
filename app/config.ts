@@ -8,9 +8,11 @@ export const metaData = {
 };
 
 export const socialLinks = {
-  twitter: "https://x.com/1tssirius",
+  appstore: "https://apps.apple.com/developer/usukhbayar-batbayar/id1532655863",
   github: "https://github.com/unobatbayar",
-  instagram: "https://www.instagram.com/",
+  stackoverflow: "https://stackoverflow.com/users/12330629",
   linkedin: "https://www.linkedin.com/in/unobatbayar",
-  email: "mailto:example@gmail.com",
+  strava: "https://www.strava.com/athletes/124206718",
+  chess: "https://www.chess.com/member/usukhbayar_b",
+  email: "mailto:unobatbayar@protonmail.com",
 };

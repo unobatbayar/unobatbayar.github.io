@@ -1,0 +1,3 @@
+﻿User-agent: *
+Disallow: /
+Sitemap: https://unobatbayar.github.io/sitemap.xml
