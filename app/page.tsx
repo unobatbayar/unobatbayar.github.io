@@ -23,10 +23,9 @@ export default function Page() {
       <div className="prose prose-neutral dark:prose-invert">
         <p>
           Hi, I'm Usukhbayar Batbayar (but please me Uno)! I'm a software engineer based in Japan, originally from Mongolia. My journey into programming was shaped by a childhood spent immersed in video games, and it's this same spark of excitement and wonder that fuels my work today.
-          .
         </p>
         <p>
-          Growing up, I spent countless hours with classic handhelds like the <span className="italic">Game Boy Advance</span>and <span className="italic">PlayStation 2</span>, as well as diving into immersive worlds like <span className="italic">World of Warcraft: Wrath of the Lich King</span> and <span className="italic">League of Legends</span>. After growing up and becoming an engineer, I realized just how many countless hours and how much hard work went into creating these games. It's this appreciation for craftsmanship that inspires my own work and drives my passion for building things that people would use.
+          Growing up, I spent countless hours with classic handhelds like the Game Boy Advance and PlayStation 2, as well as diving into immersive worlds like <i>World of Warcraft: Wrath of the Lich King</i> and League of Legends. After growing up and becoming an engineer, I realized just how many countless hours and how much hard work went into creating these games. It's this appreciation for craftsmanship that inspires my own work and drives my passion for building things that people would use.
         </p>
         <p>
           I started my career focusing on mobile app development, but recently, I've expanded into building dynamic web applications. Now, I'm committed to creating experiences that are not only functional but also enjoyable, seamless, and impactful.
