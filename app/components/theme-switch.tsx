@@ -33,7 +33,7 @@ export const ThemeSwitch: React.FC = () => {
       }
       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
-    return 'light'; 
+    return 'light';
   };
 
   const reflectPreference = (theme: 'light' | 'dark') => {
@@ -83,9 +83,8 @@ export const ThemeSwitch: React.FC = () => {
       className="flex items-center justify-center transition-opacity duration-300 hover:opacity-90"
     >
       <FaCircleHalfStroke
-        className={`h-[14px] w-[14px] ${
-          currentTheme === "dark" ? "text-[#D4D4D4]" : "text-[#1c1c1c]"
-        }`}
+        className={`h-[14px] w-[14px] ${currentTheme === "dark" ? "text-[#D4D4D4]" : "text-[#1c1c1c]"
+          }`}
       />
     </button>
   );
