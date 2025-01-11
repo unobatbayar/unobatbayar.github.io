@@ -28,13 +28,10 @@ export default function Page() {
           I started my career focusing on mobile app development, but recently, I've expanded into building web applications. Now, I'm committed to creating experiences that are not only functional but also enjoyable, seamless, and impactful.
         </p>
         <p>
-          Growing up, I spent countless hours with classic handhelds like the Game Boy Advance and PlayStation 2, as well as immersing myself in worlds like World of Warcraft: Wrath of the Lich King and League of Legends. After becoming an engineer, I came to appreciate the immense effort and dedication that went into developing these games. This appreciation for craftsmanship now inspires my own work and fuels my passion today.
+          Growing up, I spent countless hours with classic handhelds like the Game Boy Advance and PlayStation 2, as well as immersing myself in worlds like World of Warcraft: Wrath of the Lich King and League of Legends. After becoming an engineer, I came to appreciate the immense effort and dedication that went into developing these games.
         </p>
         <p>
-          When I'm not coding, you'll find me challenging my mind with a game of chess, where strategy and patience come into play.
-        </p>
-        <p>
-          Feel free to reach out if you'd like to connect. I'm always excited to collaborate or have a chat. よろしくお願いいたします。
+          This appreciation for craftsmanship now inspires my own work and fuels my passion today. Feel free to reach out if you'd like to connect.
         </p>
       </div>
     </section>
