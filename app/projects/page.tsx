@@ -32,6 +32,9 @@ export default function Projects() {
               <p className="prose prose-neutral dark:prose-invert pt-3">
                 {project.description}
               </p>
+              <p className="pt-3 text-blue-500">
+                {project.tools}
+              </p>
             </div>
           </a>
         ))}
