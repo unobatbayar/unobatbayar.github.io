@@ -15,20 +15,20 @@ export const projects: Project[] = [
     url: "https://apps.apple.com/us/app/progress-clock/id6446752758",
   },
   {
-    title: "Cyberbolt",
-    year: 2020,
-    description:
-      "3D Mobile Game for iOS and Android",
-    tools: "Unity Engine, C#, Xcode",
-    url: "https://apps.apple.com/us/app/cyber-bolt/id1532655861",
-  },
-  {
     title: "Anomalor - Secure, Offline Password Generator",
     year: 2021,
     description:
       "iOS App for creating and managing secure, offline passwords.",
     tools: "Unity, C#, Xcode",
     url: "https://apps.apple.com/us/app/anomalor/id1534079451",
+  },
+  {
+    title: "Cyberbolt",
+    year: 2020,
+    description:
+      "3D Mobile Game for iOS and Android",
+    tools: "Unity Engine, C#, Xcode",
+    url: "https://apps.apple.com/us/app/cyber-bolt/id1532655861",
   },
   {
     title: "Temperature Converter",
