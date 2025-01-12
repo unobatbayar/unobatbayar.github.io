@@ -23,7 +23,7 @@ export const projects: Project[] = [
     url: "https://apps.apple.com/us/app/anomalor/id1534079451",
   },
   {
-    title: "Cyberbolt",
+    title: "Cyberbolt - Endless Runner",
     year: 2020,
     description:
       "3D Mobile Game for iOS and Android",
