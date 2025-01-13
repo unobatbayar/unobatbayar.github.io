@@ -6,6 +6,11 @@ interface LayoutProps {
     children: ReactNode;
 }
 
+export const metadata = {
+    title: "Anomalor",
+    description: "Anomalor App",
+};
+
 const Layout = ({ children }: LayoutProps) => {
     return (
         <div>
