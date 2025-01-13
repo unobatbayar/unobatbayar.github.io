@@ -27,15 +27,15 @@ export const projects: Project[] = [
     year: 2020,
     description:
       "3D Mobile Game for iOS and Android",
-    tools: "Unity Engine, C#, Xcode",
+    tools: "Unity, C#, Xcode",
     url: "https://apps.apple.com/us/app/cyber-bolt/id1532655861",
   },
   {
     title: "Temperature Converter",
     year: 2018,
     description:
-      "Java Swing app that Convert between Celsius, Fahrenheit, Kelvin and Rankine",
-    tools: "Java, Swing",
+      "Java App that Convert between Celsius, Fahrenheit, Kelvin and Rankine",
+    tools: "Java",
     url: "https://github.com/unobatbayar/temperature-converter",
   },
 ];
