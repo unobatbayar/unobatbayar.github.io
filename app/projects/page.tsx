@@ -32,7 +32,7 @@ export default function Projects() {
               <p className="prose prose-neutral dark:prose-invert pt-3">
                 {project.description}
               </p>
-              <p className="pt-3 text-blue-500">
+              <p className="pt-3 text-neutral-600 dark:text-neutral-400 text-sm">
                 {project.tools}
               </p>
             </div>
