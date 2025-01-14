@@ -65,7 +65,7 @@ export const projects: Project[] = [
     title: "Temperature Converter",
     year: 2018,
     description:
-      "Java App that Convert between Celsius, Fahrenheit, Kelvin and Rankine",
+      "Convert between Celsius, Fahrenheit, Kelvin and Rankine",
     tools: "Java",
     url: "https://github.com/unobatbayar/temperature-converter",
   },
