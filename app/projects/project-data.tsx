@@ -7,6 +7,13 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  // {
+  //   title: "Konple - Chatroom (Coming soon)",
+  //   year: 2025,
+  //   description: "iOS App Realtime Chat App",
+  //   tools: "Swift, SwiftUI, Firebase",
+  //   url: "https://unobatbayar.github.io/Konple",
+  // },
   {
     title: "Progress Clock - A New Way to Experience Time",
     year: 2023,
@@ -19,7 +26,7 @@ export const projects: Project[] = [
     year: 2021,
     description:
       "iOS App for creating and managing secure, offline passwords.",
-    tools: "Unity, C#, Xcode",
+    tools: "Unity, C#",
     url: "https://apps.apple.com/us/app/anomalor/id1534079451",
   },
   {
@@ -27,7 +34,7 @@ export const projects: Project[] = [
     year: 2020,
     description:
       "3D Mobile Game for iOS and Android",
-    tools: "Unity, C#, Xcode",
+    tools: "Unity, C#",
     url: "https://apps.apple.com/us/app/cyber-bolt/id1532655861",
   },
   {
