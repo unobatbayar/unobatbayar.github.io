@@ -46,6 +46,14 @@ export const projects: Project[] = [
     url: "https://github.com/unobatbayar/facemash",
   },
   {
+    title: "Morse Code Translator ",
+    year: 2019,
+    description:
+      "Convert text (A-Z 0-9) to Morse code, and back to text",
+    tools: "Java",
+    url: "https://github.com/unobatbayar/morse-code-translator",
+  },
+  {
     title: "Temperature Converter",
     year: 2018,
     description:
