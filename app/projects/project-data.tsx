@@ -37,6 +37,14 @@ export const projects: Project[] = [
     tools: "Unity, C#",
     url: "https://apps.apple.com/us/app/cyber-bolt/id1532655861",
   },
+    {
+    title: "Facemash ",
+    year: 2019,
+    description:
+      "Recreating Facemash shown in The Social Network (2010)",
+    tools: "PHP, MySQL, UIKit",
+    url: "https://github.com/unobatbayar/facemash",
+  },
   {
     title: "Temperature Converter",
     year: 2018,
