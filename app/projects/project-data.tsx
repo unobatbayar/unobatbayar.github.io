@@ -22,6 +22,14 @@ export const projects: Project[] = [
     url: "https://apps.apple.com/us/app/progress-clock/id6446752758",
   },
   {
+    title: "Metronome Glow",
+    year: 2021,
+    description:
+      "Metronome with glowing visuals and subtle vibrations.",
+    tools: "Unity, C#",
+    url: "https://apps.apple.com/us/app/metronome-glow/id1556841242",
+  },
+  {
     title: "Anomalor - Secure, Offline Password Generator",
     year: 2021,
     description:
@@ -37,7 +45,7 @@ export const projects: Project[] = [
     tools: "Unity, C#",
     url: "https://apps.apple.com/us/app/cyber-bolt/id1532655861",
   },
-    {
+  {
     title: "Facemash ",
     year: 2019,
     description:
