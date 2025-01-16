@@ -30,11 +30,8 @@ export default function Page() {
         <p>
           I'm excited to deepen my skills and eventually create experiences that are not only functional but also enjoyable, seamless, and impactful. 
         </p>
-        {/* <p>
-          Growing up, I spent countless hours with classic handhelds like the Game Boy Advance and PlayStation 2, as well as immersing myself in worlds like World of Warcraft: Wrath of the Lich King and League of Legends. After becoming an engineer, I came to appreciate the immense effort and dedication that went into developing these games.
-        </p> */}
         <p>
-          Beyond code, I have a strong interest in security and privacy. Please feel free to reach out or connect. </p>
+          Please feel free to reach out or connect. </p>
       </div>
     </section>
   );
