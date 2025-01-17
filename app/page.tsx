@@ -22,7 +22,7 @@ export default function Page() {
 
       <div className="prose prose-neutral dark:prose-invert">
         <p>
-          Hello! I'm Usukhbayar Batbayar, but you can call me Uno. I'm a software engineer based in Japan, originally from Ulaanbaatar, Mongolia. 
+          Hello!👋 I'm Usukhbayar Batbayar, but you can call me Uno. I'm a software engineer based in Japan, originally from Ulaanbaatar, Mongolia. 
         </p>
         <p>
           I started my career focusing on mobile app development, and recently, I've been learning how to build web applications.
