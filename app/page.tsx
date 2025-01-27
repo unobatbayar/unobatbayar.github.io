@@ -28,7 +28,7 @@ export default function Page() {
         I started my career focusing on mobile app development, and recently, I've been learning how to build web applications.
       </p>
       <p>
-        Lately, I've also developed an interest in quantitative trading and have been exploring it as a hobby in my free time. I'm diving into the world of data analysis, algorithms, and market dynamics, and it's been an exciting journey so far.
+        Lately, I've also developed an interest in quantitative trading and have been exploring it as a hobby in my free time. 
       </p>
 <p>
 I'm excited to deepen my skills in both software engineering and quantitative trading. 
