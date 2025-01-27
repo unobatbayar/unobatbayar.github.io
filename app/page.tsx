@@ -21,18 +21,23 @@ export default function Page() {
       </h1>
 
       <div className="prose prose-neutral dark:prose-invert">
-        <p>
-          Hello!👋 I'm Usukhbayar Batbayar, but you can call me Uno. I'm a software engineer based in Japan, originally from Ulaanbaatar, Mongolia. 
-        </p>
-        <p>
-          I started my career focusing on mobile app development, and recently, I've been learning how to build web applications.
-        </p>
-        <p>
-          I'm excited to deepen my skills and eventually create experiences that are not only functional but also enjoyable, seamless, and impactful. 
-        </p>
-        <p>
-          Please feel free to reach out or connect. </p>
-      </div>
+      <p>
+        Hello!👋 I'm Usukhbayar Batbayar, but you can call me Uno. I'm a software engineer based in Japan, originally from Ulaanbaatar, Mongolia. 
+      </p>
+      <p>
+        I started my career focusing on mobile app development, and recently, I've been learning how to build web applications.
+      </p>
+      <p>
+        Lately, I've also developed an interest in quantitative trading and have been exploring it as a hobby in my free time. I'm diving into the world of data analysis, algorithms, and market dynamics, and it's been an exciting journey so far.
+      </p>
+<p>
+I'm excited to deepen my skills in both software engineering and quantitative trading. 
+</p>
+
+      <p>
+        Please feel free to reach out or connect. 
+      </p>
+    </div>
     </section>
   );
 }
