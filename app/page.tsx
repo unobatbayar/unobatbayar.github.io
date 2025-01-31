@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { socialLinks } from "./config";
+import DynamicText from "./components/dynamic-text";
 
 export default function Page() {
   return (
@@ -17,7 +18,7 @@ export default function Page() {
       </a>
 
       <h1 className="mb-8 text-2xl font-medium tracking-tight">
-        I like building things!
+        <DynamicText/>
       </h1>
 
       <div className="prose prose-neutral dark:prose-invert">
