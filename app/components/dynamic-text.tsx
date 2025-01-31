@@ -8,7 +8,7 @@ const DynamicText = () => {
     'designing websites',
     'playing chess',
     'analyzing financial markets', 
-    'crypto trading',
+    'cryptocurrency',
     'security and privacy',
     'going for a run'
   ];
