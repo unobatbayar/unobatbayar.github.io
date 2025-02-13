@@ -43,7 +43,7 @@ const DynamicText = () => {
 
   return (
     <div className="text-xl font-semibold">
-      I like <span className={`${currentColor}`}>{displayText}!</span>
+      I like <span className={`${currentColor}`}>{displayText}</span>
     </div>
   );
 };
