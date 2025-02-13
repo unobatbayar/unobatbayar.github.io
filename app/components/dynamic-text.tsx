@@ -15,10 +15,10 @@ const DynamicText = () => {
 
   // Corresponding colors for each theme
   const colors = [
-    'text-teal-500',        // Building apps (technology) - Cool and innovative
-    'text-indigo-500',      // Chess (strategy, intellectual) - Deep and thoughtful
+    'text-blue-500',        // Building apps (technology) - Cool and innovative
+    'text-lime-500',        // Chess (strategy, intellectual) - Deep and thoughtful
     'text-green-600',       // Cryptocurrency (growth, financial stability) - Strong and dynamic
-    'text-pink-500',        // Streaming (entertainment, engagement) - Bold and lively
+    'text-purple-500',      // Streaming (entertainment, engagement) - Bold and lively
     'text-cyan-500',        // Websites (creativity, calm) - Bright and fresh
     'text-red-600',         // Privacy & Security (alert, security) - Strong, assertive
     'text-yellow-500'       // Running (energy, vitality) - Energizing and active
@@ -43,7 +43,7 @@ const DynamicText = () => {
 
   return (
     <div className="text-xl font-semibold">
-      I like <span className={`${currentColor}`}>{displayText}</span>
+      I like <span className={`${currentColor}`}>{displayText}!</span>
     </div>
   );
 };
