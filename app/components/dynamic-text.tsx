@@ -5,24 +5,25 @@ const DynamicText = () => {
   // Dynamic texts based on your interests
   const texts = [
     'building apps',
-    'designing websites',
     'playing chess',
-    'analyzing financial markets',
     'cryptocurrency',
+    'streaming',
+    'building websites',
     'security and privacy',
     'going for a run'
   ];
 
   // Corresponding colors for each theme
   const colors = [
-    'text-blue-500',       // Building apps (technology) - Bright and modern
-    'text-lime-500',       // Websites (creativity, calm) - Light and fresh
-    'text-green-500',      // Chess (strategy, intellectual) - Bold and energetic
-    'text-yellow-500',     // Finance (growth, stability) - Fresh and stable
-    'text-purple-500',     // Cryptocurrency (innovation) - Bold and futuristic
-    'text-red-500',        // Privacy & Security (alert, security) - Strong and attention-grabbing
-    'text-orange-500'      // Running (energy, vitality) - Bright and energetic
+    'text-teal-500',        // Building apps (technology) - Cool and innovative
+    'text-indigo-500',      // Chess (strategy, intellectual) - Deep and thoughtful
+    'text-green-600',       // Cryptocurrency (growth, financial stability) - Strong and dynamic
+    'text-pink-500',        // Streaming (entertainment, engagement) - Bold and lively
+    'text-cyan-500',        // Websites (creativity, calm) - Bright and fresh
+    'text-red-600',         // Privacy & Security (alert, security) - Strong, assertive
+    'text-yellow-500'       // Running (energy, vitality) - Energizing and active
   ];
+
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [displayText, setDisplayText] = useState(texts[0]);
   const [currentColor, setCurrentColor] = useState(colors[0]);
