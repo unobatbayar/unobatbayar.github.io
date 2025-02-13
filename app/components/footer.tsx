@@ -1,16 +1,16 @@
 "use client";
 
-import React from "react";
+import { metaData, socialLinks } from "app/config";
 import {
   FaAppStore,
-  FaGithub,
-  FaStackOverflow,
-  FaLinkedinIn,
-  FaStrava,
   FaChess,
+  FaGithub,
+  FaLinkedinIn,
+  FaStackOverflow,
+  FaStrava,
+  FaTwitch,
 } from "react-icons/fa6";
 import { TbMailFilled } from "react-icons/tb";
-import { metaData, socialLinks } from "app/config";
 
 const YEAR = new Date().getFullYear();
 
@@ -29,6 +29,7 @@ function SocialLinks() {
       <SocialLink href={socialLinks.github} icon={FaGithub} />
       <SocialLink href={socialLinks.stackoverflow} icon={FaStackOverflow} />
       <SocialLink href={socialLinks.linkedin} icon={FaLinkedinIn} />
+      <SocialLink href={socialLinks.twitch} icon={FaTwitch} />
       <SocialLink href={socialLinks.strava} icon={FaStrava} />
       <SocialLink href={socialLinks.chess} icon={FaChess} />
       <SocialLink href={socialLinks.email} icon={TbMailFilled} />
