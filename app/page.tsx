@@ -23,13 +23,13 @@ export default function Page() {
 
       <div className="prose prose-neutral dark:prose-invert">
         <p>
-          Hello!👋 I'm Usukhbayar Batbayar, but you can call me Uno. I'm a software engineer based in Japan, originally from Ulaanbaatar, Mongolia. 
+          Hello!👋 I'm Usukhbayar Batbayar, but you can call me Uno. I'm a software engineer with a passion for cybersecurity. Currently based in Japan, originally from Ulaanbaatar, Mongolia.
         </p>
         <p>
           I started my career focusing on mobile app development, and recently, I've been learning how to build web applications.
         </p>
         <p>
-          I'm excited to deepen my skills and eventually create experiences that are not only functional but also enjoyable, seamless, and impactful. 
+          I'm excited to deepen my skills and eventually create experiences that are not only functional but also secure, seamless, and impactful. 
         </p>
         <p>
           Please feel free to reach out or connect. </p>

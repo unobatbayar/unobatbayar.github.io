@@ -5,22 +5,22 @@ const DynamicText = () => {
   // Dynamic texts based on your interests
   const texts = [
     'building apps',
+    'security and privacy',
     'playing chess',
     'cryptocurrency',
     'streaming',
     'building websites',
-    'security and privacy',
     'going for a run'
   ];
 
   // Corresponding colors for each theme
   const colors = [
     'text-blue-500',        // Building apps (technology) - Cool and innovative
+    'text-red-600',         // Privacy & Security (alert, security) - Strong, assertive
     'text-lime-500',        // Chess (strategy, intellectual) - Deep and thoughtful
     'text-green-600',       // Cryptocurrency (growth, financial stability) - Strong and dynamic
     'text-purple-500',      // Streaming (entertainment, engagement) - Bold and lively
     'text-cyan-500',        // Websites (creativity, calm) - Bright and fresh
-    'text-red-600',         // Privacy & Security (alert, security) - Strong, assertive
     'text-yellow-500'       // Running (energy, vitality) - Energizing and active
   ];
 
