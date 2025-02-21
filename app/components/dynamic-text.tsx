@@ -8,7 +8,6 @@ const DynamicText = () => {
     'security and privacy',
     'playing chess',
     'cryptocurrency',
-    'streaming',
     'building websites',
     'going for a run'
   ];
@@ -19,7 +18,6 @@ const DynamicText = () => {
     'text-red-600',         // Privacy & Security (alert, security) - Strong, assertive
     'text-lime-500',        // Chess (strategy, intellectual) - Deep and thoughtful
     'text-green-600',       // Cryptocurrency (growth, financial stability) - Strong and dynamic
-    'text-purple-500',      // Streaming (entertainment, engagement) - Bold and lively
     'text-cyan-500',        // Websites (creativity, calm) - Bright and fresh
     'text-yellow-500'       // Running (energy, vitality) - Energizing and active
   ];
