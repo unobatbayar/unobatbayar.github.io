@@ -2,6 +2,11 @@
 
 import React from 'react';
 
+export const metadata = {
+  title: "Anomalor",
+  description: "Support page",
+};
+
 export default function Anomalor() {
     return (
         <div>

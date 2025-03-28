@@ -1,5 +1,10 @@
 ﻿import React from 'react';
 
+export const metadata = {
+  title: "Konple",
+  description: "Support page",
+};
+
 export default function Konple() {
     return (
         <div>

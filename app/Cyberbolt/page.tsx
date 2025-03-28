@@ -1,5 +1,10 @@
 ﻿import React from 'react';
 
+export const metadata = {
+  title: "Cyberbolt",
+  description: "Support page",
+};
+
 export default function Cyberbolt() {
   return (
     <div className="bg-gray-100 p-8 rounded-lg shadow-lg">
