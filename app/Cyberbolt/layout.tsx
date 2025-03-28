@@ -7,8 +7,8 @@ interface LayoutProps {
 }
 
 export const metadata = {
-    title: "Konple",
-    description: "Konple App",
+    title: "Cyberbolt",
+    description: "Mobile Game",
 };
 
 const Layout = ({ children }: LayoutProps) => {
@@ -16,7 +16,7 @@ const Layout = ({ children }: LayoutProps) => {
         <div>
             <div style={{ textAlign: 'center' }}>
                 <p style={{ fontSize: '2rem', fontWeight: 'bold' }}>
-                    <a href="../konple">Konple</a>
+                    <a href="../Cyberbolt">Cyberbolt</a>
                 </p>
             </div>
             {/* Wrap the children with the shared layout */}

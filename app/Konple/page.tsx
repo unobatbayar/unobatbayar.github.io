@@ -1,7 +1,6 @@
 ﻿import React from 'react';
 
-
-const AboutPage = () => {
+export default function Konple() {
     return (
         <div>
             <div>
@@ -20,12 +19,11 @@ const AboutPage = () => {
             </div>
 
             <ul className="text-blue-500">
-                <li><a href="../Konple/guidelines">Guidelines</a></li>
-                <li><a href="../Konple/privacy">Privacy Policy</a></li>
-                <li><a href="../Konple/terms">Terms and Services</a></li>
+                <li><a href="../konple/guidelines">Guidelines</a></li>
+                <li><a href="../konple/privacy">Privacy Policy</a></li>
+                <li><a href="../konple/terms">Terms and Services</a></li>
             </ul>
         </div>
     );
 };
 
-export default AboutPage;

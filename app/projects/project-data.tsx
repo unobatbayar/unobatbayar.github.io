@@ -12,7 +12,7 @@ export const projects: Project[] = [
   //   year: 2025,
   //   description: "iOS App Realtime Chat App",
   //   tools: "Swift, SwiftUI, Firebase",
-  //   url: "https://unobatbayar.github.io/Konple",
+  //   url: "https://unobatbayar.github.io/konple",
   // },
   {
     title: "Progress Clock - A New Way to Experience Time",
