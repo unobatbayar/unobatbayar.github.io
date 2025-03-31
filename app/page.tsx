@@ -26,7 +26,7 @@ export default function Page() {
           Hello! 👋 I'm Usukhbayar Batbayar, but you can call me Uno. I'm a software engineer with a passion for security and privacy. Currently based in Japan, originally from Ulaanbaatar, Mongolia.
         </p>
         <p>
-          I started my career focusing on mobile app development, and recently, I've been learning how to build web applications.
+          I started my career focusing on mobile app development, and recently, I've been learning how to build full-stack web applications.
         </p>
         <p>
           I'm excited to deepen my skills and eventually create experiences that are not only functional but also secure, seamless, and impactful. 
