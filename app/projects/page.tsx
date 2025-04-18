@@ -22,9 +22,18 @@ export default function Projects() {
           >
             <div className="flex flex-col">
               <div className="w-full flex justify-between items-baseline">
-                <span className="text-black dark:text-white font-medium tracking-tight">
-                  {project.title}
-                </span>
+                <div className="flex items-center">
+                  <img
+                    src={project.img}
+                    alt={project.title}
+                    width="32"
+                    height="32"
+                    className="mr-2"
+                  />
+                  <span className="text-black dark:text-white font-medium tracking-tight">
+                    {project.title}
+                  </span>
+                </div>
                 <span className="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
                   {project.year}
                 </span>

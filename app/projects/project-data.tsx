@@ -1,4 +1,5 @@
 export interface Project {
+  img: string;
   title: string;
   year: number;
   description: string;
@@ -10,11 +11,12 @@ export const projects: Project[] = [
   // {
   //   title: "Konple - Chatroom (Coming soon)",
   //   year: 2025,
-  //   description: "iOS App Realtime Chat App",
+  //   description: "Realtime Chat App",
   //   tools: "Swift, SwiftUI, Firebase",
   //   url: "https://unobatbayar.github.io/konple",
   // },
   {
+    img: "/images/",
     title: "Progress Clock - A New Way to Experience Time",
     year: 2023,
     description: "iOS App and Widget for time tracking",
@@ -22,6 +24,7 @@ export const projects: Project[] = [
     url: "https://apps.apple.com/us/app/progress-clock/id6446752758",
   },
   {
+    img: "/images/",
     title: "Metronome Glow",
     year: 2021,
     description:
@@ -30,6 +33,7 @@ export const projects: Project[] = [
     url: "https://apps.apple.com/us/app/metronome-glow/id1556841242",
   },
   {
+    img: "/images/",
     title: "Anomalor - Secure, Offline Password Generator",
     year: 2021,
     description:
@@ -38,6 +42,7 @@ export const projects: Project[] = [
     url: "https://apps.apple.com/us/app/anomalor/id1534079451",
   },
   {
+    img: "/images/",
     title: "Cyberbolt - Endless Runner",
     year: 2020,
     description:
@@ -46,6 +51,7 @@ export const projects: Project[] = [
     url: "https://apps.apple.com/us/app/cyber-bolt/id1532655861",
   },
   {
+    img: "/images/",
     title: "Facemash ",
     year: 2019,
     description:
@@ -54,6 +60,7 @@ export const projects: Project[] = [
     url: "https://github.com/unobatbayar/facemash",
   },
   {
+    img: "/images/",
     title: "Morse Code Translator ",
     year: 2019,
     description:
@@ -62,6 +69,7 @@ export const projects: Project[] = [
     url: "https://github.com/unobatbayar/morse-code-translator",
   },
   {
+    img: "/images/",
     title: "Temperature Converter",
     year: 2018,
     description:
