@@ -1,6 +1,4 @@
 ﻿User-agent: *
-Disallow: /
 Allow: /blog/
 Allow: /projects/
-
-Sitemap: https://unobatbayar.github.io/sitemap.xml
+Disallow: /
