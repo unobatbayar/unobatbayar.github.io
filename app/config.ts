@@ -14,5 +14,4 @@ export const socialLinks = {
   linkedin: "https://www.linkedin.com/in/unobatbayar",
   strava: "https://www.strava.com/athletes/124206718",
   chess: "https://www.chess.com/member/zenrazed",
-  email: "mailto:unobatbayar@protonmail.com",
 };
