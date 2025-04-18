@@ -28,7 +28,7 @@ export default function Projects() {
                     alt={project.title}
                     width="32"
                     height="32"
-                    className="mr-2"
+                    className="mr-2 rounded-lg"
                   />
                   <span className="text-black dark:text-white font-medium tracking-tight">
                     {project.title}
@@ -41,7 +41,7 @@ export default function Projects() {
               <p className="prose prose-neutral dark:prose-invert pt-3">
                 {project.description}
               </p>
-              <p className="pt-3 text-neutral-600 dark:text-neutral-400 text-sm">
+              <p className="pt-3 text-blue-500 dark:text-blue-400 text-sm">
                 {project.tools}
               </p>
             </div>
