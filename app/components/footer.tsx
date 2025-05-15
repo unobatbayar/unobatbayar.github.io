@@ -3,11 +3,9 @@
 import { metaData, socialLinks } from "app/config";
 import {
   FaAppStore,
-  FaChess,
   FaGithub,
   FaLinkedinIn,
   FaStackOverflow,
-  FaStrava,
 } from "react-icons/fa6";
 
 const YEAR = new Date().getFullYear();
@@ -27,8 +25,6 @@ function SocialLinks() {
       <SocialLink href={socialLinks.github} icon={FaGithub} />
       <SocialLink href={socialLinks.stackoverflow} icon={FaStackOverflow} />
       <SocialLink href={socialLinks.linkedin} icon={FaLinkedinIn} />
-      <SocialLink href={socialLinks.strava} icon={FaStrava} />
-      <SocialLink href={socialLinks.chess} icon={FaChess} />
     </div >
   );
 }
