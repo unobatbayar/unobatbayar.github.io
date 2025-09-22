@@ -1,0 +1,5 @@
+﻿User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://x1vfk7wp13.github.io/sitemap.xml
