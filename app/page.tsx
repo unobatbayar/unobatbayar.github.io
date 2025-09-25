@@ -17,7 +17,7 @@ export default function Page() {
 
     <div className="prose prose-neutral dark:prose-invert mb-2">
       <p>
-        Hi! I'm Uno 👋, a software engineer and beginner judoka from Ulaanbaatar, Mongolia 🇲🇳.
+        Hello! I’m Uno 👋, a software engineer and beginner judoka 🥋 from Ulaanbaatar, Mongolia 🇲🇳.
       </p>
 
       {/* Hidden until clicked TODO */}
