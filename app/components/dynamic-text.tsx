@@ -5,8 +5,8 @@ const DynamicText = () => {
   const texts = [
     'building things',
     'security and privacy',
-    'technology',
     'Judo',
+    'Chess',
     'Vagabond (manga)',
     'Nujabes ♫'
   ];
