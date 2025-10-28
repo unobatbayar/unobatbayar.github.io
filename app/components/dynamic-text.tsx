@@ -7,7 +7,9 @@ const DynamicText = () => {
     'building things',
     'security and privacy',
     'technology',
-    'Judo'
+    'Judo',
+    'Vagabond (manga)',
+    'Nujabes'
   ];
   
   // Beautiful colors 
