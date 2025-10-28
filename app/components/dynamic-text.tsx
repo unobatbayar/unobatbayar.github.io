@@ -2,17 +2,15 @@
 import { useState, useEffect } from 'react';
 
 const DynamicText = () => {
-  // Dynamic texts based on your interests
   const texts = [
     'building things',
     'security and privacy',
     'technology',
     'Judo',
     'Vagabond (manga)',
-    'Nujabes'
+    'Nujabes ♫'
   ];
   
-  // Beautiful colors 
   const colors = [
     'text-pink-500',
     'text-green-500',
@@ -32,18 +30,37 @@ const DynamicText = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [displayText, setDisplayText] = useState(texts[0]);
   const [colorClass, setColorClass] = useState(colors[0]);
+  const [shuffledIndexes, setShuffledIndexes] = useState<number[]>([]);
+
+  // Helper: Shuffle array using Fisher-Yates algorithm
+  const shuffleArray = (arr: number[]) => {
+    const shuffled = [...arr];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
 
   useEffect(() => {
+    // Initialize shuffled order once
+    setShuffledIndexes(shuffleArray(texts.map((_, i) => i)));
+  }, []);
+
+  useEffect(() => {
+    if (shuffledIndexes.length === 0) return;
+
+    let index = 0;
     const interval = setInterval(() => {
-      setCurrentTextIndex((prevIndex) => (prevIndex + 1) % texts.length);  // Loop through texts
-    }, 3000); // Change text and color every n seconds
+      index = (index + 1) % shuffledIndexes.length;
+      setCurrentTextIndex(shuffledIndexes[index]);
+    }, 3000);
 
-    return () => clearInterval(interval);  // Clean up the interval when component unmounts
-  }, [currentTextIndex]);
+    return () => clearInterval(interval);
+  }, [shuffledIndexes]);
 
   useEffect(() => {
-    setDisplayText(texts[currentTextIndex]);  // Update the text when the index changes
-    // Pick a random color each time the text changes
+    setDisplayText(texts[currentTextIndex]);
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
     setColorClass(randomColor);
   }, [currentTextIndex]);
