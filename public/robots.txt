@@ -2,4 +2,4 @@
 Allow: /
 
 # Sitemap
-Sitemap: https://x1vfk7wp13.github.io/sitemap.xml
+Sitemap: https://unobatbayar.github.io/sitemap.xml

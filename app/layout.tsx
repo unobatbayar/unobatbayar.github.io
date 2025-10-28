@@ -8,6 +8,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/footer";
 import { ThemeProvider } from "./components/theme-switch";
 import { metaData, socialLinks } from "./config";
+import BackgroundMusic from "./components/background-music";
 
 export const metadata: Metadata = {
   metadataBase: new URL(metaData.baseUrl),
@@ -80,7 +81,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cx(GeistSans.variable, GeistMono.variable)}>
+    <html lang="en" className={cx(GeistSans.variable, GeistMono.variable)} suppressHydrationWarning>
       <head>
         <link
           rel="alternate"
@@ -152,6 +153,7 @@ export default function RootLayout({
             <SpeedInsights />
           </main>
         </ThemeProvider>
+        <BackgroundMusic />
       </body>
     </html>
   );
