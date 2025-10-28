@@ -168,7 +168,7 @@ export default function BackgroundMusic() {
                   className="text-white dark:text-black hover:opacity-80 transition-opacity px-2 py-1 rounded"
                   aria-label={isMuted ? 'Unmute' : 'Mute'}
                 >
-                  {isMuted ? '🔇 Mute' : '🔊 Unmute'}
+                  {isMuted ? 'Mute' : 'Unmute'}
                 </button>
               </div>
             </div>
@@ -188,7 +188,6 @@ export default function BackgroundMusic() {
               className="bg-neutral-800 dark:bg-neutral-200 text-white dark:text-black px-4 py-2 rounded-full shadow-lg hover:opacity-80 transition-opacity"
               aria-label="Volume control"
             >
-              🔊
             </button>
           </div>
         </div>
