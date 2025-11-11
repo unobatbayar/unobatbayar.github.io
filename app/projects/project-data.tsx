@@ -11,7 +11,7 @@ export interface Project {
 export const workProjects: Project[] = [
   {
     img: "/images/metrica.png",
-    title: "Metrica",
+    title: "Metrics Web App",
     year: "2025",
     description: "Work metrics collection and visualization service for Yamaha Corporation internal use.",
     tools: "TypeScript, Next.js, FastAPI, Python, Docker, PostgreSQL, alembic, SQLAlchemy",
