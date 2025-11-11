@@ -20,7 +20,7 @@ export const workProjects: Project[] = [
   {
     img: "/images/montage_m.png",
     title: "Expanded Softsynth Plugin for MONTAGE M",
-    year: "2023-2024",
+    year: 2024,
     description: "Expanded Softsynth Plugin (E.S.P.) replicates the MONTAGE M in your favorite Digital Workstation (DAW).",
     tools: "C++, JUCE, Visual Studio, Xcode",
     url: "https://usa.yamaha.com/products/music_production/apps/esp_montagem/index.html",
