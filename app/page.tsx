@@ -11,7 +11,7 @@ export default function Page() {
   return (
     <section>
       <p className="text-2xl font-medium text-black dark:text-white mt-0 pt-0">
-        Hello! I'm Uno 👋, a software engineer from Ulaanbaatar, Mongolia 🇲🇳. I like <DynamicText/>.
+        Hello! I'm Uno 👋, a software engineer from <a href="https://en.wikipedia.org/wiki/Ulaanbaatar">Ulaanbaatar, Mongolia 🇲🇳</a>. I like <DynamicText/>.
       </p>
 
 
