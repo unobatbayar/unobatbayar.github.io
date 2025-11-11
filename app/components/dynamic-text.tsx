@@ -66,9 +66,7 @@ const DynamicText = () => {
   }, [currentTextIndex]);
 
   return (
-    <div className="text-xl font-semibold">
-      I like <span className={colorClass}>{displayText}</span>.
-    </div>
+    <span className={`${colorClass} font-semibold`}>{displayText}</span>
   );
 };
 
