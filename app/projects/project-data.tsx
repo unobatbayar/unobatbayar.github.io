@@ -20,7 +20,7 @@ export const workProjects: Project[] = [
   {
     img: "/images/montage_m.png",
     title: "Expanded Softsynth Plugin for MONTAGE M",
-    year: 2024,
+    year: "2024-2024",
     description: "Expanded Softsynth Plugin (E.S.P.) replicates the MONTAGE M in your favorite Digital Workstation (DAW).",
     tools: "C++, JUCE, Visual Studio, Xcode",
     url: "https://usa.yamaha.com/products/music_production/apps/esp_montagem/index.html",
@@ -28,7 +28,7 @@ export const workProjects: Project[] = [
   {
     img: "/images/recnshare.webp",
     title: "Rec'n'Share",
-    year: 2023,
+    year: "2023-2023",
     description: "Rec'n'Share allows you to record audio and video along with songs from your music library and then share your performances with the world",
     tools: "SwiftUI, Swift, Objective-C, Xcode, Kotlin",
     url: "https://apps.apple.com/us/app/recnshare/id1162569825",
