@@ -58,7 +58,7 @@ export const personalProjects: Project[] = [
     title: "Konple - Real-time Chat Application",
     year: 2025,
     description: "Real-time chat application with name management and join/leave notifications.",
-    tools: "Node.js, Socket.io",
+    tools: "Node.js, Socket.io, Cursor",
     url: "https://www.konple.com",
   },
   {
