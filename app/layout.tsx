@@ -118,7 +118,7 @@ export default function RootLayout({
                 socialLinks?.github,
                 socialLinks?.linkedin,
                 socialLinks?.stackoverflow,
-                socialLinks?.leetcode,
+                socialLinks?.chess,
               ].filter(Boolean),
               "jobTitle": "Software Developer",
               "worksFor": {
