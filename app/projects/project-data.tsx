@@ -54,6 +54,14 @@ export const workProjects: Project[] = [
 
 export const personalProjects: Project[] = [
   {
+    img: "/images/konple.png",
+    title: "Konple - Real-time Chat Application",
+    year: 2025,
+    description: "Real-time chat application with name management and join/leave notifications.",
+    tools: "Node.js, Socket.io",
+    url: "https://www.konple.com",
+  },
+  {
     img: "/images/progress_clock.webp",
     title: "Progress Clock - A New Way to Experience Time",
     year: 2023,
