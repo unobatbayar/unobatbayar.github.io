@@ -59,7 +59,7 @@ export const personalProjects: Project[] = [
     year: 2025,
     description: "Real-time chat application with name management and join/leave notifications.",
     tools: "Node.js, Socket.io, Cursor",
-    url: "https://www.konple.com",
+    url: "https://konple.onrender.com",
   },
   {
     img: "/images/progress_clock.webp",
