@@ -55,7 +55,7 @@ export const workProjects: Project[] = [
 export const personalProjects: Project[] = [
   {
     img: "/images/konple.png",
-    title: "Konple - Real-time Chat Application",
+    title: "Konple - Chat with people worldwide!",
     year: 2025,
     description: "Real-time chat application with name management and join/leave notifications.",
     tools: "Node.js, Socket.io, Cursor",
