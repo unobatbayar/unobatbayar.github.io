@@ -15,5 +15,5 @@ export const socialLinks = {
   github: "https://github.com/unobatbayar",
   stackoverflow: "https://stackoverflow.com/users/12330629",
   linkedin: "https://www.linkedin.com/in/rytx88jz24dm",
-  leetcode: "https://leetcode.com/u/xi76ibaw2m/"
+  chess: "https://www.chess.com/member/a6zz6vtuvg"
 };
