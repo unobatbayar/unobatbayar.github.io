@@ -83,6 +83,21 @@ export default function RootLayout({
   return (
     <html lang="en" className={cx(GeistSans.variable, GeistMono.variable)} suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const storageKey = 'theme-preference';
+                const storedPreference = localStorage.getItem(storageKey);
+                const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                const theme = storedPreference || systemPreference;
+                if (theme === 'dark') {
+                  document.documentElement.classList.add('dark');
+                }
+              })();
+            `,
+          }}
+        />
         <link
           rel="alternate"
           type="application/rss+xml"
@@ -141,7 +156,7 @@ export default function RootLayout({
         />
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >

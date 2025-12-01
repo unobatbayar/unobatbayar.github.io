@@ -55,7 +55,7 @@ export const workProjects: Project[] = [
 export const personalProjects: Project[] = [
   {
     img: "/images/konple.png",
-    title: "Konple - Chat with people worldwide!",
+    title: "Konple - Chat With The World",
     year: 2025,
     description: "Real-time chat application with name management and join/leave notifications.",
     tools: "Node.js, Socket.io, Cursor",
@@ -95,15 +95,6 @@ export const personalProjects: Project[] = [
       "3D Mobile Game for iOS and Android",
     tools: "Unity, C#",
     url: "https://apps.apple.com/us/app/cyber-bolt/id1532655861",
-  },
-  {
-    img: "/images/facemash.png",
-    title: "Facemash ",
-    year: 2019,
-    description:
-      "Recreating Facemash shown in The Social Network (2010)",
-    tools: "PHP, MySQL, UIKit",
-    url: "https://github.com/unobatbayar/facemash",
   },
   {
     img: "/images/morse_code.png",

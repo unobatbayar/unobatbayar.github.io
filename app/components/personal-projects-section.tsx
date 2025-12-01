@@ -14,32 +14,32 @@ export default function PersonalProjectsSection() {
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="block group hover:opacity-80 transition-opacity duration-200"
+            className="group block"
           >
-            <div className="flex flex-col">
-              <div className="w-full flex justify-between items-baseline">
-                <div className="flex items-center">
+            <div className="bg-neutral-50 dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 p-6 transition-all duration-200 hover:border-neutral-300 dark:hover:border-neutral-700 hover:shadow-lg hover:-translate-y-1">
+              <div className="flex flex-col">
+                <div className="flex items-center mb-4">
                   <img
                     src={project.img}
                     alt={project.title}
-                    width="32"
-                    height="32"
-                    className="mr-2 rounded-lg"
+                    className="w-16 h-16 rounded-lg object-contain flex-shrink-0 group-hover:scale-105 transition-transform duration-200"
                   />
-                  <span className="text-black dark:text-white font-medium tracking-tight">
-                    {project.title}
-                  </span>
+                  <div className="ml-4 flex-1 min-w-0">
+                    <h3 className="text-lg font-medium tracking-tight text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      {project.title}
+                    </h3>
+                    <span className="text-neutral-500 dark:text-neutral-400 tabular-nums text-sm mt-1 block">
+                      {project.year}
+                    </span>
+                  </div>
                 </div>
-                <span className="text-neutral-600 dark:text-neutral-400 tabular-nums text-sm">
-                  {project.year}
-                </span>
+                <p className="prose prose-neutral dark:prose-invert text-sm mb-4">
+                  {project.description}
+                </p>
+                <p className="text-blue-500 dark:text-blue-400 text-xs font-medium pt-3 border-t border-neutral-200 dark:border-neutral-800">
+                  {project.tools}
+                </p>
               </div>
-              <p className="prose prose-neutral dark:prose-invert pt-3">
-                {project.description}
-              </p>
-              <p className="pt-3 text-blue-500 dark:text-blue-400 text-sm">
-                {project.tools}
-              </p>
             </div>
           </a>
         ))}
