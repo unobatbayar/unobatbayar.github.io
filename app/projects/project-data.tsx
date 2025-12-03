@@ -55,11 +55,11 @@ export const workProjects: Project[] = [
 export const personalProjects: Project[] = [
   {
     img: "/images/konple.png",
-    title: "Konple - Chat With The World",
+    title: "Konple - Chat With The World!",
     year: 2025,
     description: "Real-time chat application with name management and join/leave notifications.",
     tools: "Node.js, Socket.io, Cursor",
-    url: "https://konple.onrender.com",
+    url: "https://www.konple.com",
   },
   {
     img: "/images/progress_clock.webp",
