@@ -6,7 +6,6 @@ import {
   FaGithub,
   FaLinkedinIn,
   FaStackOverflow,
-  FaChess,
 } from "react-icons/fa6";
 
 const navItems = {
@@ -57,11 +56,6 @@ export function Navbar() {
               href={socialLinks.appstore} 
               icon={FaAppStore} 
               className="text-[#007AFF] hover:text-[#0051D5] dark:text-[#0a84ff] dark:hover:text-[#409cff]"
-            />
-            <SocialLink 
-              href={socialLinks.chess} 
-              icon={FaChess} 
-              className="text-[#7fa650] hover:text-[#6a8a42] dark:text-[#7fa650] dark:hover:text-[#95b86a]"
             />
           </div>
         </div>
