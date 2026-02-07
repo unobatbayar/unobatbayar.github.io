@@ -10,7 +10,7 @@ import {
 
 const navItems = {
   "/blog": { name: "Blog" },
-  "/resume": { name: "Resume" },
+  "/resume": { name: "Resume", external: true, href: "https://unobatbayar.github.io/resume.pdf" },
   // "/projects": { name: "Projects" },
 };
 
@@ -60,14 +60,26 @@ export function Navbar() {
           </div>
         </div>
         <div className="flex flex-row gap-4 mt-6 md:mt-0 md:ml-auto items-center">
-          {Object.entries(navItems).map(([path, { name }]) => (
-            <Link
-              key={path}
-              href={path}
-              className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative"
-            >
-              {name}
-            </Link>
+          {Object.entries(navItems).map(([path, { name, external, href }]) => (
+            external ? (
+              <a
+                key={path}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative"
+              >
+                {name}
+              </a>
+            ) : (
+              <Link
+                key={path}
+                href={path}
+                className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative"
+              >
+                {name}
+              </Link>
+            )
           ))}
           <ThemeSwitch />
         </div>

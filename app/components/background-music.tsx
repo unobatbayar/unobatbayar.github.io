@@ -35,10 +35,10 @@ export default function BackgroundMusic() {
 
       window.onYouTubeIframeAPIReady = () => {
         if (playerRef.current) return; // Prevent duplicate initialization
-        playerRef.current = new window.YT.Player('youtube-player', {
+          playerRef.current = new window.YT.Player('youtube-player', {
           videoId: youtubeVideoId,
           playerVars: {
-            autoplay: 1,
+            autoplay: 0,
             loop: 0, // Disable loop for playlist
             playlist: youtubePlaylist,
             list: youtubePlaylistId, // YouTube playlist ID - enables auto-playing related videos
@@ -87,7 +87,7 @@ export default function BackgroundMusic() {
       playerRef.current = new window.YT.Player('youtube-player', {
         videoId: youtubeVideoId,
         playerVars: {
-          autoplay: 1,
+          autoplay: 0,
           loop: 1,
           playlist: youtubeVideoId,
           controls: 0,
