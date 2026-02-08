@@ -60,16 +60,16 @@ export function Navbar() {
           </div>
         </div>
         <div className="flex flex-row gap-4 mt-6 md:mt-0 md:ml-auto items-center">
-          {Object.entries(navItems).map(([path, { name, external, href }]) => (
-            external ? (
+          {Object.entries(navItems).map(([path, item]) => (
+            ("external" in item) ? (
               <a
                 key={path}
-                href={href}
+                href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative"
               >
-                {name}
+                {item.name}
               </a>
             ) : (
               <Link
@@ -77,7 +77,7 @@ export function Navbar() {
                 href={path}
                 className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative"
               >
-                {name}
+                {item.name}
               </Link>
             )
           ))}
