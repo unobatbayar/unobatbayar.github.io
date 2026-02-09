@@ -9,22 +9,22 @@ export interface Project {
 
 // Work projects - apps/software worked on during career/employment
 export const workProjects: Project[] = [
-  // {
-  //   img: "/images/metrica.png",
-  //   title: "Metrics App",
-  //   year: "2025",
-  //   description: "Work metrics collection and visualization service for Yamaha Corporation internal use.",
-  //   tools: "TypeScript, Next.js, FastAPI, Python, Docker, PostgreSQL, alembic, SQLAlchemy",
-  //   url: "#",
-  // },
   {
-    img: "/images/montage_m.png",
-    title: "Expanded Softsynth Plugin for MONTAGE M",
-    year: "2024-2024",
-    description: "Expanded Softsynth Plugin (E.S.P.) replicates the MONTAGE M in your favorite Digital Workstation (DAW).",
-    tools: "C++, JUCE, Visual Studio, Xcode",
-    url: "https://usa.yamaha.com/products/music_production/apps/esp_montagem/index.html",
+    img: "/images/metrica.png",
+    title: "Metrica",
+    year: "2025",
+    description: "Work metrics collection and visualization service for Yamaha Corporation internal use.",
+    tools: "TypeScript, Next.js, FastAPI, Python, Docker, PostgreSQL, alembic, SQLAlchemy",
+    url: "https://usa.yamaha.com/",
   },
+  // {
+  //   img: "/images/montage_m.png",
+  //   title: "Expanded Softsynth Plugin for MONTAGE M",
+  //   year: "2024-2024",
+  //   description: "Expanded Softsynth Plugin (E.S.P.) replicates the MONTAGE M in your favorite Digital Workstation (DAW).",
+  //   tools: "C++, JUCE, Visual Studio, Xcode",
+  //   url: "https://usa.yamaha.com/products/music_production/apps/esp_montagem/index.html",
+  // },
   {
     img: "/images/recnshare.webp",
     title: "Rec'n'Share",
