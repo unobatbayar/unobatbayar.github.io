@@ -12,7 +12,7 @@ export const workProjects: Project[] = [
   {
     img: "/images/metrica.png",
     title: "Metrica",
-    year: "2025",
+    year: "2025-2026",
     description: "Work metrics collection and visualization service for Yamaha Corporation internal use.",
     tools: "TypeScript, Next.js, FastAPI, Python, Docker, PostgreSQL, alembic, SQLAlchemy",
     url: "https://usa.yamaha.com/",
