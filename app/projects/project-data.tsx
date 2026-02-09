@@ -96,22 +96,22 @@ export const personalProjects: Project[] = [
     tools: "Unity, C#",
     url: "https://apps.apple.com/us/app/cyber-bolt/id1532655861",
   },
-  {
-    img: "/images/morse_code.png",
-    title: "Morse Code Translator ",
-    year: 2019,
-    description:
-      "Convert text (A-Z 0-9) to Morse code, and back to text",
-    tools: "Java",
-    url: "https://github.com/unobatbayar/morse-code-translator",
-  },
-  {
-    img: "/images/temperature.png",
-    title: "Temperature Converter",
-    year: 2018,
-    description:
-      "Convert between Celsius, Fahrenheit, Kelvin and Rankine",
-    tools: "Java",
-    url: "https://github.com/unobatbayar/temperature-converter",
-  },
+  // {
+  //   img: "/images/morse_code.png",
+  //   title: "Morse Code Translator ",
+  //   year: 2019,
+  //   description:
+  //     "Convert text (A-Z 0-9) to Morse code, and back to text",
+  //   tools: "Java",
+  //   url: "https://github.com/unobatbayar/morse-code-translator",
+  // },
+  // {
+  //   img: "/images/temperature.png",
+  //   title: "Temperature Converter",
+  //   year: 2018,
+  //   description:
+  //     "Convert between Celsius, Fahrenheit, Kelvin and Rankine",
+  //   tools: "Java",
+  //   url: "https://github.com/unobatbayar/temperature-converter",
+  // },
 ];

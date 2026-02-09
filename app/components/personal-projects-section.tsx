@@ -5,7 +5,7 @@ export default function PersonalProjectsSection() {
     <>
       <h1 className="mb-2 text-2xl font-medium tracking-tight">Personal Projects</h1>
       <p className="prose prose-neutral dark:prose-invert mb-6 mt-0 pt-0 text-neutral-600 dark:text-neutral-400">
-        Things I've done in my free time for fun and learning.
+        Personal projects I build to explore ideas and sharpen my skills.
       </p>
       <div className="space-y-6">
         {personalProjects.map((project, index) => (

@@ -10,12 +10,14 @@ export default function Page() {
   return (
     <section>
       <p className="text-2xl font-medium text-black dark:text-white mt-0 pt-0">
-        Hello! I'm Uno 👋, a sofware engineer from <a className="text-blue-00" href="https://en.wikipedia.org/wiki/Ulaanbaatar">Ulaanbaatar, Mongolia</a>. Interested in privacy and security.
+        Hello! I'm Uno 👋, a sofware engineer from <a className="text-blue-500" href="https://en.wikipedia.org/wiki/Ulaanbaatar">Ulaanbaatar, Mongolia</a>. Interested in privacy and security.
       </p>
 
 
-      <WorkProjectsSection className="mt-10" />
-      <PersonalProjectsSection />
+      <div className="my-10">
+        <PersonalProjectsSection />
+      </div>
+      <WorkProjectsSection />
     </section>
   );
 }
