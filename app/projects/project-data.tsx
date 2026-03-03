@@ -69,15 +69,24 @@ export const personalProjects: Project[] = [
     tools: "Swift, SwiftUI, Xcode",
     url: "https://apps.apple.com/us/app/progress-clock/id6446752758",
   },
-  {
-    img: "/images/metronome_glow.webp",
-    title: "Metronome Glow",
-    year: 2021,
+    {
+    img: "/images/cyberbolt.webp",
+    title: "Cyber Bolt - Arcade Game",
+    year: 2020,
     description:
-      "Metronome App with glowing visuals and subtle vibrations.",
+      "3D Mobile Game for iOS and Android",
     tools: "Unity, C#",
-    url: "https://apps.apple.com/us/app/metronome-glow/id1556841242",
+    url: "https://apps.apple.com/us/app/cyber-bolt/id1532655861",
   },
+  // {
+  //   img: "/images/metronome_glow.webp",
+  //   title: "Metronome Glow",
+  //   year: 2021,
+  //   description:
+  //     "Metronome App with glowing visuals and subtle vibrations.",
+  //   tools: "Unity, C#",
+  //   url: "https://apps.apple.com/us/app/metronome-glow/id1556841242",
+  // },
   {
     img: "/images/anomalor.webp",
     title: "Anomalor - Secure, Offline Password Generator",
@@ -86,15 +95,6 @@ export const personalProjects: Project[] = [
       "iOS App for creating and managing secure, offline passwords.",
     tools: "Unity, C#",
     url: "https://apps.apple.com/us/app/anomalor/id1534079451",
-  },
-  {
-    img: "/images/cyberbolt.webp",
-    title: "Cyber Bolt - Arcade Game",
-    year: 2020,
-    description:
-      "3D Mobile Game for iOS and Android",
-    tools: "Unity, C#",
-    url: "https://apps.apple.com/us/app/cyber-bolt/id1532655861",
   },
   // {
   //   img: "/images/morse_code.png",
