@@ -10,7 +10,7 @@ export default function Page() {
   return (
     <section>
       <p className="text-2xl font-medium text-black dark:text-white mt-0 pt-0">
-        Hello! I'm Uno 👋, a software engineer from <a className="text-blue-500" href="https://en.wikipedia.org/wiki/Ulaanbaatar">Ulaanbaatar, Mongolia</a>. Interested in privacy tools.
+        Hello! I'm Uno 👋, a software engineer from <a className="text-blue-500" href="https://en.wikipedia.org/wiki/Ulaanbaatar">Ulaanbaatar, Mongolia</a>.
       </p>
 
 
