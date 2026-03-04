@@ -54,7 +54,7 @@ export const workProjects: Project[] = [
 
 export const personalProjects: Project[] = [
   {
-    img: "https://en.wikipedia.org/wiki/Bitcoin#/media/File:Bitcoin.svg",
+    img: "/images/btc.svg",
     title: "BTC Price Predictor",
     year: 2026,
     description: "Bitcoin price prediction tool using real-time CoinGecko API data and linear regression analysis for forecasting price movements.",
