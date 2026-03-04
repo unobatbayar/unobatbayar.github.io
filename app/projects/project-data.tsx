@@ -59,7 +59,7 @@ export const personalProjects: Project[] = [
     year: 2026,
     description: "Bitcoin price prediction tool using real-time CoinGecko API data and linear regression analysis for forecasting price movements.",
     tools: "Next.js, TypeScript, CoinGecko API, Linear Regression",
-    url: "https://x-btc-predictor.vercel.app/",
+    url: "https://btc-predictor-x.vercel.app/",
   },
   {
     img: "/images/konple.png",
