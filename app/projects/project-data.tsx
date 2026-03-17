@@ -61,14 +61,15 @@ export const personalProjects: Project[] = [
     tools: "Next.js, TypeScript, CoinGecko API, Linear Regression",
     url: "https://btc-predictor-x.vercel.app/",
   },
-  {
-    img: "/images/konple.png",
-    title: "Konple - Chat With The World!",
-    year: 2025,
-    description: "Real-time chat application with name management and join/leave notifications.",
-    tools: "Node.js, Socket.io, Cursor",
-    url: "https://www.konple.com",
-  },
+  // Temporarily commented out - Konple
+  // {
+  //   img: "/images/konple.png",
+  //   title: "Konple - Chat With The World!",
+  //   year: 2025,
+  //   description: "Real-time chat application with name management and join/leave notifications.",
+  //   tools: "Node.js, Socket.io, Cursor",
+  //   url: "https://www.konple.com",
+  // },
   {
     img: "/images/progress_clock.webp",
     title: "Progress Clock - A New Way to Experience Time",

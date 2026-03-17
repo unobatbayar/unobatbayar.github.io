@@ -1,6 +1,8 @@
-﻿// components/Layout.tsx
+// components/Layout.tsx
+// Temporarily disabled - Konple (uncomment below and remove notFound() to restore)
 
 import React, { ReactNode } from 'react';
+import { notFound } from 'next/navigation';
 
 interface LayoutProps {
     children: ReactNode;
@@ -12,6 +14,7 @@ export const metadata = {
 };
 
 const Layout = ({ children }: LayoutProps) => {
+    notFound(); // Temporarily hide Konple routes
     return (
         <div>
             <div style={{ textAlign: 'center' }}>
