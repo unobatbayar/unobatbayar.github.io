@@ -4,8 +4,8 @@ export const metaData = {
   name: "Usukhbayar Batbayar",
   ogImage: "/opengraph-image.png",
   description:
-    "Software engineer portfolio of Usukhbayar Batbayar featuring product-minded web and mobile projects, engineering experience, writing, and interests.",
-  keywords: "Usukhbayar Batbayar, software engineer, portfolio, Next.js, React, TypeScript, mobile apps, web development, product engineering, software developer",
+    "Software engineer portfolio of Usukhbayar Batbayar featuring web, mobile, and backend projects, engineering experience, and writing.",
+  keywords: "Usukhbayar Batbayar, software engineer, portfolio, full stack developer, web development, mobile development, backend development, Next.js, React, TypeScript, FastAPI, iOS, Android",
   author: "Usukhbayar Batbayar",
   twitterHandle: "",
 };

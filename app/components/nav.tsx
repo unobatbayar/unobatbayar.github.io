@@ -11,7 +11,7 @@ import {
 const navItems = {
   "/projects": { name: "Projects" },
   "/blog": { name: "Blog" },
-  "/resume": { name: "Resume", external: true, href: "https://unobatbayar.github.io/resume.pdf" },
+  "/resume": { name: "Resume" },
 };
 
 function SocialLink({ href, icon: Icon, className }) {

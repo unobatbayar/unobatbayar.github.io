@@ -65,7 +65,7 @@ export async function generateMetadata({
       images: [ogImage],
     },
     alternates: {
-      canonical: `${metaData.baseUrl}/blog/${post.slug}`,
+      canonical: `/blog/${post.slug}`,
     },
   };
 }

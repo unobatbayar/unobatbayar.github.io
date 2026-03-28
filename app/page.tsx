@@ -1,7 +1,24 @@
+import type { Metadata } from "next";
 import { homeContent } from "./config";
 import PortfolioHero from "./components/portfolio-hero";
 import WorkProjectsSection from "./components/work-projects-section";
 import PersonalProjectsSection from "./components/personal-projects-section";
+
+export const metadata: Metadata = {
+  title: "Software Engineer Portfolio",
+  description:
+    "Portfolio of Usukhbayar Batbayar, a software engineer building web, mobile, and backend products.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Usukhbayar Batbayar | Software Engineer",
+    description:
+      "Portfolio of Usukhbayar Batbayar, a software engineer building web, mobile, and backend products.",
+    url: "/",
+    type: "website",
+  },
+};
 
 export default function Page() {
   return (

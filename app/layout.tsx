@@ -68,9 +68,6 @@ export const metadata: Metadata = {
     shortcut: "/images/profile.jpeg",
     apple: "/images/profile.jpeg",
   },
-  verification: {
-    google: "your-google-verification-code", // Add your Google Search Console verification code
-  },
 };
 
 const cx = (...classes) => classes.filter(Boolean).join(" ");
@@ -118,26 +115,30 @@ export default function RootLayout({
                 socialLinks?.github,
                 socialLinks?.linkedin,
                 socialLinks?.stackoverflow,
+                socialLinks?.appstore,
               ].filter(Boolean),
-              "jobTitle": "Software Developer",
-              "worksFor": {
-                "@type": "Organization",
-                "name": "Freelance"
+              "jobTitle": "Software Engineer",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Ulaanbaatar",
+                "addressCountry": "MN"
               },
               "knowsAbout": [
                 "Web Development",
                 "Mobile App Development", 
+                "Backend Development",
                 "JavaScript",
                 "TypeScript",
                 "React",
                 "Next.js",
+                "FastAPI",
+                "Python",
                 "Unity",
                 "iOS",
                 "Android",
                 "SwiftUI",
                 "Machine Learning Systems",
-                "Judo",
-                "Martial Arts"
+                "Cybersecurity"
               ]
             }),
           }}
