@@ -29,7 +29,7 @@ export default function Projects() {
         <h1 className="mt-3 max-w-3xl text-2xl font-semibold tracking-tight text-black dark:text-white sm:text-3xl">
           Software I&apos;ve shipped professionally and independently.
         </h1>
-        <p className="mt-4 max-w-2xl text-base leading-8 text-neutral-700 dark:text-neutral-200">
+        <p className="mt-4 text-base leading-8 text-neutral-700 dark:text-neutral-200">
           A mix of product work, experiments, and apps across web, mobile, and interactive software.
         </p>
       </div>

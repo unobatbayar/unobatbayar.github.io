@@ -22,7 +22,7 @@ export default function BlogPosts() {
   let allBlogs = getBlogPosts();
 
   return (
-    <section className="space-y-10">
+    <section className="space-y-12">
       <div className="glass-panel glass-panel-strong rounded-[2.25rem] px-6 py-9 sm:px-8 sm:py-10">
         <p className="text-xs font-medium uppercase tracking-[0.24em] text-neutral-500 dark:text-neutral-400">
           Blog

@@ -7,17 +7,17 @@ export const metadata: Metadata = {
 
 export default function Resume() {
   return (
-    <section className="space-y-4">
-      <div className="glass-panel rounded-[2rem] px-6 py-6 sm:px-8 sm:py-7">
+    <section className="space-y-12">
+      <div className="glass-panel glass-panel-strong rounded-[2.25rem] px-6 py-9 sm:px-8 sm:py-10">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-600 dark:text-neutral-300">
+            <p className="text-xs font-medium uppercase tracking-[0.24em] text-neutral-500 dark:text-neutral-400">
               Resume
             </p>
-            <h1 className="mt-2 text-2xl font-semibold tracking-tight text-black dark:text-white sm:text-3xl">
+            <h1 className="mt-3 max-w-3xl text-2xl font-semibold tracking-tight text-black dark:text-white sm:text-3xl">
               View resume in-site.
             </h1>
-            <p className="mt-2 max-w-2xl text-sm leading-7 text-neutral-700 dark:text-neutral-200 sm:text-base">
+            <p className="mt-4 max-w-2xl text-base leading-8 text-neutral-700 dark:text-neutral-200">
               Fitted to the screen for quick reading, with the option to open the PDF in a separate tab.
             </p>
           </div>

@@ -21,8 +21,8 @@ export const homeContent = {
   name: "Usukhbayar Batbayar",
   experienceStartDate: "2019-10-01",
   roleTags: [
-    "Software Engineer",
     "Mobile Developer",
+    "Full-stack Developer",
   ],
   headline: "Software engineer building web, mobile and backend products.",
   intro:

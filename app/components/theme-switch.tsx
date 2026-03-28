@@ -3,12 +3,12 @@ import * as React from "react";
 import { useTheme } from "next-themes";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import type { ThemeProviderProps } from "next-themes";
-import { FaDesktop, FaMoon, FaSun } from "react-icons/fa6";
+import { FaDesktop, FaMobileScreenButton, FaMoon, FaSun } from "react-icons/fa6";
 
 const storageKey = "theme-preference";
 const themeOptions = [
   { value: "dark", label: "Dark", icon: FaMoon },
-  { value: "system", label: "System", icon: FaDesktop },
+  { value: "system", label: "System" },
   { value: "light", label: "Light", icon: FaSun },
 ] as const;
 type ThemeValue = (typeof themeOptions)[number]["value"];
@@ -83,7 +83,14 @@ export const ThemeSwitch: React.FC = () => {
                 : "text-neutral-600 hover:bg-white/80 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-white/10 dark:hover:text-white"
             }`}
           >
-            <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
+            {value === "system" ? (
+              <>
+                <FaMobileScreenButton className="h-3.5 w-3.5 sm:hidden" aria-hidden="true" />
+                <FaDesktop className="hidden h-4 w-4 sm:block" aria-hidden="true" />
+              </>
+            ) : (
+              <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
+            )}
           </button>
         );
       })}

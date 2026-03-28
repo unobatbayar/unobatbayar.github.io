@@ -16,6 +16,7 @@ type Edge = {
   dist: number;
 };
 
+const NODE_COUNT = 36;
 const LINK_DISTANCE = 255;
 const TARGET_FRAME_MS = 1000 / 30;
 const GRAPH_REBUILD_MS = 160;
@@ -46,12 +47,6 @@ function getNodeColor(index: number, isDark: boolean, colors: ReturnType<typeof 
   const alpha = isDark ? 0.88 : 0.72;
 
   return `rgba(${rgb}, ${alpha})`;
-}
-
-function getNodeCount(width: number) {
-  if (width < 640) return 20;
-  if (width < 1024) return 32;
-  return 47;
 }
 
 function createNodes(count: number) {
@@ -101,7 +96,7 @@ export default function SiteGraphField() {
     let lastFrameTime = 0;
 
     const resetNodes = () => {
-      nodes = createNodes(getNodeCount(width));
+      nodes = createNodes(NODE_COUNT);
       nodes.forEach((node) => {
         node.x = Math.random() * width;
         node.y = Math.random() * height;
@@ -112,14 +107,33 @@ export default function SiteGraphField() {
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-      width = window.innerWidth;
-      height = window.innerHeight;
+      const nextWidth = window.innerWidth;
+      const nextHeight = window.innerHeight;
+      const prevWidth = width || nextWidth;
+      const prevHeight = height || nextHeight;
+
+      width = nextWidth;
+      height = nextHeight;
+
+      if (nodes.length === 0) {
+        resetNodes();
+      } else {
+        const scaleX = width / prevWidth;
+        const scaleY = height / prevHeight;
+
+        nodes.forEach((node) => {
+          node.x = Math.min(Math.max(node.x * scaleX, 0), width);
+          node.y = Math.min(Math.max(node.y * scaleY, 0), height);
+        });
+        edges = buildEdges(nodes);
+        lastGraphRebuild = performance.now();
+      }
+
       canvas.width = width * dpr;
       canvas.height = height * dpr;
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      resetNodes();
     };
 
     const draw = (timestamp: number) => {
