@@ -6,9 +6,9 @@ import { Navbar } from "./components/nav";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/footer";
+import SiteBackground from "./components/site-background";
 import { ThemeProvider } from "./components/theme-switch";
 import { metaData, socialLinks } from "./config";
-import BackgroundMusic from "./components/background-music";
 
 export const metadata: Metadata = {
   metadataBase: new URL(metaData.baseUrl),
@@ -117,7 +117,7 @@ export default function RootLayout({
           title="JSON Feed"
         />
       </head>
-      <body className="antialiased flex flex-col items-center justify-center mx-auto mt-2 lg:mt-8 mb-20 lg:mb-40">
+      <body className="mx-auto flex min-h-screen flex-col items-center justify-center antialiased">
         <script
           type="application/ld+json"
           suppressHydrationWarning
@@ -146,8 +146,12 @@ export default function RootLayout({
                 "TypeScript",
                 "React",
                 "Next.js",
+                "Unity",
+                "iOS",
+                "Android",
+                "SwiftUI",
+                "Machine Learning Systems",
                 "Judo",
-                "Music",
                 "Martial Arts"
               ]
             }),
@@ -159,7 +163,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="flex-auto min-w-0 mt-2 md:mt-6 flex flex-col px-6 sm:px-4 md:px-0 max-w-[640px] w-full">
+          <SiteBackground />
+          <main className="relative z-10 mt-2 flex min-w-0 w-full max-w-[1440px] flex-auto flex-col px-5 pb-20 pt-2 sm:px-6 md:mt-6 md:px-8 lg:px-10 lg:pb-32 xl:px-12">
             <Navbar />
             {children}
             <Footer />
@@ -167,7 +172,6 @@ export default function RootLayout({
             <SpeedInsights />
           </main>
         </ThemeProvider>
-        <BackgroundMusic />
       </body>
     </html>
   );

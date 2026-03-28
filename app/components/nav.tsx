@@ -9,9 +9,9 @@ import {
 } from "react-icons/fa6";
 
 const navItems = {
+  "/projects": { name: "Projects" },
   "/blog": { name: "Blog" },
   "/resume": { name: "Resume", external: true, href: "https://unobatbayar.github.io/resume.pdf" },
-  // "/projects": { name: "Projects" },
 };
 
 function SocialLink({ href, icon: Icon, className }) {
@@ -30,11 +30,11 @@ function SocialLink({ href, icon: Icon, className }) {
 
 export function Navbar() {
   return (
-    <nav className="lg:mb-16 mb-12 py-5">
-      <div className="flex flex-col md:flex-row md:items-center justify-between">
-        <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-4">
-          <Link href="/" className="text-3xl font-semibold tracking-tight">
-            {metaData.title}
+    <nav className="mb-10 py-5 lg:mb-14">
+      <div className="glass-panel flex flex-col justify-between gap-6 rounded-[1.75rem] px-5 py-4 md:flex-row md:items-center">
+        <div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-4">
+          <Link href="/" className="text-3xl font-semibold tracking-tight text-black dark:text-white">
+            {metaData.name}
           </Link>
           <div className="flex items-center gap-3 text-lg">
             <SocialLink 
@@ -59,7 +59,7 @@ export function Navbar() {
             />
           </div>
         </div>
-        <div className="flex flex-row gap-4 mt-6 md:mt-0 md:ml-auto items-center">
+        <div className="flex flex-row items-center gap-4 md:ml-auto md:mt-0">
           {Object.entries(navItems).map(([path, item]) => (
             ("external" in item) ? (
               <a
@@ -67,7 +67,7 @@ export function Navbar() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative"
+                className="relative flex items-center text-base text-neutral-700 transition-all hover:text-neutral-950 dark:text-neutral-300 dark:hover:text-neutral-100"
               >
                 {item.name}
               </a>
@@ -75,7 +75,7 @@ export function Navbar() {
               <Link
                 key={path}
                 href={path}
-                className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative"
+                className="relative flex items-center text-base text-neutral-700 transition-all hover:text-neutral-950 dark:text-neutral-300 dark:hover:text-neutral-100"
               >
                 {item.name}
               </Link>

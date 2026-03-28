@@ -6,25 +6,16 @@ const YEAR = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <small className="block lg:mt-24 mt-16 text-[#1C1C1C] dark:text-[#D4D4D4]">
+    <small className="mt-16 block border-t border-neutral-200/80 pt-6 text-base text-neutral-600 dark:border-neutral-800 dark:text-neutral-300 lg:mt-24">
       <time>© {YEAR}</time>{" "}
       <a
-        className="no-underline"
-        // it was for twitter
+        className="no-underline transition-colors hover:text-neutral-700 dark:hover:text-neutral-200"
         href={socialLinks.linkedin}
         target="_blank"
         rel="noopener noreferrer"
       >
-        {metaData.title}
+        {metaData.name}
       </a>
-      <style jsx>{`
-        @media screen and (max-width: 480px) {
-          article {
-            padding-top: 2rem;
-            padding-bottom: 4rem;
-          }
-        }
-      `}</style>
     </small>
   );
 }

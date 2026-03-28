@@ -1,48 +1,44 @@
+import Link from "next/link";
+import ProjectCard from "./project-card";
 import { workProjects } from "../projects/project-data";
 
-export default function WorkProjectsSection({ className = "" }: { className?: string }) {
+type WorkProjectsSectionProps = {
+  className?: string;
+  limit?: number;
+  showMoreLink?: boolean;
+};
+
+export default function WorkProjectsSection({
+  className = "",
+  limit,
+  showMoreLink = false,
+}: WorkProjectsSectionProps) {
+  const projects = typeof limit === "number" ? workProjects.slice(0, limit) : workProjects;
+
   return (
     <>
-      <h1 className={`mb-2 text-2xl font-medium tracking-tight ${className}`}>Work Projects</h1>
-      <p className="prose prose-neutral dark:prose-invert mb-6 mt-0 pt-0 text-neutral-600 dark:text-neutral-400">
-        Products and software I worked on during my career and employment.
-      </p>
-      {workProjects.length > 0 ? (
-        <div className="space-y-6 mb-12">
-          {workProjects.map((project, index) => (
-            <a
-              key={index}
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block"
-            >
-              <div className="bg-neutral-50 dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 p-6 transition-all duration-200 hover:border-neutral-300 dark:hover:border-neutral-700 hover:shadow-lg hover:-translate-y-1">
-                <div className="flex flex-col">
-                  <div className="flex items-center mb-4">
-                    <img
-                      src={project.img}
-                      alt={project.title}
-                      className="w-16 h-16 rounded-lg object-contain flex-shrink-0 group-hover:scale-105 transition-transform duration-200"
-                    />
-                    <div className="ml-4 flex-1 min-w-0">
-                      <h3 className="text-lg font-medium tracking-tight text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                        {project.title}
-                      </h3>
-                      <span className="text-neutral-500 dark:text-neutral-400 tabular-nums text-sm mt-1 block">
-                        {project.year}
-                      </span>
-                    </div>
-                  </div>
-                  <p className="prose prose-neutral dark:prose-invert text-sm mb-4">
-                    {project.description}
-                  </p>
-                  <p className="text-blue-500 dark:text-blue-400 text-xs font-medium pt-3 border-t border-neutral-200 dark:border-neutral-800">
-                    {project.tools}
-                  </p>
-                </div>
-              </div>
-            </a>
+      <div className={`mb-6 flex items-end justify-between gap-4 ${className}`}>
+        <div>
+          <h2 className="mb-2 text-2xl font-medium tracking-tight text-black dark:text-white">
+            Professional Work
+          </h2>
+          <p className="max-w-2xl text-sm leading-6 text-neutral-600 dark:text-neutral-400">
+            Selected products and software I helped build in professional teams across consumer and internal platforms.
+          </p>
+        </div>
+        {showMoreLink ? (
+          <Link
+            href="/projects"
+            className="hidden text-sm font-medium text-blue-600 transition hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300 sm:inline"
+          >
+            See all projects
+          </Link>
+        ) : null}
+      </div>
+      {projects.length > 0 ? (
+        <div className="mb-12 grid gap-6 lg:grid-cols-2 2xl:grid-cols-3">
+          {projects.map((project) => (
+            <ProjectCard key={`${project.title}-${project.year}`} project={project} />
           ))}
         </div>
       ) : (

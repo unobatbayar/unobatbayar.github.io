@@ -1,73 +1,43 @@
-"use client"
-import { useState, useEffect } from 'react';
+"use client";
 
-const DynamicText = () => {
-  const texts = [
-    'building things',
-    'security and privacy',
-    'Judo 🥋',
-    'Chess ♟️',
-    'Vagabond (manga)',
-    'Nujabes ♫'
-  ];
-  
-  const colors = [
-    'text-pink-500',
-    'text-green-500',
-    'text-yellow-500',
-    'text-purple-500',
-    'text-red-500',
-    'text-blue-500',
-    'text-indigo-500',
-    'text-teal-500',
-    'text-orange-500',
-    'text-emerald-500',
-    'text-fuchsia-500',
-    'text-cyan-500',
-    'text-rose-500',
-  ];
+import { useEffect, useState } from "react";
 
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [displayText, setDisplayText] = useState(texts[0]);
-  const [colorClass, setColorClass] = useState(colors[0]);
-  const [shuffledIndexes, setShuffledIndexes] = useState<number[]>([]);
-
-  // Helper: Shuffle array using Fisher-Yates algorithm
-  const shuffleArray = (arr: number[]) => {
-    const shuffled = [...arr];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
-  };
-
-  useEffect(() => {
-    // Initialize shuffled order once
-    setShuffledIndexes(shuffleArray(texts.map((_, i) => i)));
-  }, []);
-
-  useEffect(() => {
-    if (shuffledIndexes.length === 0) return;
-
-    let index = 0;
-    const interval = setInterval(() => {
-      index = (index + 1) % shuffledIndexes.length;
-      setCurrentTextIndex(shuffledIndexes[index]);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [shuffledIndexes]);
-
-  useEffect(() => {
-    setDisplayText(texts[currentTextIndex]);
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    setColorClass(randomColor);
-  }, [currentTextIndex]);
-
-  return (
-    <span className={`${colorClass} font-semibold`}>{displayText}</span>
-  );
+type DynamicTextProps = {
+  items?: string[];
+  className?: string;
+  intervalMs?: number;
 };
 
-export default DynamicText;
+const defaultItems = [
+  "product-minded interfaces",
+  "real-time apps",
+  "mobile experiences",
+  "privacy-aware software",
+];
+
+export default function DynamicText({
+  items = defaultItems,
+  className = "",
+  intervalMs = 2600,
+}: DynamicTextProps) {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (items.length <= 1) return;
+
+    const interval = window.setInterval(() => {
+      setIndex((current) => (current + 1) % items.length);
+    }, intervalMs);
+
+    return () => window.clearInterval(interval);
+  }, [items, intervalMs]);
+
+  return (
+    <span
+      key={items[index]}
+      className={`inline-block min-w-[14ch] font-medium text-blue-600 dark:text-blue-400 motion-safe:animate-soft-fade ${className}`}
+    >
+      {items[index]}
+    </span>
+  );
+}

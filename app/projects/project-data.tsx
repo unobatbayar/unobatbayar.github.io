@@ -54,14 +54,6 @@ export const workProjects: Project[] = [
 
 export const personalProjects: Project[] = [
   {
-    img: "/images/btc.png",
-    title: "BTC Price Predictor",
-    year: 2026,
-    description: "Bitcoin price prediction tool using real-time CoinGecko API data and linear regression analysis for forecasting price movements.",
-    tools: "Next.js, TypeScript, CoinGecko API, Linear Regression",
-    url: "https://btc-predictor-x.vercel.app/",
-  },
-  {
     img: "/images/konple.png",
     title: "Konple - Chat With The World!",
     year: 2025,
