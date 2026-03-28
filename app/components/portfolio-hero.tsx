@@ -19,7 +19,7 @@ export default function PortfolioHero() {
               return (
                 <p
                   key={tag}
-                  className={`inline-flex rounded-full border px-3 py-1.5 text-[0.78rem] font-medium uppercase tracking-[0.22em] ${classes[index]}`}
+                  className={`inline-flex rounded-full border px-2.5 py-1 text-[0.68rem] font-medium uppercase tracking-[0.18em] sm:px-3 sm:py-1.5 sm:text-[0.75rem] sm:tracking-[0.2em] ${classes[index]}`}
                 >
                   {tag}
                 </p>

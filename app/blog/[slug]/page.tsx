@@ -79,7 +79,7 @@ export default async function Blog({ params }) {
   }
 
   return (
-    <section>
+    <section className="glass-panel rounded-[2rem] px-6 py-8 sm:px-8 sm:py-10">
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -120,15 +120,20 @@ export default async function Blog({ params }) {
           }),
         }}
       />
-      <h1 className="title mb-3 font-medium text-2xl tracking-tight">
-        {post.metadata.title}
-      </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-medium">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          {formatDate(post.metadata.publishedAt)}
+      <div className="mb-8">
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-600 dark:text-neutral-300">
+          Blog
         </p>
+        <h1 className="title mt-3 text-2xl font-medium tracking-tight text-black dark:text-white sm:text-3xl">
+          {post.metadata.title}
+        </h1>
+        <div className="mt-3 flex items-center justify-between text-medium">
+          <p className="text-sm text-neutral-600 dark:text-neutral-400">
+            {formatDate(post.metadata.publishedAt)}
+          </p>
+        </div>
       </div>
-      <article className="prose prose-quoteless prose-neutral dark:prose-invert">
+      <article className="prose prose-quoteless prose-neutral max-w-none dark:prose-invert">
         <CustomMDX source={post.content} />
       </article>
     </section>

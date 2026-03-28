@@ -16,39 +16,56 @@ type Edge = {
   dist: number;
 };
 
-type Signal = {
-  sourceIndex: number;
-  startedAt: number;
-  distances: number[];
-};
-
-const NODE_COUNT = 47;
 const LINK_DISTANCE = 255;
-const MOUSE_RADIUS = 180;
-const SIGNAL_SPEED = 0.18;
-const SIGNAL_WINDOW = 140;
+const TARGET_FRAME_MS = 1000 / 30;
+const GRAPH_REBUILD_MS = 160;
 
 function getColorSet(isDark: boolean) {
   return isDark
     ? {
-        nodeBase: "226, 232, 240",
         lineBase: "96, 165, 250",
-        glowBase: "236, 72, 153",
-        signalA: "34, 211, 238",
-        signalB: "217, 70, 239",
+        lineGlow: "56, 189, 248",
+        starA: "248, 250, 252",
+        starB: "191, 219, 254",
+        starC: "103, 232, 249",
+        starD: "196, 181, 253",
       }
     : {
-        nodeBase: "71, 85, 105",
         lineBase: "59, 130, 246",
-        glowBase: "219, 39, 119",
-        signalA: "6, 182, 212",
-        signalB: "192, 38, 211",
+        lineGlow: "14, 165, 233",
+        starA: "51, 65, 85",
+        starB: "37, 99, 235",
+        starC: "8, 145, 178",
+        starD: "109, 40, 217",
       };
 }
 
-function buildGraph(nodes: Node[]) {
+function getNodeColor(index: number, isDark: boolean, colors: ReturnType<typeof getColorSet>) {
+  const palette = [colors.starA, colors.starB, colors.starC, colors.starB, colors.starA, colors.starD];
+  const rgb = palette[index % palette.length];
+  const alpha = isDark ? 0.88 : 0.72;
+
+  return `rgba(${rgb}, ${alpha})`;
+}
+
+function getNodeCount(width: number) {
+  if (width < 640) return 20;
+  if (width < 1024) return 32;
+  return 47;
+}
+
+function createNodes(count: number) {
+  return Array.from({ length: count }, () => ({
+    x: 0,
+    y: 0,
+    vx: (Math.random() - 0.5) * 0.28,
+    vy: (Math.random() - 0.5) * 0.28,
+    r: 1.5 + Math.random() * 1.8,
+  }));
+}
+
+function buildEdges(nodes: Node[]) {
   const edges: Edge[] = [];
-  const neighbors: Array<Array<{ index: number; dist: number }>> = nodes.map(() => []);
 
   for (let i = 0; i < nodes.length; i += 1) {
     for (let j = i + 1; j < nodes.length; j += 1) {
@@ -58,46 +75,11 @@ function buildGraph(nodes: Node[]) {
 
       if (dist < LINK_DISTANCE) {
         edges.push({ a: i, b: j, dist });
-        neighbors[i].push({ index: j, dist });
-        neighbors[j].push({ index: i, dist });
       }
     }
   }
 
-  return { edges, neighbors };
-}
-
-function computeSignalDistances(
-  sourceIndex: number,
-  neighbors: Array<Array<{ index: number; dist: number }>>
-) {
-  const distances = Array.from({ length: neighbors.length }, () => Number.POSITIVE_INFINITY);
-  const visited = new Set<number>();
-  distances[sourceIndex] = 0;
-
-  while (visited.size < neighbors.length) {
-    let current = -1;
-    let best = Number.POSITIVE_INFINITY;
-
-    for (let i = 0; i < distances.length; i += 1) {
-      if (!visited.has(i) && distances[i] < best) {
-        best = distances[i];
-        current = i;
-      }
-    }
-
-    if (current === -1) break;
-    visited.add(current);
-
-    for (const neighbor of neighbors[current]) {
-      const candidate = distances[current] + neighbor.dist;
-      if (candidate < distances[neighbor.index]) {
-        distances[neighbor.index] = candidate;
-      }
-    }
-  }
-
-  return distances;
+  return edges;
 }
 
 export default function SiteGraphField() {
@@ -110,29 +92,26 @@ export default function SiteGraphField() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const mouse = { x: -9999, y: -9999 };
     let width = 0;
     let height = 0;
     let animationFrame = 0;
-    const signals: Signal[] = [];
-
-    const nodes: Node[] = Array.from({ length: NODE_COUNT }, () => ({
-      x: 0,
-      y: 0,
-      vx: (Math.random() - 0.5) * 0.28,
-      vy: (Math.random() - 0.5) * 0.28,
-      r: 1.5 + Math.random() * 1.8,
-    }));
+    let nodes: Node[] = [];
+    let edges: Edge[] = [];
+    let lastGraphRebuild = 0;
+    let lastFrameTime = 0;
 
     const resetNodes = () => {
+      nodes = createNodes(getNodeCount(width));
       nodes.forEach((node) => {
         node.x = Math.random() * width;
         node.y = Math.random() * height;
       });
+      edges = buildEdges(nodes);
+      lastGraphRebuild = performance.now();
     };
 
     const resize = () => {
-      const dpr = window.devicePixelRatio || 1;
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       width = window.innerWidth;
       height = window.innerHeight;
       canvas.width = width * dpr;
@@ -143,97 +122,40 @@ export default function SiteGraphField() {
       resetNodes();
     };
 
-    const handlePointerMove = (event: MouseEvent) => {
-      mouse.x = event.clientX;
-      mouse.y = event.clientY;
-    };
-
-    const handlePointerLeave = () => {
-      mouse.x = -9999;
-      mouse.y = -9999;
-    };
-
-    const handlePointerDown = (event: PointerEvent) => {
-      const { neighbors } = buildGraph(nodes);
-      let closestIndex = 0;
-      let closestDistance = Number.POSITIVE_INFINITY;
-
-      for (let i = 0; i < nodes.length; i += 1) {
-        const dx = nodes[i].x - event.clientX;
-        const dy = nodes[i].y - event.clientY;
-        const dist = Math.hypot(dx, dy);
-
-        if (dist < closestDistance) {
-          closestDistance = dist;
-          closestIndex = i;
-        }
+    const draw = (timestamp: number) => {
+      if (timestamp - lastFrameTime < TARGET_FRAME_MS) {
+        animationFrame = window.requestAnimationFrame(draw);
+        return;
       }
 
-      signals.push({
-        sourceIndex: closestIndex,
-        startedAt: performance.now(),
-        distances: computeSignalDistances(closestIndex, neighbors),
-      });
-    };
-
-    const draw = () => {
-      const now = performance.now();
+      const delta = lastFrameTime ? Math.min((timestamp - lastFrameTime) / 16.67, 1.6) : 1;
+      lastFrameTime = timestamp;
       const isDark = document.documentElement.classList.contains("dark");
       const colors = getColorSet(isDark);
 
       ctx.clearRect(0, 0, width, height);
 
       for (const node of nodes) {
-        node.x += node.vx;
-        node.y += node.vy;
+        node.x += node.vx * delta;
+        node.y += node.vy * delta;
 
         if (node.x <= 0 || node.x >= width) node.vx *= -1;
         if (node.y <= 0 || node.y >= height) node.vy *= -1;
-
-        const dx = node.x - mouse.x;
-        const dy = node.y - mouse.y;
-        const dist = Math.hypot(dx, dy);
-
-        if (dist < MOUSE_RADIUS) {
-          const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS;
-          node.x += (dx / Math.max(dist, 1)) * force * 0.9;
-          node.y += (dy / Math.max(dist, 1)) * force * 0.9;
-        }
       }
 
-      const { edges } = buildGraph(nodes);
-
-      for (let i = signals.length - 1; i >= 0; i -= 1) {
-        const age = now - signals[i].startedAt;
-        if (age > 2600) {
-          signals.splice(i, 1);
-        }
+      if (timestamp - lastGraphRebuild >= GRAPH_REBUILD_MS) {
+        edges = buildEdges(nodes);
+        lastGraphRebuild = timestamp;
       }
 
       for (const edge of edges) {
         const a = nodes[edge.a];
         const b = nodes[edge.b];
-        const baseOpacity = (1 - edge.dist / LINK_DISTANCE) * (isDark ? 0.24 : 0.18);
-        let stroke = `rgba(${colors.lineBase}, ${baseOpacity})`;
-        let lineWidth = 1;
+        const baseOpacity = (1 - edge.dist / LINK_DISTANCE) * (isDark ? 0.3 : 0.2);
 
-        for (const signal of signals) {
-          const travelA = signal.distances[edge.a] / SIGNAL_SPEED;
-          const travelB = signal.distances[edge.b] / SIGNAL_SPEED;
-          const edgeTravel = Math.min(travelA, travelB);
-          const delta = Math.abs(now - signal.startedAt - edgeTravel);
-
-          if (delta < SIGNAL_WINDOW) {
-            const strength = 1 - delta / SIGNAL_WINDOW;
-            const signalColor = edge.a % 2 === 0 ? colors.signalA : colors.signalB;
-            stroke = `rgba(${signalColor}, ${0.18 + strength * 0.62})`;
-            lineWidth = 1 + strength * 1.8;
-            break;
-          }
-        }
-
-        ctx.strokeStyle = stroke;
-        ctx.lineWidth = lineWidth;
+        ctx.strokeStyle = `rgba(${colors.lineBase}, ${baseOpacity})`;
+        ctx.lineWidth = 1;
+        ctx.shadowBlur = 0;
         ctx.beginPath();
         ctx.moveTo(a.x, a.y);
         ctx.lineTo(b.x, b.y);
@@ -242,29 +164,9 @@ export default function SiteGraphField() {
 
       for (let index = 0; index < nodes.length; index += 1) {
         const node = nodes[index];
-        let fill = `rgba(${colors.nodeBase}, ${isDark ? 0.78 : 0.68})`;
-        let glow = 0;
-
-        for (const signal of signals) {
-          const arrival = signal.distances[index] / SIGNAL_SPEED;
-          const delta = Math.abs(now - signal.startedAt - arrival);
-
-          if (delta < SIGNAL_WINDOW) {
-            const strength = 1 - delta / SIGNAL_WINDOW;
-            fill = `rgba(${index % 2 === 0 ? colors.signalA : colors.signalB}, ${0.5 + strength * 0.5})`;
-            glow = 18 * strength;
-            break;
-          }
-        }
-
-        if (glow > 0) {
-          ctx.shadowBlur = glow;
-          ctx.shadowColor = fill;
-        } else {
-          ctx.shadowBlur = 0;
-        }
-
-        ctx.fillStyle = fill;
+        ctx.shadowBlur = isDark ? 12 : 7;
+        ctx.shadowColor = `rgba(${colors.lineGlow}, ${isDark ? 0.18 : 0.1})`;
+        ctx.fillStyle = getNodeColor(index, isDark, colors);
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.r, 0, Math.PI * 2);
         ctx.fill();
@@ -275,19 +177,13 @@ export default function SiteGraphField() {
     };
 
     resize();
-    draw();
+    draw(performance.now());
 
     window.addEventListener("resize", resize);
-    window.addEventListener("mousemove", handlePointerMove, { passive: true });
-    window.addEventListener("pointerdown", handlePointerDown, { passive: true });
-    window.addEventListener("mouseleave", handlePointerLeave);
 
     return () => {
       window.cancelAnimationFrame(animationFrame);
       window.removeEventListener("resize", resize);
-      window.removeEventListener("mousemove", handlePointerMove);
-      window.removeEventListener("pointerdown", handlePointerDown);
-      window.removeEventListener("mouseleave", handlePointerLeave);
     };
   }, []);
 

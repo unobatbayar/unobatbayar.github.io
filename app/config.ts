@@ -23,7 +23,6 @@ export const homeContent = {
   roleTags: [
     "Software Engineer",
     "Mobile Developer",
-    "Fullstack Developer",
   ],
   headline: "Software engineer building web, mobile and backend products.",
   intro:

@@ -3,9 +3,19 @@ import * as React from "react";
 import { useTheme } from "next-themes";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import type { ThemeProviderProps } from "next-themes";
-import { FaCircleHalfStroke } from "react-icons/fa6";
+import { FaDesktop, FaMoon, FaSun } from "react-icons/fa6";
 
-const storageKey = 'theme-preference';
+const storageKey = "theme-preference";
+const themeOptions = [
+  { value: "dark", label: "Dark", icon: FaMoon },
+  { value: "system", label: "System", icon: FaDesktop },
+  { value: "light", label: "Light", icon: FaSun },
+] as const;
+type ThemeValue = (typeof themeOptions)[number]["value"];
+
+function isThemeValue(value: string | null | undefined): value is ThemeValue {
+  return value === "dark" || value === "system" || value === "light";
+}
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   return (
@@ -13,6 +23,7 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
       attribute="class"
       defaultTheme="system"
       enableSystem
+      storageKey={storageKey}
       {...props}
     >
       {children}
@@ -21,71 +32,61 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
 }
 
 export const ThemeSwitch: React.FC = () => {
-  const { setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
-  const [currentTheme, setCurrentTheme] = React.useState<'light' | 'dark'>('light');
-
-  const getColorPreference = (): 'light' | 'dark' => {
-    if (typeof window !== 'undefined') {
-      const storedPreference = localStorage.getItem(storageKey);
-      if (storedPreference) {
-        return storedPreference as 'light' | 'dark';
-      }
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
-    return 'light';
-  };
-
-  const reflectPreference = (theme: 'light' | 'dark') => {
-    document.documentElement.classList.remove('bg-light', 'bg-dark');
-    document.documentElement.classList.add(`bg-${theme}`);
-    setCurrentTheme(theme);
-    setTheme(theme);
-  };
 
   React.useEffect(() => {
     setMounted(true);
-    const initTheme = getColorPreference();
-    reflectPreference(initTheme);
 
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleChange = () => {
-      const newTheme = mediaQuery.matches ? 'dark' : 'light';
-      localStorage.setItem(storageKey, newTheme);
-      reflectPreference(newTheme);
-    };
+    const storedTheme = window.localStorage.getItem(storageKey);
 
-    mediaQuery.addEventListener('change', handleChange);
+    if (!isThemeValue(storedTheme)) {
+      window.localStorage.setItem(storageKey, "system");
+      setTheme("system");
+      return;
+    }
 
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, [setTheme]);
-
-  const toggleTheme = () => {
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    localStorage.setItem(storageKey, newTheme);
-    reflectPreference(newTheme);
-  };
+    if (theme && !isThemeValue(theme)) {
+      window.localStorage.setItem(storageKey, "system");
+      setTheme("system");
+    }
+  }, [setTheme, theme]);
 
   if (!mounted) {
     return (
-      <FaCircleHalfStroke
-        className="h-[14px] w-[14px] text-[#1c1c1c]"
-        aria-hidden="true"
-      />
+      <div className="h-8 w-[104px] rounded-full border border-neutral-200/80 bg-white/70 dark:border-neutral-800 dark:bg-neutral-900/70" />
     );
   }
 
+  const activeTheme = isThemeValue(theme) ? theme : "system";
+
   return (
-    <button
-      id="theme-toggle"
-      aria-label={`${currentTheme} mode`}
-      onClick={toggleTheme}
-      className="flex items-center justify-center transition-opacity duration-300 hover:opacity-90"
+    <div
+      className="glass-pill inline-flex items-center gap-1 rounded-full p-1"
+      role="group"
+      aria-label="Theme switcher"
     >
-      <FaCircleHalfStroke
-        className={`h-[14px] w-[14px] ${currentTheme === "dark" ? "text-[#D4D4D4]" : "text-[#1c1c1c]"
-          }`}
-      />
-    </button>
+      {themeOptions.map(({ value, label, icon: Icon }) => {
+        const isActive = activeTheme === value;
+
+        return (
+          <button
+            key={value}
+            type="button"
+            aria-pressed={isActive}
+            aria-label={`Use ${label.toLowerCase()} theme`}
+            title={label}
+            onClick={() => setTheme(value)}
+            className={`inline-flex h-6 w-6 items-center justify-center rounded-full transition-colors sm:h-7 sm:w-7 ${
+              isActive
+                ? "bg-neutral-950 text-white dark:bg-white dark:text-black"
+                : "text-neutral-600 hover:bg-white/80 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-white/10 dark:hover:text-white"
+            }`}
+          >
+            <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
+          </button>
+        );
+      })}
+    </div>
   );
 };

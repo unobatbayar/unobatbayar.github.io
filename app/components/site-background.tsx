@@ -1,37 +1,44 @@
 "use client";
 
 import type { CSSProperties } from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import SiteGraphField from "./site-graph-field";
 
-type GlowStyle = CSSProperties & {
-  "--glow-x"?: string;
-  "--glow-y"?: string;
-};
-
 export default function SiteBackground() {
-  const [glowStyle, setGlowStyle] = useState<GlowStyle>({
-    "--glow-x": "50%",
-    "--glow-y": "18%",
-  });
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    let frame = 0;
+
     const handleMove = (event: MouseEvent) => {
-      setGlowStyle({
-        "--glow-x": `${(event.clientX / window.innerWidth) * 100}%`,
-        "--glow-y": `${(event.clientY / window.innerHeight) * 100}%`,
+      if (frame) return;
+
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+
+        if (!containerRef.current) return;
+
+        containerRef.current.style.setProperty("--glow-x", `${(event.clientX / window.innerWidth) * 100}%`);
+        containerRef.current.style.setProperty("--glow-y", `${(event.clientY / window.innerHeight) * 100}%`);
       });
     };
 
     window.addEventListener("mousemove", handleMove, { passive: true });
-    return () => window.removeEventListener("mousemove", handleMove);
+
+    return () => {
+      if (frame) {
+        window.cancelAnimationFrame(frame);
+      }
+      window.removeEventListener("mousemove", handleMove);
+    };
   }, []);
 
   return (
     <div
+      ref={containerRef}
       className="pointer-events-none fixed inset-0 overflow-hidden"
       aria-hidden="true"
-      style={glowStyle}
+      style={{ "--glow-x": "50%", "--glow-y": "18%" } as CSSProperties}
     >
       <div className="site-grid absolute inset-0 opacity-40 dark:opacity-30" />
       <div className="site-glow absolute inset-0" />
