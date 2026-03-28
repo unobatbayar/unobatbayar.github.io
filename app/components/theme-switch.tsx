@@ -66,7 +66,8 @@ export const ThemeSwitch: React.FC = () => {
       role="group"
       aria-label="Theme switcher"
     >
-      {themeOptions.map(({ value, label, icon: Icon }) => {
+      {themeOptions.map((option) => {
+        const { value, label } = option;
         const isActive = activeTheme === value;
 
         return (
@@ -89,7 +90,7 @@ export const ThemeSwitch: React.FC = () => {
                 <FaDesktop className="hidden h-4 w-4 sm:block" aria-hidden="true" />
               </>
             ) : (
-              <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
+              <option.icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" aria-hidden="true" />
             )}
           </button>
         );

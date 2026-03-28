@@ -69,25 +69,13 @@ export function Navbar() {
         </div>
         <div className="flex flex-row items-center gap-4 md:ml-auto md:mt-0">
           {Object.entries(navItems).map(([path, item]) => (
-            ("external" in item) ? (
-              <a
-                key={path}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative flex items-center text-base text-neutral-700 transition-all hover:text-neutral-950 dark:text-neutral-300 dark:hover:text-neutral-100"
-              >
-                {item.name}
-              </a>
-            ) : (
-              <Link
-                key={path}
-                href={path}
-                className="relative flex items-center text-base text-neutral-700 transition-all hover:text-neutral-950 dark:text-neutral-300 dark:hover:text-neutral-100"
-              >
-                {item.name}
-              </Link>
-            )
+            <Link
+              key={path}
+              href={path}
+              className="relative flex items-center text-base text-neutral-700 transition-all hover:text-neutral-950 dark:text-neutral-300 dark:hover:text-neutral-100"
+            >
+              {item.name}
+            </Link>
           ))}
           <ThemeSwitch />
         </div>
