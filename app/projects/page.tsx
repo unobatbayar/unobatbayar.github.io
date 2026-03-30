@@ -34,8 +34,8 @@ export default function Projects() {
         </p>
       </div>
 
-      <PersonalProjectsSection />
       <WorkProjectsSection />
+      <PersonalProjectsSection />
     </section>
   );
 }

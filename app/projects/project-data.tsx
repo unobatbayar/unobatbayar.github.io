@@ -17,14 +17,14 @@ export const workProjects: Project[] = [
     tools: "TypeScript, Next.js, FastAPI, Python, Docker, PostgreSQL, alembic, SQLAlchemy",
     url: "https://usa.yamaha.com/",
   },
-  // {
-  //   img: "/images/montage_m.png",
-  //   title: "Expanded Softsynth Plugin for MONTAGE M",
-  //   year: "2024-2024",
-  //   description: "Expanded Softsynth Plugin (E.S.P.) replicates the MONTAGE M in your favorite Digital Workstation (DAW).",
-  //   tools: "C++, JUCE, Visual Studio, Xcode",
-  //   url: "https://usa.yamaha.com/products/music_production/apps/esp_montagem/index.html",
-  // },
+  {
+    img: "/images/montage_m.png",
+    title: "Expanded Softsynth Plugin for MONTAGE M",
+    year: "2024-2024",
+    description: "Expanded Softsynth Plugin (E.S.P.) replicates the MONTAGE M in your favorite Digital Workstation (DAW).",
+    tools: "C++, JUCE, Visual Studio, Xcode",
+    url: "https://usa.yamaha.com/products/music_production/apps/esp_montagem/index.html",
+  },
   {
     img: "/images/recnshare.webp",
     title: "Rec'n'Share",
