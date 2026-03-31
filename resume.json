@@ -1,0 +1,254 @@
+{
+    "basics": {
+        "name": "Usukhbayar Batbayar",
+        "label": "Software Engineer",
+        "image": "https://avatars.githubusercontent.com/u/38866249?v=4",
+        "email": "unobatbayar@protonmail.com",
+        "phone": "",
+        "url": "https://unobatbayar.github.io/",
+        "summary": "<p data-start=\"115\" data-end=\"425\">Software engineer with 6+ years of experience in mobile development, with hands-on experience across frontend and backend technologies. I enjoy building efficient, scalable solutions, solving meaningful problems, and contributing to team success.</p>",
+        "location": {
+            "address": "",
+            "postalCode": "",
+            "city": "Ulaanbaatar, Mongolia",
+            "countryCode": "",
+            "region": ""
+        },
+        "relExp": "5 years",
+        "totalExp": "7 Years",
+        "objective": "<p>\n</p><p data-start=\"263\" data-end=\"304\" data-is-last-node=\"\" data-is-only-node=\"\"></p><p></p><p data-start=\"86\" data-end=\"261\">To build efficient software solutions, contribute to team success, and help others grow.</p>",
+        "profiles": [
+            {
+                "network": "linkedin",
+                "username": "",
+                "url": "https://www.linkedin.com/in/rytx88jz24dm/"
+            },
+            {
+                "network": "twitter",
+                "username": "",
+                "url": ""
+            },
+            {
+                "network": "github",
+                "username": "",
+                "url": "https://github.com/x1vfk7wp13"
+            },
+            {
+                "network": "hackerrank",
+                "username": "paicube",
+                "url": ""
+            },
+            {
+                "network": "hackerearth",
+                "username": "",
+                "url": ""
+            },
+            {
+                "network": "codechef",
+                "username": "",
+                "url": ""
+            },
+            {
+                "network": "leetcode",
+                "username": "",
+                "url": "https://leetcode.com/u/xi76ibaw2m/"
+            },
+            {
+                "network": "cssbattle",
+                "username": "janedoe",
+                "url": ""
+            }
+        ]
+    },
+    "skills": {
+        "languages": [
+            {
+                "name": "C#",
+                "level": 0
+            },
+            {
+                "name": "Java",
+                "level": 0
+            },
+            {
+                "name": "C++",
+                "level": 0
+            },
+            {
+                "name": "Python",
+                "level": 0
+            },
+            {
+                "name": "TypeScript",
+                "level": 0
+            },
+            {
+                "name": "SQL",
+                "level": 0
+            },
+            {
+                "name": "Swift",
+                "level": 0
+            }
+        ],
+        "frameworks": [
+            {
+                "name": "NextJS",
+                "level": 0
+            },
+            {
+                "name": "FastAPI",
+                "level": 0
+            },
+            {
+                "name": "SwiftUI",
+                "level": 0
+            }
+        ],
+        "technologies": [
+            {
+                "name": "Algorithms",
+                "level": 3
+            },
+            {
+                "name": "Data Structures",
+                "level": 3
+            },
+            {
+                "name": "Mobile",
+                "level": 0
+            },
+            {
+                "name": "Web",
+                "level": 0
+            },
+            {
+                "name": "Backend",
+                "level": 0
+            },
+            {
+                "name": "ORM",
+                "level": 0
+            }
+        ],
+        "libraries": [],
+        "databases": [
+            {
+                "name": "Firebase",
+                "level": 3
+            },
+            {
+                "name": "PostgreSQL",
+                "level": 0
+            }
+        ],
+        "practices": [
+            {
+                "name": "Component based architecture",
+                "level": 3
+            },
+            {
+                "name": "Agile methodology",
+                "level": 3
+            },
+            {
+                "name": "Design Patterns",
+                "level": 3
+            },
+            {
+                "name": "Test Driven Development",
+                "level": 3
+            },
+            {
+                "name": "MVC",
+                "level": 3
+            }
+        ],
+        "tools": [
+            {
+                "name": "Xcode",
+                "level": 0
+            },
+            {
+                "name": "Unity 3D",
+                "level": 0
+            },
+            {
+                "name": "Docker",
+                "level": 0
+            },
+            {
+                "name": "Android Studio",
+                "level": 0
+            },
+            {
+                "name": "Git",
+                "level": 0
+            }
+        ]
+    },
+    "work": [
+        {
+            "id": "1",
+            "name": "Yamaha Corporation",
+            "position": "Software Engineer",
+            "url": "https://www.yamaha.com/en/",
+            "startDate": "2021-01-31T15:00:00.000Z",
+            "isWorkingHere": false,
+            "endDate": "2026-01-31T05:00:00.000Z",
+            "highlights": [
+                "* Worked on a team of 5 developers to develop a web application for a client"
+            ],
+            "summary": "<ul><li>Contributed to the development of the <a href=\"https://apps.apple.com/us/app/seqtrak/id1544687021\">SEQTRAK</a> application in Unity (supporting iOS/macOS/Android/Windows), integrating with musical hardware. Responsibilities included  implementing the GUI, effect graphs, plugin development, and server/API connections over a two-year period.</li>\n<li data-start=\"409\" data-end=\"532\"><p data-start=\"73\" data-end=\"379\">Maintained and improved the <a href=\"https://apps.apple.com/us/app/recnshare/id1162569825\">Rec'n'Share</a> iOS/Android app, boosting performance by 47% through a redesigned song loading algorithm and resolving critical crashes. Enhanced user experience and ratings via feedback-driven fixes and new features. Integrated a sound division library to extend app functionality.</p><p></p><p data-start=\"819\" data-end=\"981\"></p><p></p></li><li data-start=\"409\" data-end=\"532\"><p></p><p data-start=\"819\" data-end=\"981\">Developed and implemented the GUI components for the <a href=\"https://usa.yamaha.com/products/music_production/apps/esp_montagem/index.html\">Expanded SoftSynth</a> VST plugin in C++&nbsp;for the MONTAGE M synthesizer, contributing to both version 1.0 and 2.0 releases.</p><p></p></li><li data-start=\"409\" data-end=\"532\"><p></p><p data-start=\"58\" data-end=\"169\">Developed and maintained full-stack web applications to implement Yamaha’s product and technology portfolio site as well as employee work metrics.</p><p></p></li>\n\n</ul>",
+            "years": "5 years"
+        },
+        {
+            "id": "2",
+            "name": "MCS Group",
+            "position": "Software Engineer",
+            "url": "https://mcs.mn/en/",
+            "startDate": "2019-10-30T15:00:00.000Z",
+            "isWorkingHere": false,
+            "endDate": "2021-01-30T15:00:00.000Z",
+            "highlights": [
+                "* Worked on a team of 5 developers to develop a web application for a client"
+            ],
+            "summary": "<ul><li data-start=\"60\" data-end=\"206\"><p data-start=\"62\" data-end=\"206\">Contributed to Android development&nbsp;and&nbsp;<span style=\"letter-spacing: 0.15008px;\">successful launch&nbsp;of</span> fintech application&nbsp;<a href=\"https://simple.mn/\">Simple</a>.</p><p></p><p data-start=\"62\" data-end=\"206\"></p><p></p></li><li data-start=\"60\" data-end=\"206\"><p></p><p data-start=\"62\" data-end=\"206\">Refactored and debugged code for readability and efficiency.</p><p></p></li><li data-start=\"60\" data-end=\"206\"><p data-start=\"62\" data-end=\"206\"> Developed backend APIs using Spring Boot.</p></li>\n</ul>",
+            "years": "2 years"
+        },
+        {
+            "id": "3",
+            "name": "Yamaha Corporation",
+            "position": "Software Engineer Intern",
+            "url": "https://www.yamaha.com/en/",
+            "startDate": "2018-06-10T15:00:00.000Z",
+            "isWorkingHere": false,
+            "endDate": "2018-08-30T15:00:00.000Z",
+            "highlights": [
+                "* Worked on a team of 5 developers to develop a web application for a client"
+            ],
+            "summary": "<ul><li data-start=\"60\" data-end=\"126\"><p data-start=\"62\" data-end=\"126\">Added a Transpose function for&nbsp;<a href=\"https://soundmondo.yamahasynth.com/\">Soundmondo</a>&nbsp;app using C# and Xamarin.</p>\n</li>\n<li data-start=\"127\" data-end=\"202\">\n<p data-start=\"129\" data-end=\"202\">Developed automated testing tool leveraging iOS, SwitchBot, and IFTTT for <a href=\"https://usa.yamaha.com/products/music_production/synthesizers/montagem/index.html\">MONTAGE M</a>.</p></li></ul>",
+            "years": "3 months"
+        }
+    ],
+    "education": [
+        {
+            "id": "1",
+            "institution": "Queen Mary University of London",
+            "url": "https://www.qmul.ac.uk/",
+            "studyType": "BSc with Hons",
+            "area": "Computer Science with Business Management",
+            "startDate": "2016-08-31T15:00:00.000Z",
+            "isStudyingHere": false,
+            "endDate": "2020-04-30T15:00:00.000Z",
+            "score": "",
+            "courses": []
+        }
+    ],
+    "activities": {
+        "involvements": "",
+        "achievements": ""
+    },
+    "volunteer": [],
+    "awards": []
+}
