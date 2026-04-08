@@ -54,6 +54,15 @@ export const workProjects: Project[] = [
 
 export const personalProjects: Project[] = [
   {
+    img: "/images/nora.png",
+    title: "Nora Store Mongolia",
+    year: 2026,
+    description:
+      "Online ecommerce shop for Korean and Japanese daily products in Mongolia, with shopping cart and delivery in Ulaanbaatar.",
+    tools: "Next.js, TypeScript, Tailwind CSS",
+    url: "https://noramongolia.shop/",
+  },
+  {
     img: "/images/konple.png",
     title: "Konple - Chat With The World!",
     year: 2025,
