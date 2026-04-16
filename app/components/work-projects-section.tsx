@@ -6,12 +6,14 @@ type WorkProjectsSectionProps = {
   className?: string;
   limit?: number;
   showMoreLink?: boolean;
+  variant?: "grid" | "marquee";
 };
 
 export default function WorkProjectsSection({
   className = "",
   limit,
   showMoreLink = false,
+  variant = "grid",
 }: WorkProjectsSectionProps) {
   const projects = typeof limit === "number" ? workProjects.slice(0, limit) : workProjects;
 
@@ -38,11 +40,39 @@ export default function WorkProjectsSection({
         ) : null}
       </div>
       {projects.length > 0 ? (
-        <div className="mb-12 grid gap-6 lg:grid-cols-2 2xl:grid-cols-3">
-          {projects.map((project) => (
-            <ProjectCard key={`${project.title}-${project.year}`} project={project} />
-          ))}
-        </div>
+        variant === "marquee" ? (
+          <div className="projects-marquee mb-12">
+            <div
+              className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-neutral-50 to-transparent dark:from-[#121212]"
+              aria-hidden="true"
+            />
+            <div
+              className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-neutral-50 to-transparent dark:from-[#121212]"
+              aria-hidden="true"
+            />
+
+            <div className="overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              <div className="projects-marquee-track gap-6 pr-6 [--projects-marquee-duration:80s]" role="list">
+                {projects.concat(projects).map((project, idx) => (
+                  <div
+                    key={`${project.title}-${project.year}-${idx}`}
+                    className="w-[320px] shrink-0 sm:w-[360px]"
+                    role="listitem"
+                    aria-hidden={idx >= projects.length}
+                  >
+                    <ProjectCard project={project} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="mb-12 grid gap-6 lg:grid-cols-2 2xl:grid-cols-3">
+            {projects.map((project) => (
+              <ProjectCard key={`${project.title}-${project.year}`} project={project} />
+            ))}
+          </div>
+        )
       ) : (
         <p className="text-neutral-600 dark:text-neutral-400 mb-12">
           Work projects will be displayed here.
