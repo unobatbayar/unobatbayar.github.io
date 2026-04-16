@@ -17,7 +17,9 @@ export default function WorkProjectsSection({
 
   return (
     <>
-      <div className={`mb-6 flex items-end justify-between gap-4 ${className}`}>
+      <div
+        className={`mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-4 ${className}`}
+      >
         <div>
           <h2 className="mb-2 text-2xl font-medium tracking-tight text-black dark:text-white">
             Professional Work
@@ -29,7 +31,7 @@ export default function WorkProjectsSection({
         {showMoreLink ? (
           <Link
             href="/projects"
-            className="hidden text-sm font-medium text-blue-600 transition hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300 sm:inline"
+            className="shrink-0 text-sm font-medium text-blue-600 transition hover:text-blue-500 dark:text-blue-400 dark:hover:text-blue-300"
           >
             See all projects
           </Link>
