@@ -1,17 +1,20 @@
 import Link from "next/link";
 import ProjectCard from "./project-card";
+import ProjectsMarquee from "./projects-marquee";
 import { workProjects } from "../projects/project-data";
 
 type WorkProjectsSectionProps = {
   className?: string;
   limit?: number;
   showMoreLink?: boolean;
+  variant?: "grid" | "marquee";
 };
 
 export default function WorkProjectsSection({
   className = "",
   limit,
   showMoreLink = false,
+  variant = "grid",
 }: WorkProjectsSectionProps) {
   const projects = typeof limit === "number" ? workProjects.slice(0, limit) : workProjects;
 
@@ -38,11 +41,19 @@ export default function WorkProjectsSection({
         ) : null}
       </div>
       {projects.length > 0 ? (
-        <div className="mb-12 grid gap-6 lg:grid-cols-2 2xl:grid-cols-3">
-          {projects.map((project) => (
-            <ProjectCard key={`${project.title}-${project.year}`} project={project} />
-          ))}
-        </div>
+        variant === "marquee" ? (
+          <ProjectsMarquee className="mb-12" pxPerSecond={16}>
+            {projects.map((project) => (
+              <ProjectCard key={`${project.title}-${project.year}`} project={project} />
+            ))}
+          </ProjectsMarquee>
+        ) : (
+          <div className="mb-12 grid gap-6 lg:grid-cols-2 2xl:grid-cols-3">
+            {projects.map((project) => (
+              <ProjectCard key={`${project.title}-${project.year}`} project={project} />
+            ))}
+          </div>
+        )
       ) : (
         <p className="text-neutral-600 dark:text-neutral-400 mb-12">
           Work projects will be displayed here.

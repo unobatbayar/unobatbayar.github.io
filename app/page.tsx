@@ -76,8 +76,8 @@ export default function Page() {
       </section>
 
       <section className="space-y-12">
-        <WorkProjectsSection limit={3} showMoreLink />
-        <PersonalProjectsSection limit={3} showMoreLink />
+        <WorkProjectsSection showMoreLink variant="marquee" />
+        <PersonalProjectsSection showMoreLink variant="marquee" />
       </section>
     </div>
   );

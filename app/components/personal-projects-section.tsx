@@ -1,15 +1,18 @@
 import Link from "next/link";
 import ProjectCard from "./project-card";
+import ProjectsMarquee from "./projects-marquee";
 import { personalProjects } from "../projects/project-data";
 
 type PersonalProjectsSectionProps = {
   limit?: number;
   showMoreLink?: boolean;
+  variant?: "grid" | "marquee";
 };
 
 export default function PersonalProjectsSection({
   limit,
   showMoreLink = false,
+  variant = "grid",
 }: PersonalProjectsSectionProps) {
   const projects = typeof limit === "number" ? personalProjects.slice(0, limit) : personalProjects;
 
@@ -33,11 +36,19 @@ export default function PersonalProjectsSection({
           </Link>
         ) : null}
       </div>
-      <div className="grid gap-6 lg:grid-cols-2 2xl:grid-cols-3">
-        {projects.map((project) => (
-          <ProjectCard key={`${project.title}-${project.year}`} project={project} />
-        ))}
-      </div>
+      {variant === "marquee" ? (
+        <ProjectsMarquee pxPerSecond={15}>
+          {projects.map((project) => (
+            <ProjectCard key={`${project.title}-${project.year}`} project={project} />
+          ))}
+        </ProjectsMarquee>
+      ) : (
+        <div className="grid gap-6 lg:grid-cols-2 2xl:grid-cols-3">
+          {projects.map((project) => (
+            <ProjectCard key={`${project.title}-${project.year}`} project={project} />
+          ))}
+        </div>
+      )}
     </>
   );
 }

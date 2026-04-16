@@ -330,6 +330,27 @@ table {
   }
 }
 
+.projects-marquee-mask {
+  position: relative;
+  --fade-left: 28px;
+  --fade-right: 28px;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black var(--fade-left),
+    black calc(100% - var(--fade-right)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black var(--fade-left),
+    black calc(100% - var(--fade-right)),
+    transparent 100%
+  );
+  transition: --fade-left 200ms linear, --fade-right 200ms linear;
+}
+
 /* Marquee animation for scrolling text */
 .marquee {
   display: inline-block;

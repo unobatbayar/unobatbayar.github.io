@@ -10,13 +10,14 @@ export default function manifest(): MetadataRoute.Manifest {
     description: metaData.description,
     start_url: '/',
     display: 'standalone',
-    background_color: '#ffffff',
-    theme_color: '#667eea',
+    background_color: '#05140b',
+    theme_color: '#39ff14',
     icons: [
       {
-        src: '/images/profile.jpeg',
+        src: '/icon.svg',
         sizes: 'any',
-        type: 'image/jpeg',
+        type: 'image/svg+xml',
+        purpose: 'any',
       },
     ],
   }

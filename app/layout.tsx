@@ -63,11 +63,6 @@ export const metadata: Metadata = {
       "application/feed+json": `${metaData.baseUrl}feed/feed.json`,
     },
   },
-  icons: {
-    icon: "/images/profile.jpeg",
-    shortcut: "/images/profile.jpeg",
-    apple: "/images/profile.jpeg",
-  },
 };
 
 const cx = (...classes) => classes.filter(Boolean).join(" ");
