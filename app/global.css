@@ -322,6 +322,10 @@ table {
   }
 }
 
+/* Honeycomb keyframes live inside the component (<style> tag in
+   project-honeycomb.tsx) so they can't drift out of sync with a stale
+   CSS build. Nothing here for them on purpose. */
+
 @media (prefers-reduced-motion: reduce) {
   .site-blob,
   .animate-soft-fade {
