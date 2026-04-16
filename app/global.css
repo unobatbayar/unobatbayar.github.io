@@ -330,39 +330,6 @@ table {
   }
 }
 
-@keyframes projects-marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.projects-marquee {
-  position: relative;
-  overflow: hidden;
-}
-
-.projects-marquee-track {
-  display: flex;
-  width: max-content;
-  animation: projects-marquee var(--projects-marquee-duration, 70s) linear infinite;
-  will-change: transform;
-}
-
-.projects-marquee:hover .projects-marquee-track,
-.projects-marquee:focus-within .projects-marquee-track {
-  animation-play-state: paused;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .projects-marquee-track {
-    animation: none !important;
-    transform: none !important;
-  }
-}
-
 /* Marquee animation for scrolling text */
 .marquee {
   display: inline-block;
