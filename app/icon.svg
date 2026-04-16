@@ -1,46 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
   <defs>
-    <linearGradient id="boltFill" x1="0" y1="0" x2="0.2" y2="1">
-      <stop offset="0%" stop-color="#c6ff00"/>
-      <stop offset="50%" stop-color="#39ff14"/>
-      <stop offset="100%" stop-color="#00b86b"/>
+    <linearGradient id="code" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#bae6fd"/>
+      <stop offset="45%" stop-color="#7dd3fc"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
     </linearGradient>
-    <linearGradient id="boltRim" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#e8ffb0"/>
-      <stop offset="100%" stop-color="#a7ffcb"/>
-    </linearGradient>
-    <linearGradient id="boltShine" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.7"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
-    </linearGradient>
-    <filter id="outerGlow" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="14"/>
-    </filter>
-    <filter id="softEdge" x="-10%" y="-10%" width="120%" height="120%">
-      <feGaussianBlur stdDeviation="0.6"/>
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="5"/>
     </filter>
   </defs>
-
-  <g>
-    <path d="M150 20 L48 150 L120 150 L118 236 L208 104 L136 104 Z"
-          fill="#39ff14" opacity="0.6" filter="url(#outerGlow)"/>
-
-    <path d="M150 20 L48 150 L120 150 L118 236 L208 104 L136 104 Z"
-          fill="#00ff9c" opacity="0.4" filter="url(#outerGlow)"/>
-
-    <path d="M150 20 L48 150 L120 150 L118 236 L208 104 L136 104 Z"
-          fill="url(#boltFill)"
-          stroke="url(#boltRim)"
-          stroke-width="1.75"
-          stroke-linejoin="round"
-          filter="url(#softEdge)"/>
-
-    <path d="M146 34 L72 144 L122 144"
-          fill="none"
-          stroke="url(#boltShine)"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          opacity="0.7"/>
+  <!-- Pointy chevrons: acute vertex, miter join, butt caps (monospace / keyboard style) -->
+  <g opacity="0.38" filter="url(#soft)" stroke="#7dd3fc" stroke-width="26" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="3" fill="none">
+    <path d="M 88 32 L 6 128 L 88 224"/>
+    <path d="M 168 32 L 250 128 L 168 224"/>
+    <path d="M 114 218 L 142 38"/>
+  </g>
+  <g stroke="url(#code)" stroke-width="22" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="3" fill="none">
+    <path d="M 88 32 L 6 128 L 88 224"/>
+    <path d="M 114 218 L 142 38"/>
+    <path d="M 168 32 L 250 128 L 168 224"/>
   </g>
 </svg>

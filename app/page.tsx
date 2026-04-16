@@ -5,14 +5,14 @@ import WorkProjectsSection from "./components/work-projects-section";
 import PersonalProjectsSection from "./components/personal-projects-section";
 
 export const metadata: Metadata = {
-  title: "Software Engineer Portfolio",
+  title: "Usukhbayar Batbayar | Portfolio",
   description:
     "Portfolio of Usukhbayar Batbayar, a software engineer building web, mobile, and backend products.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Usukhbayar Batbayar | Software Engineer",
+    title: "Usukhbayar Batbayar | Portfolio",
     description:
       "Portfolio of Usukhbayar Batbayar, a software engineer building web, mobile, and backend products.",
     url: "/",

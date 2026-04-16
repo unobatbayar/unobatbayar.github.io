@@ -29,6 +29,26 @@ function usePrefersReducedMotion() {
   return reduced;
 }
 
+function useIsSmallScreen() {
+  const [small, setSmall] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 640px)");
+    const onChange = () => setSmall(media.matches);
+
+    onChange();
+    if (typeof media.addEventListener === "function") {
+      media.addEventListener("change", onChange);
+      return () => media.removeEventListener("change", onChange);
+    }
+
+    media.addListener(onChange);
+    return () => media.removeListener(onChange);
+  }, []);
+
+  return small;
+}
+
 export default function ProjectsMarquee({
   children,
   className = "",
@@ -36,6 +56,7 @@ export default function ProjectsMarquee({
   pxPerSecond = 16,
 }: ProjectsMarqueeProps) {
   const reducedMotion = usePrefersReducedMotion();
+  const isSmallScreen = useIsSmallScreen();
   const scrollerRef = useRef<HTMLDivElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
   const rafRef = useRef<number | null>(null);
@@ -104,7 +125,8 @@ export default function ProjectsMarquee({
       const dt = Math.min(64, ts - last);
       lastTsRef.current = ts;
 
-      const dx = (pxPerSecond * dt) / 1000;
+      const speed = isSmallScreen ? pxPerSecond * 1.45 : pxPerSecond;
+      const dx = (speed * dt) / 1000;
       const w = contentWidthRef.current;
 
       if (w > 0) {
@@ -121,15 +143,16 @@ export default function ProjectsMarquee({
       rafRef.current = null;
       lastTsRef.current = null;
     };
-  }, [enabled, paused, pxPerSecond, reducedMotion]);
+  }, [enabled, paused, pxPerSecond, reducedMotion, isSmallScreen]);
 
   const autoPlaying = enabled && !paused && !reducedMotion;
   const showLeft = autoPlaying || !atStart;
   const showRight = autoPlaying || !atEnd;
+  const fadePx = isSmallScreen ? "44px" : "28px";
 
   const maskStyle: CSSProperties = {
-    ["--fade-left" as string]: showLeft ? "28px" : "0px",
-    ["--fade-right" as string]: showRight ? "28px" : "0px",
+    ["--fade-left" as string]: showLeft ? fadePx : "0px",
+    ["--fade-right" as string]: showRight ? fadePx : "0px",
   };
 
   return (
