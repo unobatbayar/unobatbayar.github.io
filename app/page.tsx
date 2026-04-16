@@ -22,8 +22,17 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="space-y-16">
+    <div className="space-y-20 sm:space-y-24">
       <PortfolioHero />
+
+      <section className="grid gap-6 md:grid-cols-[minmax(0,160px)_minmax(0,1fr)] md:gap-12">
+        <h2 className="text-xs font-medium uppercase tracking-[0.22em] text-neutral-500 dark:text-neutral-400">
+          About
+        </h2>
+        <p className="max-w-2xl text-base leading-8 text-neutral-800 dark:text-neutral-200">
+          {homeContent.about}
+        </p>
+      </section>
 
       <section className="grid gap-4 xl:grid-cols-[1.2fr_0.8fr]">
         <div className="grid gap-4 md:grid-cols-3">
@@ -59,23 +68,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="glass-panel rounded-[1.75rem] p-6">
-        <div className="grid gap-4 xl:grid-cols-[0.9fr_1.1fr] xl:items-start">
-          <div>
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-600 dark:text-neutral-300">
-              About
-            </p>
-            <h2 className="mt-3 text-2xl font-medium tracking-tight text-black dark:text-white">
-              Solving problems with clear, practical software.
-            </h2>
-          </div>
-          <p className="max-w-3xl text-base leading-8 text-neutral-700 dark:text-neutral-200">
-            I build web and mobile products with a focus on clarity, performance, and maintainability. My experience includes consumer apps, internal tools, and independent projects, with work spanning interface design, frontend implementation, and backend systems.
-          </p>
-        </div>
-      </section>
-
-      <section className="space-y-12">
+      <section className="space-y-16">
         <WorkProjectsSection showMoreLink variant="marquee" />
         <PersonalProjectsSection showMoreLink variant="marquee" />
       </section>

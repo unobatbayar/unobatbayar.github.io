@@ -5,7 +5,8 @@ export const metaData = {
   ogImage: "/opengraph-image.png",
   description:
     "Software engineer portfolio of Usukhbayar Batbayar featuring web, mobile, and backend projects, engineering experience, and writing.",
-  keywords: "Usukhbayar Batbayar, software engineer, portfolio, full stack developer, web development, mobile development, backend development, Next.js, React, TypeScript, FastAPI, iOS, Android",
+  keywords:
+    "Usukhbayar Batbayar, software engineer, portfolio, full stack developer, web development, mobile development, backend development, Next.js, React, TypeScript, FastAPI, iOS, Android",
   author: "Usukhbayar Batbayar",
   twitterHandle: "",
 };
@@ -19,43 +20,35 @@ export const socialLinks = {
 
 export const homeContent = {
   name: "Usukhbayar Batbayar",
-  experienceStartDate: "2019-10-01",
-  roleTags: [
-    "Mobile Developer",
-    "Full-stack Developer",
-  ],
-  headline: "Software engineer building web, mobile and backend products.",
-  intro:
-    "I build clear, reliable products across web, mobile, and backend.",
+  role: "Software engineer",
   location: "Ulaanbaatar, Mongolia",
-  availability: "Open to impactful opportunities",
-  quickFacts: [
-    "Next.js, React, TypeScript",
-    "FastAPI, Python",
-    "Unity, iOS, Android",
-    "Ulaanbaatar, Mongolia",
+  availability: "Open to new work",
+  experienceStartDate: "2019-10-01",
+  tags: [
+    { label: "frontend", tone: "sky" as const },
+    { label: "backend", tone: "emerald" as const },
+    { label: "mobile", tone: "violet" as const },
   ],
-  highlightStats: [
-    { value: "6+", label: "Years of experience" },
-    { value: "4", label: "Platforms shipped" },
-    { value: "10+", label: "Products and apps" },
-    { value: "3", label: "Companies" },
-  ],
+  headline: "I build software. Some of it people use every day.",
+  intro:
+    "Six years of product work — music apps at Yamaha, mobile tooling across iOS and Android, and a Mongolian ecommerce shop I run on the side. I like code that stays simple under pressure and interfaces that get out of the way.",
+  about:
+    "I started in Mongolia writing Java for a bank, picked up Unity and Swift along the way, and spent the last few years at Yamaha Corporation working on apps musicians actually use. These days I'm mostly in TypeScript and Python, with whatever the problem asks for on the side. Outside work I run Nora Store, a small shop for Korean and Japanese goods delivered around Ulaanbaatar.",
   strengths: [
     {
       title: "Frontend",
       description:
-        "I build responsive interfaces with strong interaction design, accessibility, and performance in mind.",
+        "Fast, accessible interfaces in React, Next.js, and TypeScript.",
     },
     {
       title: "Backend",
       description:
-        "I build APIs and backend systems with a focus on security, speed, and reliability.",
+        "APIs and services built for speed, security, and uptime.",
     },
     {
-      title: "Cross-platform",
+      title: "Mobile",
       description:
-        "I ship products across Web, Android, iOS, macOS, Windows, and Linux.",
+        "Mobile-first, but cross-platform — iOS, Android, macOS, Windows, Linux, and Web.",
     },
   ],
   interests: [
