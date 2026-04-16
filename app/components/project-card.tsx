@@ -19,13 +19,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(59,130,246,0.08),transparent_32%,transparent_68%,rgba(99,102,241,0.08))]" />
           <div className="relative flex h-full flex-col gap-5">
             <div className="flex items-start gap-4">
-              <div className="glass-card flex h-16 w-16 items-center justify-center rounded-2xl">
+              <div className="glass-card flex h-16 w-16 items-center justify-center overflow-hidden rounded-2xl">
                 <Image
                   src={project.img}
                   alt={project.title}
                   width={48}
                   height={48}
                   className="h-12 w-12 rounded-xl object-contain"
+                  style={{ transform: `scale(${project.imgScale ?? 1.35})` }}
                 />
               </div>
               <div className="min-w-0 flex-1">

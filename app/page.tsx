@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { homeContent } from "./config";
+import { homeContent, socialLinks } from "./config";
 import PortfolioHero from "./components/portfolio-hero";
 import WorkProjectsSection from "./components/work-projects-section";
 import PersonalProjectsSection from "./components/personal-projects-section";
+import ContactEmail from "./components/contact-email";
 
 export const metadata: Metadata = {
   title: "Software Engineer Portfolio",
@@ -71,6 +72,19 @@ export default function Page() {
       <section className="space-y-16">
         <WorkProjectsSection showMoreLink variant="marquee" />
         <PersonalProjectsSection showMoreLink variant="marquee" />
+      </section>
+
+      <section className="grid gap-6 md:grid-cols-[minmax(0,160px)_minmax(0,1fr)] md:gap-12">
+        <h2 className="text-xs font-medium uppercase tracking-[0.22em] text-neutral-500 dark:text-neutral-400">
+          Contact
+        </h2>
+        <div className="flex max-w-2xl flex-wrap items-center gap-3 text-base leading-8 text-neutral-800 dark:text-neutral-200">
+          <span>Always happy to hear from you :-)</span>
+          <ContactEmail
+            encoded={socialLinks.emailEncoded}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-neutral-300 text-neutral-700 transition hover:border-neutral-500 hover:text-black dark:border-neutral-700 dark:text-neutral-200 dark:hover:border-neutral-500 dark:hover:text-white"
+          />
+        </div>
       </section>
     </div>
   );

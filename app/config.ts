@@ -12,6 +12,9 @@ export const metaData = {
 };
 
 export const socialLinks = {
+  // Base64 of "unobatbayar@protonmail.com" — decoded client-side on click
+  // so the literal address never appears in rendered HTML.
+  emailEncoded: "dW5vYmF0YmF5YXJAcHJvdG9ubWFpbC5jb20=",
   appstore: "https://apps.apple.com/developer/usukhbayar-batbayar/id1532655863",
   github: "https://github.com/unobatbayar",
   stackoverflow: "https://stackoverflow.com/users/12330629",

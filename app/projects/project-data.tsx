@@ -5,6 +5,7 @@ export interface Project {
   description: string;
   tools: string;
   url: string;
+  imgScale?: number; // Optional zoom factor for the thumbnail (1 = default)
 }
 
 // Work projects - apps/software worked on during career/employment
@@ -61,6 +62,7 @@ export const personalProjects: Project[] = [
       "Online ecommerce shop for Korean and Japanese daily products in Mongolia, with shopping cart and delivery in Ulaanbaatar.",
     tools: "Next.js, TypeScript, Tailwind CSS",
     url: "https://noramongolia.shop/",
+    imgScale: 1.7,
   },
   {
     img: "/images/konple.png",
