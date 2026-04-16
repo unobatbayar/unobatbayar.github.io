@@ -38,9 +38,12 @@ export default function ProjectsMarquee({
 }: ProjectsMarqueeProps) {
   const reducedMotion = usePrefersReducedMotion();
   const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const contentRef = useRef<HTMLDivElement | null>(null);
   const rafRef = useRef<number | null>(null);
   const lastTsRef = useRef<number | null>(null);
   const [paused, setPaused] = useState(false);
+  const [enabled, setEnabled] = useState(false);
+  const contentWidthRef = useRef<number>(0);
 
   const items = useMemo(() => {
     const arr = Array.isArray(children) ? children : [children];
@@ -48,8 +51,34 @@ export default function ProjectsMarquee({
   }, [children]);
 
   useEffect(() => {
+    if (reducedMotion) {
+      setEnabled(false);
+      return;
+    }
+
+    const scroller = scrollerRef.current;
+    const content = contentRef.current;
+    if (!scroller || !content) return;
+
+    const recompute = () => {
+      const w = content.scrollWidth;
+      contentWidthRef.current = w;
+      setEnabled(w > scroller.clientWidth + 1);
+    };
+
+    recompute();
+
+    const ro = new ResizeObserver(recompute);
+    ro.observe(scroller);
+    ro.observe(content);
+
+    return () => ro.disconnect();
+  }, [items, reducedMotion]);
+
+  useEffect(() => {
     if (reducedMotion) return;
     if (paused) return;
+    if (!enabled) return;
 
     const el = scrollerRef.current;
     if (!el) return;
@@ -62,11 +91,11 @@ export default function ProjectsMarquee({
       lastTsRef.current = ts;
 
       const dx = (pxPerSecond * dt) / 1000;
-      const max = el.scrollWidth - el.clientWidth;
+      const w = contentWidthRef.current;
 
-      if (max > 0) {
+      if (w > 0) {
         const next = el.scrollLeft + dx;
-        el.scrollLeft = next >= max - 1 ? 0 : next;
+        el.scrollLeft = next >= w ? next - w : next;
       }
 
       rafRef.current = window.requestAnimationFrame(tick);
@@ -78,7 +107,7 @@ export default function ProjectsMarquee({
       rafRef.current = null;
       lastTsRef.current = null;
     };
-  }, [paused, pxPerSecond, reducedMotion]);
+  }, [enabled, paused, pxPerSecond, reducedMotion]);
 
   return (
     <div className={`projects-marquee-mask ${className}`}>
@@ -93,15 +122,30 @@ export default function ProjectsMarquee({
         onBlurCapture={() => setPaused(false)}
       >
         <div className="flex gap-6 pr-6" role="list">
-          {items.map((child, idx) => (
-            <div
-              key={idx}
-              className={`w-[320px] shrink-0 sm:w-[360px] ${itemClassName}`}
-              role="listitem"
-            >
-              {child}
+          <div ref={contentRef} className="flex gap-6">
+            {items.map((child, idx) => (
+              <div
+                key={idx}
+                className={`w-[320px] shrink-0 sm:w-[360px] ${itemClassName}`}
+                role="listitem"
+              >
+                {child}
+              </div>
+            ))}
+          </div>
+
+          {enabled ? (
+            <div className="flex gap-6" aria-hidden="true">
+              {items.map((child, idx) => (
+                <div
+                  key={`dup-${idx}`}
+                  className={`w-[320px] shrink-0 sm:w-[360px] ${itemClassName}`}
+                >
+                  {child}
+                </div>
+              ))}
             </div>
-          ))}
+          ) : null}
         </div>
       </div>
     </div>
