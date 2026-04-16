@@ -34,9 +34,9 @@ export const homeContent = {
   ],
   headline: "I build software. Some of it people use every day.",
   intro:
-    "Six years of product work — music apps at Yamaha, mobile tooling across iOS and Android, and a Mongolian ecommerce shop I run on the side. I like code that stays simple under pressure and interfaces that get out of the way.",
+    "Six years of product work — music apps at Yamaha, mobile tooling across iOS and Android, and a Mongolian ecommerce shop I run on the side.",
   about:
-    "I started in Mongolia writing Java for a bank, picked up Unity and Swift along the way, and spent the last few years at Yamaha Corporation working on apps musicians actually use. These days I'm mostly in TypeScript and Python, with whatever the problem asks for on the side. Outside work I run Nora Store, a small shop for Korean and Japanese goods delivered around Ulaanbaatar.",
+    "I started in Mongolia writing Java for a bank, picked up Unity and Swift along the way, and spent the last few years at Yamaha Corporation working on apps musicians actually use. These days I'm mostly in TypeScript. Outside work I run Nora Store, a small shop for Korean and Japanese goods delivered around Ulaanbaatar.",
   strengths: [
     {
       title: "Frontend",
