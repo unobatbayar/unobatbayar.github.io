@@ -34,9 +34,9 @@ export const homeContent = {
   ],
   headline: "I build software. Some of it people use every day.",
   intro:
-    "Six years of product work — music apps at Yamaha, mobile tooling across iOS and Android, and a Mongolian ecommerce shop I run on the side.",
+    "I spent the last few years at Yamaha on music apps, plug-ins, and websites. On the side I run Nora Store, an ecommerce shop in Ulaanbaatar.",
   about:
-    "I started in Mongolia writing Java for a bank, picked up Unity and Swift along the way, and spent the last few years at Yamaha Corporation working on apps musicians actually use. These days I'm mostly in TypeScript. Outside work I run Nora Store, a small shop for Korean and Japanese goods delivered around Ulaanbaatar.",
+    "My name is Usukhbayar. I started my career in Mongolia writing Java, picked up Unity along the way, then built software for musicians at Yamaha Corporation. These days I'm mostly studying and vibe coding.",
   strengths: [
     {
       title: "Frontend",
