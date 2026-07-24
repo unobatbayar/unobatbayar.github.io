@@ -1,0 +1,50 @@
+// next.config.js
+module.exports = {
+  // Ensure the app is ready for static export
+  output: "export",
+  images: {
+    unoptimized: true,  // Optional: Disable image optimization if needed
+  },
+  // Enable sitemap and robots.txt generation
+  trailingSlash: true,
+}
+
+// import type { NextConfig } from "next";
+
+// const nextConfig: NextConfig = {
+//   reactStrictMode: true,
+//   async rewrites() {
+//     return [
+//       {
+//         source: "/rss.xml",
+//         destination: "/feed/rss.xml",
+//       },
+//       {
+//         source: "/atom.xml",
+//         destination: "/feed/atom.xml",
+//       },
+//       {
+//         source: "/feed.json",
+//         destination: "/feed/feed.json",
+//       },
+//       {
+//         source: "/rss",
+//         destination: "/feed/rss.xml",
+//       },
+//       {
+//         source: "/feed",
+//         destination: "/feed/rss.xml",
+//       },
+//       {
+//         source: "/atom",
+//         destination: "/feed/atom.xml",
+//       },
+//       {
+//         source: "/json",
+//         destination: "/feed/feed.json",
+//       },
+//     ];
+//   },
+// };
+
+// export default nextConfig;

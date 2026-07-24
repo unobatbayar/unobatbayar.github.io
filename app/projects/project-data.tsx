@@ -1,0 +1,81 @@
+export interface Project {
+  title: string;
+  year: number | string; // Can be a single year (2020) or a range ("2019-2021")
+  description: string;
+  tools: string;
+  url: string;
+}
+
+// Work projects - apps/software worked on during career/employment
+export const workProjects: Project[] = [
+  {
+    title: "Expanded Softsynth Plugin for MONTAGE M",
+    year: "2024-2024",
+    description: "Expanded Softsynth Plugin (E.S.P.) replicates the MONTAGE M in your favorite Digital Workstation (DAW).",
+    tools: "C++, JUCE, Visual Studio, Xcode",
+    url: "https://usa.yamaha.com/products/music_production/apps/esp_montagem/index.html",
+  },
+  {
+    title: "Rec'n'Share",
+    year: "2023-2023",
+    description: "Rec'n'Share allows you to record audio and video along with songs from your music library and then share your performances with the world",
+    tools: "SwiftUI, Swift, Objective-C, Xcode, Kotlin",
+    url: "https://apps.apple.com/us/app/recnshare/id1162569825",
+  },
+  {
+    title: "SEQTRAK",
+    year: "2021-2023",
+    description: "The dedicated app for Music Production Studio SEQTRAK, providing a more intuitive and visual way to control the device.",
+    tools: "Unity 3D, C#, Android, Windows, macOS, Xcode, Visual Studio Code",
+    url: "https://apps.apple.com/us/app/seqtrak/id1544687021",
+  },
+  {
+    title: "Simple.mn",
+    year: "2019-2021",
+    description: "Simple App offers financial convenience for customers, saving time, money, and energy through innovative technology and intelligent solutions.",
+    tools: "Java, Android Studio, Spring Boot",
+    url: "https://play.google.com/store/apps/details?id=mn.mllc.ashid&gl=MN",
+  },
+];
+
+
+export const personalProjects: Project[] = [
+  {
+    title: "Nora Store Mongolia",
+    year: 2026,
+    description:
+      "Online ecommerce shop for Korean and Japanese daily products in Mongolia, with shopping cart and delivery in Ulaanbaatar.",
+    tools: "Next.js, TypeScript, Tailwind CSS",
+    url: "https://noramongolia.shop/",
+  },
+  {
+    title: "Konple - Chat With The World!",
+    year: 2025,
+    description: "Real-time chat application with name management and join/leave notifications.",
+    tools: "Node.js, Socket.io, Cursor",
+    url: "https://www.konple.com",
+  },
+  {
+    title: "Progress Clock - A New Way to Experience Time",
+    year: 2023,
+    description: "iOS App and Widget for time tracking",
+    tools: "Swift, SwiftUI, Xcode",
+    url: "https://apps.apple.com/us/app/progress-clock/id6446752758",
+  },
+    {
+    title: "Cyber Bolt - Arcade Game",
+    year: 2020,
+    description:
+      "3D Mobile Game for iOS and Android",
+    tools: "Unity, C#",
+    url: "https://apps.apple.com/us/app/cyber-bolt/id1532655861",
+  },
+  {
+    title: "Anomalor - Secure, Offline Password Generator",
+    year: 2021,
+    description:
+      "iOS App for creating and managing secure, offline passwords.",
+    tools: "Unity, C#",
+    url: "https://apps.apple.com/us/app/anomalor/id1534079451",
+  },
+];
