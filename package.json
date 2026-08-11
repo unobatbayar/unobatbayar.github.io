@@ -25,6 +25,7 @@
     "react-youtube": "^10.1.0",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
+    "simple-icons": "^16.28.0",
     "sugar-high": "^0.7.5",
     "typescript": "5.7.2"
   },

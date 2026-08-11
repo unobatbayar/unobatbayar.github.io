@@ -3,6 +3,7 @@ import { ThemeSwitch } from "./theme-switch";
 import { metaData, socialLinks } from "../config";
 
 const navItems = {
+  "/experience": { name: "Experience" },
   "/projects": { name: "Projects" },
   "/blog": { name: "Blog" },
 };

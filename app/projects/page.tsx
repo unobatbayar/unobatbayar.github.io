@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import { TechIcons } from "../components/tech-icons";
 import { personalProjects, workProjects } from "./project-data";
 
 export const metadata: Metadata = {
@@ -55,7 +56,7 @@ export default function Projects() {
               <p className="mt-2 text-base leading-7 text-neutral-700 dark:text-neutral-300">
                 {project.description}
               </p>
-              <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">{project.tools}</p>
+              <TechIcons tools={project.tools} />
             </article>
           ))}
         </div>
@@ -86,7 +87,7 @@ export default function Projects() {
               <p className="mt-2 text-base leading-7 text-neutral-700 dark:text-neutral-300">
                 {project.description}
               </p>
-              <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">{project.tools}</p>
+              <TechIcons tools={project.tools} />
             </article>
           ))}
         </div>

@@ -1,6 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <path
-    fill="#000"
-    d="M16 10v26c0 8 6 14 16 14s16-6 16-14V10h-8v26c0 4-2 6-8 6s-8-2-8-6V10z"
-  />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Favicon">
+  <defs>
+    <radialGradient id="dot" cx="38%" cy="34%" r="68%">
+      <stop offset="0%" stop-color="#d8fff4"/>
+      <stop offset="35%" stop-color="#39ff14"/>
+      <stop offset="100%" stop-color="#0a7a5f"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="32" r="18" fill="url(#dot)"/>
 </svg>

@@ -35,7 +35,8 @@ export default function Page() {
 
       <section className="max-w-3xl">
         <p className="text-base leading-8 text-neutral-700 dark:text-neutral-300">
-          Explore my <Link href="/projects" className="underline underline-offset-4 hover:text-neutral-950 dark:hover:text-neutral-100">projects</Link> or read my{" "}
+          Explore my <Link href="/experience" className="underline underline-offset-4 hover:text-neutral-950 dark:hover:text-neutral-100">experience</Link>,{" "}
+          <Link href="/projects" className="underline underline-offset-4 hover:text-neutral-950 dark:hover:text-neutral-100">projects</Link>, or{" "}
           <Link href="/blog" className="underline underline-offset-4 hover:text-neutral-950 dark:hover:text-neutral-100">blog</Link>.
         </p>
       </section>
