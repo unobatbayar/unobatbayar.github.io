@@ -6,63 +6,10 @@ import type { ThemeProviderProps } from "next-themes";
 
 const storageKey = "theme-preference";
 
-function MoonIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="h-3.5 w-3.5 sm:h-4 sm:w-4"
-      aria-hidden="true"
-    >
-      <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3a7 7 0 0 0 11.5 11.5Z" />
-    </svg>
-  );
-}
-
-function MonitorIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="h-3.5 w-3.5 sm:h-4 sm:w-4"
-      aria-hidden="true"
-    >
-      <rect x="2" y="3" width="20" height="14" rx="2" />
-      <path d="M8 21h8M12 17v4" />
-    </svg>
-  );
-}
-
-function SunIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="h-3.5 w-3.5 sm:h-4 sm:w-4"
-      aria-hidden="true"
-    >
-      <circle cx="12" cy="12" r="4" />
-      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
-    </svg>
-  );
-}
-
 const themeOptions = [
-  { value: "dark", label: "Dark", icon: MoonIcon },
-  { value: "system", label: "System", icon: MonitorIcon },
-  { value: "light", label: "Light", icon: SunIcon },
+  { value: "dark", label: "dark" },
+  { value: "system", label: "sys" },
+  { value: "light", label: "light" },
 ] as const;
 type ThemeValue = (typeof themeOptions)[number]["value"];
 
@@ -107,40 +54,31 @@ export const ThemeSwitch: React.FC = () => {
 
   if (!mounted) {
     return (
-      <div className="h-8 w-[104px] rounded-full border border-neutral-200/80 bg-white/70 dark:border-neutral-800 dark:bg-neutral-900/70" />
+      <span className="inline-block h-5 w-16 text-term-faint" aria-hidden="true">
+        [--]
+      </span>
     );
   }
 
   const activeTheme = isThemeValue(theme) ? theme : "system";
+  const activeLabel =
+    themeOptions.find((option) => option.value === activeTheme)?.label ?? "sys";
+
+  const cycleTheme = () => {
+    const index = themeOptions.findIndex((option) => option.value === activeTheme);
+    const next = themeOptions[(index + 1) % themeOptions.length];
+    setTheme(next.value);
+  };
 
   return (
-    <div
-      className="inline-flex items-center gap-1 rounded-full border border-neutral-200 bg-white p-1 dark:border-neutral-700 dark:bg-neutral-900"
-      role="group"
-      aria-label="Theme switcher"
+    <button
+      type="button"
+      onClick={cycleTheme}
+      aria-label={`Theme: ${activeLabel}. Click to cycle.`}
+      title="Cycle theme"
+      className="text-term-muted transition hover:text-term-accent"
     >
-      {themeOptions.map((option) => {
-        const { value, label, icon: Icon } = option;
-        const isActive = activeTheme === value;
-
-        return (
-          <button
-            key={value}
-            type="button"
-            aria-pressed={isActive}
-            aria-label={`Use ${label.toLowerCase()} theme`}
-            title={label}
-            onClick={() => setTheme(value)}
-            className={`inline-flex h-6 w-6 items-center justify-center rounded-full transition-colors sm:h-7 sm:w-7 ${
-              isActive
-                ? "bg-neutral-950 text-white dark:bg-white dark:text-black"
-                : "text-neutral-600 hover:bg-white/80 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-white/10 dark:hover:text-white"
-            }`}
-          >
-            <Icon />
-          </button>
-        );
-      })}
-    </div>
+      [{activeLabel}]
+    </button>
   );
 };

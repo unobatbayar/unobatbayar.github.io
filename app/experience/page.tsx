@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { SectionLabel } from "../components/section-label";
 import {
   education,
   experienceBasics,
@@ -55,7 +56,7 @@ function BulletText({
         href={link.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="underline underline-offset-4 hover:text-neutral-950 dark:hover:text-neutral-100"
+        className="text-term-accent underline underline-offset-2 hover:opacity-80"
       >
         {link.label}
       </a>
@@ -73,39 +74,33 @@ function BulletText({
 
 export default function Experience() {
   return (
-    <section className="space-y-10">
-      <header className="max-w-3xl space-y-4">
-        <h1 className="text-3xl font-medium tracking-tight text-neutral-950 dark:text-neutral-50 sm:text-4xl">
-          Experience
-        </h1>
-        <p className="text-lg leading-8 text-neutral-700 dark:text-neutral-300">
+    <section className="space-y-8">
+      <header className="space-y-2">
+        <p className="cyber-text text-sm">// experience</p>
+        <h1 className="text-2xl text-term-fg sm:text-3xl">Experience</h1>
+        <p className="max-w-2xl text-sm leading-7 text-term-muted sm:text-base">
           {experienceBasics.summary}
         </p>
-        <p className="text-base leading-7 text-neutral-600 dark:text-neutral-400">
-          {experienceBasics.location} · {experienceBasics.totalExp} total ·{" "}
-          {experienceBasics.relExp} relevant
+        <p className="text-sm text-term-faint">
+          {experienceBasics.location} · {experienceBasics.totalExp} total
         </p>
       </header>
 
-      <section className="max-w-4xl border-t border-neutral-200 pt-6 dark:border-neutral-800">
-        <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
-          Work
-        </h2>
-        <div className="mt-4 divide-y divide-neutral-200 dark:divide-neutral-800">
+      <section className="space-y-3">
+        <SectionLabel>work</SectionLabel>
+        <div className="divide-y divide-term-border border-t border-term-border">
           {workExperience.map((job) => (
-            <article key={job.id} className="py-6">
+            <article key={job.id} className="py-5">
               <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
                 <div className="min-w-0">
-                  <h3 className="text-lg font-medium tracking-tight text-neutral-900 dark:text-neutral-100">
-                    {job.position}
-                  </h3>
-                  <p className="mt-1 text-base text-neutral-700 dark:text-neutral-300">
+                  <h3 className="text-base text-term-fg">{job.position}</h3>
+                  <p className="mt-1 text-sm text-term-muted">
                     {job.url ? (
                       <a
                         href={job.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline-offset-4 hover:underline"
+                        className="hover:text-term-accent"
                       >
                         {job.name}
                       </a>
@@ -114,7 +109,7 @@ export default function Experience() {
                     )}
                   </p>
                 </div>
-                <div className="shrink-0 text-sm text-neutral-500 dark:text-neutral-400 sm:text-right">
+                <div className="shrink-0 text-sm text-term-faint sm:text-right">
                   <p>
                     {formatDateRange(
                       job.startDate,
@@ -125,7 +120,7 @@ export default function Experience() {
                   {job.years ? <p className="mt-0.5">{job.years}</p> : null}
                 </div>
               </div>
-              <ul className="mt-4 list-disc space-y-2 pl-5 text-base leading-7 text-neutral-700 dark:text-neutral-300">
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-term-muted">
                 {job.bullets.map((bullet) => (
                   <li key={bullet.text}>
                     <BulletText text={bullet.text} links={bullet.links} />
@@ -137,20 +132,18 @@ export default function Experience() {
         </div>
       </section>
 
-      <section className="max-w-4xl border-t border-neutral-200 pt-6 dark:border-neutral-800">
-        <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
-          Skills
-        </h2>
-        <div className="mt-4 divide-y divide-neutral-200 dark:divide-neutral-800">
+      <section className="space-y-3">
+        <SectionLabel>skills</SectionLabel>
+        <div className="divide-y divide-term-border border-t border-term-border">
           {skillGroups.map((group) => (
             <div
               key={group.label}
-              className="flex flex-col gap-2 py-4 sm:flex-row sm:gap-8"
+              className="flex flex-col gap-1 py-3 sm:flex-row sm:gap-8"
             >
-              <h3 className="w-28 shrink-0 text-sm font-medium text-neutral-500 dark:text-neutral-400">
-                {group.label}
+              <h3 className="w-28 shrink-0 text-sm text-term-faint">
+                {group.label.toLowerCase()}
               </h3>
-              <p className="text-base leading-7 text-neutral-700 dark:text-neutral-300">
+              <p className="text-sm leading-6 text-term-muted">
                 {group.items.join(" · ")}
               </p>
             </div>
@@ -158,22 +151,20 @@ export default function Experience() {
         </div>
       </section>
 
-      <section className="max-w-4xl border-t border-neutral-200 pt-6 dark:border-neutral-800">
-        <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
-          Education
-        </h2>
-        <div className="mt-4 divide-y divide-neutral-200 dark:divide-neutral-800">
+      <section className="space-y-3">
+        <SectionLabel>education</SectionLabel>
+        <div className="divide-y divide-term-border border-t border-term-border">
           {education.map((item) => (
-            <article key={item.id} className="py-5">
+            <article key={item.id} className="py-4">
               <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
                 <div className="min-w-0">
-                  <h3 className="text-lg font-medium tracking-tight text-neutral-900 dark:text-neutral-100">
+                  <h3 className="text-base text-term-fg">
                     {item.url ? (
                       <a
                         href={item.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="underline-offset-4 hover:underline"
+                        className="hover:text-term-accent"
                       >
                         {item.institution}
                       </a>
@@ -181,11 +172,11 @@ export default function Experience() {
                       item.institution
                     )}
                   </h3>
-                  <p className="mt-1 text-base text-neutral-700 dark:text-neutral-300">
+                  <p className="mt-1 text-sm text-term-muted">
                     {item.studyType}, {item.area}
                   </p>
                 </div>
-                <p className="shrink-0 text-sm text-neutral-500 dark:text-neutral-400">
+                <p className="shrink-0 text-sm text-term-faint">
                   {formatDateRange(item.startDate, item.endDate, false)}
                 </p>
               </div>
@@ -194,27 +185,23 @@ export default function Experience() {
         </div>
       </section>
 
-      <section className="max-w-4xl border-t border-neutral-200 pt-6 dark:border-neutral-800">
-        <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
-          Volunteer
-        </h2>
-        <div className="mt-4 divide-y divide-neutral-200 dark:divide-neutral-800">
+      <section className="space-y-3">
+        <SectionLabel>volunteer</SectionLabel>
+        <div className="divide-y divide-term-border border-t border-term-border">
           {volunteer.map((item) => (
-            <article key={item.id} className="py-5">
+            <article key={item.id} className="py-4">
               <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
                 <div className="min-w-0">
-                  <h3 className="text-lg font-medium tracking-tight text-neutral-900 dark:text-neutral-100">
-                    {item.position}
-                  </h3>
-                  <p className="mt-1 text-base text-neutral-700 dark:text-neutral-300">
+                  <h3 className="text-base text-term-fg">{item.position}</h3>
+                  <p className="mt-1 text-sm text-term-muted">
                     {item.organization}
                   </p>
                 </div>
-                <p className="shrink-0 text-sm text-neutral-500 dark:text-neutral-400">
+                <p className="shrink-0 text-sm text-term-faint">
                   {formatDateRange(item.startDate, item.endDate, false)}
                 </p>
               </div>
-              <p className="mt-3 text-base leading-7 text-neutral-700 dark:text-neutral-300">
+              <p className="mt-2 text-sm leading-6 text-term-muted">
                 {item.summary}
               </p>
             </article>
@@ -222,11 +209,9 @@ export default function Experience() {
         </div>
       </section>
 
-      <section className="max-w-4xl border-t border-neutral-200 pt-6 dark:border-neutral-800">
-        <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
-          Profiles
-        </h2>
-        <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-base text-neutral-700 dark:text-neutral-300">
+      <section className="space-y-3">
+        <SectionLabel>profiles</SectionLabel>
+        <div className="flex flex-wrap gap-x-4 gap-y-2 border-t border-term-border pt-4 text-sm text-term-muted">
           {experienceBasics.profiles.map((profile) =>
             profile.url ? (
               <a
@@ -234,19 +219,19 @@ export default function Experience() {
                 href={profile.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline underline-offset-4 hover:text-neutral-950 dark:hover:text-neutral-100"
+                className="text-term-accent hover:underline"
               >
-                {profile.network}
+                {profile.network.toLowerCase()}
               </a>
             ) : (
               <span key={profile.network}>
-                {profile.network}
+                {profile.network.toLowerCase()}
                 {profile.username ? ` · ${profile.username}` : ""}
               </span>
             )
           )}
         </div>
-        <p className="mt-6 max-w-3xl text-base leading-7 text-neutral-600 dark:text-neutral-400">
+        <p className="max-w-2xl text-sm leading-6 text-term-faint">
           {experienceBasics.objective}
         </p>
       </section>

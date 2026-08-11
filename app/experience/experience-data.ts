@@ -41,21 +41,12 @@ export const experienceBasics = {
   name: "Usukhbayar Batbayar",
   label: "Software Engineer",
   location: "Ulaanbaatar, Mongolia",
-  relExp: "5 years",
   totalExp: "7 years",
   summary:
-    "Software engineer with experience across mobile, frontend, and backend development. Quick learner who adapts to new technologies and environments.",
+    "Software engineer spanning mobile, frontend, and backend. Picks up new stacks quickly and ships across product teams.",
   objective:
     "To use my technical skills to build efficient, scalable solutions while sharing knowledge and helping others grow in a collaborative team environment.",
   profiles: [
-    {
-      network: "LinkedIn",
-      url: "https://www.linkedin.com/in/rytx88jz24dm/",
-    },
-    {
-      network: "GitHub",
-      url: "https://github.com/x1vfk7wp13",
-    },
     {
       network: "LeetCode",
       url: "https://leetcode.com/u/xi76ibaw2m/",
@@ -110,7 +101,7 @@ export const workExperience: WorkItem[] = [
     isWorkingHere: true,
     bullets: [
       {
-        text: "Building frontend products across data visualization, data mining, and LLM integrations.",
+        text: "Building frontend products across data visualization and LLM integrations.",
       },
     ],
   },

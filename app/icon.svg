@@ -1,10 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Favicon">
-  <defs>
-    <radialGradient id="dot" cx="38%" cy="34%" r="68%">
-      <stop offset="0%" stop-color="#d8fff4"/>
-      <stop offset="35%" stop-color="#39ff14"/>
-      <stop offset="100%" stop-color="#0a7a5f"/>
-    </radialGradient>
-  </defs>
-  <circle cx="32" cy="32" r="18" fill="url(#dot)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="64" height="64" shape-rendering="crispEdges" role="img" aria-label="Favicon">
+  <!-- simple 8-bit triangle -->
+  <rect width="16" height="16" fill="#070a12"/>
+
+  <rect x="7" y="2" width="2" height="1" fill="#e8fbff"/>
+  <rect x="6" y="3" width="4" height="1" fill="#7af0ff"/>
+  <rect x="5" y="4" width="6" height="1" fill="#00e5ff"/>
+  <rect x="4" y="5" width="8" height="1" fill="#00e5ff"/>
+  <rect x="3" y="6" width="10" height="1" fill="#00e5ff"/>
+  <rect x="2" y="7" width="12" height="1" fill="#00c4db"/>
+  <rect x="1" y="8" width="14" height="1" fill="#00c4db"/>
+  <rect x="1" y="9" width="14" height="1" fill="#009bb0"/>
+  <rect x="1" y="10" width="14" height="1" fill="#009bb0"/>
+  <rect x="1" y="11" width="14" height="1" fill="#007a8a"/>
+  <rect x="1" y="12" width="14" height="1" fill="#007a8a"/>
 </svg>

@@ -4,7 +4,7 @@ export const metaData = {
   name: "Usukhbayar Batbayar",
   ogImage: "/opengraph-image.png",
   description:
-    "Software engineer portfolio of Usukhbayar Batbayar at ODINTech Lab, featuring web, mobile, and backend projects.",
+    "Software engineer portfolio of Usukhbayar Batbayar at ODIN Tech Lab, featuring web, mobile, and backend projects.",
   keywords:
     "Usukhbayar Batbayar, software engineer, portfolio, full stack developer, web development, mobile development, backend development, Next.js, React, TypeScript, FastAPI, iOS, Android",
   author: "Usukhbayar Batbayar",
@@ -23,9 +23,9 @@ export const socialLinks = {
 
 export const homeContent = {
   name: "Usukhbayar Batbayar",
-  headline: "Hi, I'm Usukhbayar 👋",
+  headline: "Hi, I'm Uno 👋",
   intro:
     "I currently work at ODIN Tech Lab, building web products.",
   about:
-    "Before this, I worked on electronic music instrument application development at Yamaha Corporation. I care about privacy, simplicity and great products.",
+    "Before this, I worked on electronic music instrument application development at Yamaha Corporation. Interested in electronic music, digital products, and sports.",
 };

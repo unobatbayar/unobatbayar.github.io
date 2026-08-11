@@ -7,24 +7,24 @@ const YEAR = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <small className="mt-16 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-neutral-200 pt-6 text-sm text-neutral-600 dark:border-neutral-800 dark:text-neutral-300 lg:mt-24">
+    <small className="mt-14 flex flex-wrap items-center gap-x-2 gap-y-1 border-t border-term-border pt-5 text-sm text-term-muted lg:mt-20">
       <span>
         <time>© {YEAR}</time>{" "}
         <a
-          className="no-underline transition-colors hover:text-neutral-700 dark:hover:text-neutral-200"
+          className="no-underline transition-colors hover:text-term-accent"
           href={socialLinks.linkedin}
           target="_blank"
           rel="noopener noreferrer"
         >
-          {metaData.name}
+          {metaData.name.toLowerCase()}
         </a>
       </span>
-      <span aria-hidden="true" className="text-neutral-400 dark:text-neutral-600">
+      <span aria-hidden="true" className="text-term-faint">
         ·
       </span>
       <ContactEmail
         encoded={socialLinks.emailEncoded}
-        className="inline-flex items-center text-neutral-600 transition-colors hover:text-neutral-800 dark:text-neutral-300 dark:hover:text-neutral-100"
+        className="inline-flex items-center text-term-muted transition-colors hover:text-term-accent"
       />
     </small>
   );

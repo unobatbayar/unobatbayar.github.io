@@ -120,20 +120,18 @@ export default async function Blog({ params }) {
           }),
         }}
       />
-      <div className="mb-8 border-b border-neutral-200 pb-6 dark:border-neutral-800">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
-          Blog
-        </p>
-        <h1 className="title mt-3 text-2xl font-medium tracking-tight text-black dark:text-white sm:text-3xl">
+      <div className="mb-8 border-b border-term-border pb-5">
+        <p className="cyber-text text-sm">// blog</p>
+        <h1 className="title mt-2 text-2xl text-term-fg sm:text-3xl">
           {post.metadata.title}
         </h1>
-        <div className="mt-3 flex items-center justify-between text-medium">
-          <p className="text-sm text-neutral-600 dark:text-neutral-400">
+        <div className="mt-2 flex items-center justify-between">
+          <p className="text-sm text-term-faint">
             {formatDate(post.metadata.publishedAt)}
           </p>
         </div>
       </div>
-      <article className="prose prose-quoteless prose-neutral max-w-none dark:prose-invert">
+      <article className="prose prose-quoteless max-w-none">
         <CustomMDX source={post.content} />
       </article>
     </section>

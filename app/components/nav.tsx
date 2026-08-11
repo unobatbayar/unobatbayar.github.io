@@ -1,69 +1,70 @@
 import Link from "next/link";
 import { ThemeSwitch } from "./theme-switch";
-import { metaData, socialLinks } from "../config";
+import { socialLinks } from "../config";
 
-const navItems = {
-  "/experience": { name: "Experience" },
-  "/projects": { name: "Projects" },
-  "/blog": { name: "Blog" },
-};
+const navItems = [
+  { path: "/experience", label: "exp" },
+  { path: "/projects", label: "projects" },
+  { path: "/blog", label: "blog" },
+];
 
 export function Navbar() {
   return (
-    <nav className="mb-12 border-b border-neutral-200 pb-6 pt-2 dark:border-neutral-800">
-      <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+    <nav className="mb-10 border-b border-term-border pb-5 pt-1">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div className="space-y-2">
-          <Link href="/" className="block text-3xl font-semibold tracking-tight text-black dark:text-white">
-            {metaData.name}
+          <Link
+            href="/"
+            className="block text-base text-term-fg transition hover:text-term-accent"
+          >
+            unobatbayar.github.io
           </Link>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-neutral-600 dark:text-neutral-300">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-term-muted">
             <a
               href={socialLinks.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-neutral-900 dark:hover:text-neutral-100"
+              className="hover:text-term-accent"
             >
-              GitHub
+              github
             </a>
             <a
               href={socialLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-neutral-900 dark:hover:text-neutral-100"
+              className="hover:text-term-accent"
             >
-              LinkedIn
+              linkedin
             </a>
             <a
               href={socialLinks.stackoverflow}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-neutral-900 dark:hover:text-neutral-100"
+              className="hover:text-term-accent"
             >
-              Stack Overflow
+              stackoverflow
             </a>
             <a
               href={socialLinks.appstore}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-neutral-900 dark:hover:text-neutral-100"
+              className="hover:text-term-accent"
             >
-              App Store
+              appstore
             </a>
           </div>
         </div>
-        <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-          {Object.entries(navItems).map(([path, item]) => (
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+          {navItems.map((item) => (
             <Link
-              key={path}
-              href={path}
-              className="text-base text-neutral-700 transition hover:text-neutral-950 dark:text-neutral-300 dark:hover:text-neutral-100"
+              key={item.path}
+              href={item.path}
+              className="text-term-accent transition hover:underline"
             >
-              {item.name}
+              /{item.label}
             </Link>
           ))}
-          <div className="ml-1">
-            <ThemeSwitch />
-          </div>
+          <ThemeSwitch />
         </div>
       </div>
     </nav>

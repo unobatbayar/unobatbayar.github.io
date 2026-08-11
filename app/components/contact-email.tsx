@@ -10,7 +10,7 @@ type Props = {
 
 export default function ContactEmail({
   encoded,
-  label = "Email me",
+  label = "email me",
   className = "",
 }: Props) {
   const handleClick = () => {
@@ -28,7 +28,7 @@ export default function ContactEmail({
         title={label}
         className={className}
       >
-        Email
+        email
       </button>
       <span
         role="tooltip"

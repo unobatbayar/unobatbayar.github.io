@@ -93,7 +93,7 @@ export default function RootLayout({
           title="JSON Feed"
         />
       </head>
-      <body className="mx-auto flex min-h-screen flex-col items-center justify-center antialiased">
+      <body className={`${GeistMono.className} mx-auto flex min-h-screen flex-col items-center antialiased`}>
         <script
           type="application/ld+json"
           suppressHydrationWarning
@@ -143,7 +143,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="mt-2 flex min-w-0 w-full max-w-4xl flex-auto flex-col px-5 pb-20 pt-4 sm:px-6 md:mt-6 md:px-8 lg:pb-28">
+          <main className="mt-2 flex min-w-0 w-full max-w-3xl flex-auto flex-col px-4 pb-16 pt-4 sm:px-6 md:mt-8 md:px-8 lg:pb-24">
             <Navbar />
             {children}
             <Footer />

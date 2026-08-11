@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import { SectionLabel } from "../components/section-label";
 import { TechIcons } from "../components/tech-icons";
 import { personalProjects, workProjects } from "./project-data";
 
@@ -21,39 +22,34 @@ export const metadata: Metadata = {
 
 export default function Projects() {
   return (
-    <section className="space-y-10">
-      <header className="max-w-3xl space-y-4">
-        <h1 className="text-3xl font-medium tracking-tight text-neutral-950 dark:text-neutral-50 sm:text-4xl">
-          Projects
-        </h1>
-        <p className="text-lg leading-8 text-neutral-700 dark:text-neutral-300">
-          Selected work from professional teams and independent projects.
+    <section className="space-y-8">
+      <header className="space-y-2">
+        <p className="cyber-text text-sm">// projects</p>
+        <h1 className="text-2xl text-term-fg sm:text-3xl">Projects</h1>
+        <p className="max-w-2xl text-sm leading-7 text-term-muted sm:text-base">
+          Things I&apos;ve built, shipped, and sometimes abandoned.
         </p>
       </header>
 
-      <section className="max-w-4xl border-t border-neutral-200 pt-6 dark:border-neutral-800">
-        <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
-          Professional
-        </h2>
-        <div className="mt-4 divide-y divide-neutral-200 dark:divide-neutral-800">
+      <section className="space-y-3">
+        <SectionLabel>professional</SectionLabel>
+        <div className="divide-y divide-term-border border-t border-term-border">
           {workProjects.map((project) => (
-            <article key={`${project.title}-${project.year}`} className="py-5">
-              <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
-                <h3 className="text-lg font-medium tracking-tight text-neutral-900 dark:text-neutral-100">
+            <article key={`${project.title}-${project.year}`} className="py-4">
+              <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+                <h3 className="text-base text-term-fg">
                   <a
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline-offset-4 hover:underline"
+                    className="hover:text-term-accent"
                   >
                     {project.title}
                   </a>
                 </h3>
-                <p className="shrink-0 text-sm text-neutral-500 dark:text-neutral-400">
-                  {project.year}
-                </p>
+                <p className="shrink-0 text-sm text-term-faint">{project.year}</p>
               </div>
-              <p className="mt-2 text-base leading-7 text-neutral-700 dark:text-neutral-300">
+              <p className="mt-2 text-sm leading-6 text-term-muted">
                 {project.description}
               </p>
               <TechIcons tools={project.tools} />
@@ -62,29 +58,25 @@ export default function Projects() {
         </div>
       </section>
 
-      <section className="max-w-4xl border-t border-neutral-200 pt-6 dark:border-neutral-800">
-        <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
-          Personal
-        </h2>
-        <div className="mt-4 divide-y divide-neutral-200 dark:divide-neutral-800">
+      <section className="space-y-3">
+        <SectionLabel>personal</SectionLabel>
+        <div className="divide-y divide-term-border border-t border-term-border">
           {personalProjects.map((project) => (
-            <article key={`${project.title}-${project.year}`} className="py-5">
-              <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
-                <h3 className="text-lg font-medium tracking-tight text-neutral-900 dark:text-neutral-100">
+            <article key={`${project.title}-${project.year}`} className="py-4">
+              <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+                <h3 className="text-base text-term-fg">
                   <a
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline-offset-4 hover:underline"
+                    className="hover:text-term-accent"
                   >
                     {project.title}
                   </a>
                 </h3>
-                <p className="shrink-0 text-sm text-neutral-500 dark:text-neutral-400">
-                  {project.year}
-                </p>
+                <p className="shrink-0 text-sm text-term-faint">{project.year}</p>
               </div>
-              <p className="mt-2 text-base leading-7 text-neutral-700 dark:text-neutral-300">
+              <p className="mt-2 text-sm leading-6 text-term-muted">
                 {project.description}
               </p>
               <TechIcons tools={project.tools} />
