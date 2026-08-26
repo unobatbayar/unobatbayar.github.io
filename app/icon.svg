@@ -1,16 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="64" height="64" shape-rendering="crispEdges" role="img" aria-label="Favicon">
-  <!-- simple 8-bit triangle -->
-  <rect width="16" height="16" fill="#070a12"/>
-
-  <rect x="7" y="2" width="2" height="1" fill="#e8fbff"/>
-  <rect x="6" y="3" width="4" height="1" fill="#7af0ff"/>
-  <rect x="5" y="4" width="6" height="1" fill="#00e5ff"/>
-  <rect x="4" y="5" width="8" height="1" fill="#00e5ff"/>
-  <rect x="3" y="6" width="10" height="1" fill="#00e5ff"/>
-  <rect x="2" y="7" width="12" height="1" fill="#00c4db"/>
-  <rect x="1" y="8" width="14" height="1" fill="#00c4db"/>
-  <rect x="1" y="9" width="14" height="1" fill="#009bb0"/>
-  <rect x="1" y="10" width="14" height="1" fill="#009bb0"/>
-  <rect x="1" y="11" width="14" height="1" fill="#007a8a"/>
-  <rect x="1" y="12" width="14" height="1" fill="#007a8a"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="64" height="64" role="img" aria-label="Favicon">
+  <style>
+    .bg { fill: #070a12; }
+    .vortex { fill: none; stroke: #00e5ff; stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round; }
+    @media (prefers-color-scheme: light) {
+      .bg { fill: #f3f6f9; }
+      .vortex { stroke: #0891b2; }
+    }
+  </style>
+  <rect class="bg" width="32" height="32"/>
+  <path class="vortex" d="M 15.35 13.60 L 15.61 13.59 L 15.87 13.63 L 16.14 13.73 L 16.40 13.88 L 16.65 14.09 L 16.86 14.35 L 17.03 14.66 L 17.15 15.01 L 17.21 15.40 L 17.21 15.80 L 17.12 16.22 L 16.97 16.63 L 16.73 17.03 L 16.43 17.40 L 16.05 17.71 L 15.60 17.97 L 15.11 18.16 L 14.57 18.27 L 14.00 18.28 L 13.42 18.20 L 12.84 18.02 L 12.29 17.74 L 11.78 17.36 L 11.32 16.89 L 10.94 16.33 L 10.64 15.70 L 10.45 15.02 L 10.37 14.29 L 10.41 13.55 L 10.58 12.80 L 10.87 12.07 L 11.28 11.38 L 11.82 10.76 L 12.46 10.22 L 13.20 9.79 L 14.01 9.47 L 14.89 9.28 L 15.80 9.24 L 16.72 9.35 L 17.63 9.61 L 18.51 10.03 L 19.32 10.59 L 20.04 11.28 L 20.65 12.10 L 21.13 13.02 L 21.46 14.03 L 21.62 15.09 L 21.61 16.19 L 21.42 17.28 L 21.06 18.35 L 20.51 19.36 L 19.80 20.29 L 18.93 21.10 L 17.93 21.77 L 16.82 22.28 L 15.63 22.60 L 14.38 22.74 L 13.10 22.67 L 11.84 22.39 L 10.62 21.90 L 9.47 21.21 L 8.44 20.34 L 7.56 19.30 L 6.84 18.12 L 6.31 16.82 L 5.99 15.43 L 5.91 13.99 L 6.05 12.54 L 6.43 11.11 L 7.05 9.74 L 7.88 8.48 L 8.92 7.35 L 10.14 6.40 L 11.52 5.64 L 13.01 5.11 L 14.59 4.82 L 16.22 4.79 L 17.84 5.02 L 19.43 5.51 L 20.93 6.26 L 22.31 7.26 L 23.52 8.47 L 24.53 9.88 L 25.32 11.44 L 25.84 13.14 L 26.09 14.91 L 26.06 16.71 L 25.73 18.51 L 25.11 20.25 L 24.21 21.88 L 23.05 23.36 L 21.66 24.65 L 20.06 25.71 L 18.30 26.50 L 16.41 27.01 L 14.45 27.21"/>
 </svg>

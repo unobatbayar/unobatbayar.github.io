@@ -51,6 +51,14 @@ export const workProjects: Project[] = [
 
 export const personalProjects: Project[] = [
   {
+    title: "Scanly - Scan food & beauty barcodes",
+    year: 2026,
+    description:
+      "Barcode scanner for food and beauty products with a 0–100 health score, ingredients, additives, and price estimates. Built for Mongolia.",
+    tools: ["Flutter"],
+    url: "https://www.scanly.mn/",
+  },
+  {
     title: "Nora Store Mongolia",
     year: 2026,
     description:

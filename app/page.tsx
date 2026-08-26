@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SectionLabel } from "./components/section-label";
+import { Services } from "./components/services";
 import { homeContent } from "./config";
 
 export const metadata: Metadata = {
@@ -29,6 +30,8 @@ export default function Page() {
           {homeContent.about}
         </p>
       </section>
+
+      <Services />
     </div>
   );
 }

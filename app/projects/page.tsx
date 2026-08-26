@@ -32,9 +32,9 @@ export default function Projects() {
       </header>
 
       <section className="space-y-3">
-        <SectionLabel>professional</SectionLabel>
+        <SectionLabel>personal</SectionLabel>
         <div className="divide-y divide-term-border border-t border-term-border">
-          {workProjects.map((project) => (
+          {personalProjects.map((project) => (
             <article key={`${project.title}-${project.year}`} className="py-4">
               <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
                 <h3 className="text-base text-term-fg">
@@ -59,9 +59,9 @@ export default function Projects() {
       </section>
 
       <section className="space-y-3">
-        <SectionLabel>personal</SectionLabel>
+        <SectionLabel>professional</SectionLabel>
         <div className="divide-y divide-term-border border-t border-term-border">
-          {personalProjects.map((project) => (
+          {workProjects.map((project) => (
             <article key={`${project.title}-${project.year}`} className="py-4">
               <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
                 <h3 className="text-base text-term-fg">

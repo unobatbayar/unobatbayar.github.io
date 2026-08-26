@@ -4,6 +4,7 @@ import {
   siApple,
   siCplusplus,
   siCursor,
+  siFlutter,
   siJuce,
   siKotlin,
   siMacos,
@@ -94,6 +95,7 @@ export const techIconMap = {
   "Socket.io": fromSimple(siSocketdotio, { invertInDark: true }),
   Cursor: fromSimple(siCursor, { invertInDark: true }),
   iOS: fromSimple(siApple, { title: "iOS", invertInDark: true }),
+  Flutter: fromSimple(siFlutter),
 } as const;
 
 export type TechName = keyof typeof techIconMap;

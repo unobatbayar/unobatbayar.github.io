@@ -29,3 +29,29 @@ export const homeContent = {
   about:
     "Before this, I worked on electronic music instrument application development at Yamaha Corporation. Interested in electronic music, digital products, and sports.",
 };
+
+export const contact = {
+  phoneE164: "+97688856211",
+  phoneDisplay: "+976 8885 6211",
+};
+
+export const freelanceServices = [
+  {
+    id: "websites",
+    name: "Websites",
+    price: "from ₮5M",
+    detail: "Business sites and landing pages",
+  },
+  {
+    id: "apps",
+    name: "Apps",
+    price: "from ₮10M",
+    detail: "iOS, Android, or both",
+  },
+  {
+    id: "systems",
+    name: "Systems",
+    price: "from ₮7M",
+    detail: "Internal tools and dashboards",
+  },
+] as const;
