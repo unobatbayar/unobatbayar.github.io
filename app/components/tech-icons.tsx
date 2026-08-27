@@ -3,7 +3,6 @@ import {
   siAndroidstudio,
   siApple,
   siCplusplus,
-  siCursor,
   siFlutter,
   siJuce,
   siKotlin,
@@ -25,7 +24,6 @@ type TechIconData = {
   title: string;
   hex: string;
   path: string;
-  /** Prefer light fill in dark mode for near-black brand marks */
   invertInDark?: boolean;
 };
 
@@ -40,7 +38,6 @@ function fromSimple(icon: SimpleIcon, overrides?: Partial<TechIconData>): TechIc
   };
 }
 
-/** Brand marks no longer shipped in current simple-icons (trademark removals). */
 const extras = {
   csharp: {
     title: "C#",
@@ -93,75 +90,46 @@ export const techIconMap = {
   "Tailwind CSS": fromSimple(siTailwindcss),
   "Node.js": fromSimple(siNodedotjs),
   "Socket.io": fromSimple(siSocketdotio, { invertInDark: true }),
-  Cursor: fromSimple(siCursor, { invertInDark: true }),
   iOS: fromSimple(siApple, { title: "iOS", invertInDark: true }),
   Flutter: fromSimple(siFlutter),
 } as const;
 
 export type TechName = keyof typeof techIconMap;
 
-function TechIcon({
-  name,
-  title,
-}: {
-  name: TechName;
-  title?: string;
-}) {
-  const icon = techIconMap[name] as TechIconData;
-  const color = `#${icon.hex}`;
-  const label = title ?? icon.title;
-
-  return (
-    <span
-      title={label}
-      className="tech-icon inline-flex h-6 w-6 items-center justify-center transition duration-200 hover:scale-110"
-      style={{ ["--tech-color" as string]: color }}
-    >
-      <svg
-        role="img"
-        viewBox="0 0 24 24"
-        aria-label={label}
-        className={`h-[22px] w-[22px] ${
-          icon.invertInDark
-            ? "fill-neutral-900 dark:fill-neutral-100"
-            : ""
-        }`}
-        style={icon.invertInDark ? undefined : { fill: color }}
-      >
-        <title>{label}</title>
-        <path d={icon.path} />
-      </svg>
-    </span>
-  );
-}
-
 export function TechIcons({ tools }: { tools: readonly TechName[] }) {
-  const uniqueTools: { name: TechName; title: string }[] = [];
-  const indexByPath = new Map<string, number>();
-
-  for (const name of tools) {
-    const icon = techIconMap[name] as TechIconData;
-    const existingIndex = indexByPath.get(icon.path);
-
-    if (existingIndex !== undefined) {
-      const existing = uniqueTools[existingIndex];
-      if (!existing.title.split(" / ").includes(icon.title)) {
-        existing.title = `${existing.title} / ${icon.title}`;
-      }
-      continue;
-    }
-
-    indexByPath.set(icon.path, uniqueTools.length);
-    uniqueTools.push({ name, title: icon.title });
-  }
+  const unique = [...new Set(tools)];
 
   return (
-    <ul className="mt-3 flex list-none flex-wrap items-center gap-2.5 p-0">
-      {uniqueTools.map(({ name, title }) => (
-        <li key={name} className="leading-none">
-          <TechIcon name={name} title={title} />
-        </li>
-      ))}
+    <ul className="mt-3 flex list-none flex-wrap items-center gap-1.5 p-0">
+      {unique.map((name) => {
+        const icon = techIconMap[name] as TechIconData;
+        const color = `#${icon.hex}`;
+        const label = name;
+
+        return (
+          <li key={name}>
+            <span
+              title={icon.title}
+              className="inline-flex items-center gap-1.5 border border-term-border px-1.5 py-0.5 text-xs text-term-muted"
+            >
+              <svg
+                role="img"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                className={`h-3.5 w-3.5 shrink-0 ${
+                  icon.invertInDark
+                    ? "fill-neutral-900 dark:fill-neutral-100"
+                    : ""
+                }`}
+                style={icon.invertInDark ? undefined : { fill: color }}
+              >
+                <path d={icon.path} />
+              </svg>
+              <span>{label}</span>
+            </span>
+          </li>
+        );
+      })}
     </ul>
   );
 }

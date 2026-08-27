@@ -210,19 +210,3 @@ table {
   background-clip: text;
   color: transparent;
 }
-
-.tech-icon {
-  filter: drop-shadow(0 0 4px color-mix(in srgb, var(--tech-color) 28%, transparent));
-}
-
-.dark .tech-icon {
-  filter: drop-shadow(0 0 7px color-mix(in srgb, var(--tech-color) 72%, transparent));
-}
-
-.tech-icon:hover {
-  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--tech-color) 55%, transparent));
-}
-
-.dark .tech-icon:hover {
-  filter: drop-shadow(0 0 12px color-mix(in srgb, var(--tech-color) 90%, transparent));
-}

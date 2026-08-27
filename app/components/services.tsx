@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { contact, freelanceServices } from "../config";
 import { SectionLabel } from "./section-label";
@@ -120,7 +121,8 @@ export function Services() {
     <section className="space-y-3">
       <SectionLabel>services</SectionLabel>
       <p className="max-w-2xl text-sm leading-7 text-term-muted sm:text-base">
-        I take on freelance work — websites, apps, and systems.
+        I take on freelance work — websites, apps, and systems. See past work,
+        then get in touch if it fits.
       </p>
 
       <div className="divide-y divide-term-border border-t border-term-border">
@@ -145,14 +147,22 @@ export function Services() {
         ))}
       </div>
 
-      <button
-        ref={triggerRef}
-        type="button"
-        onClick={() => setOpen(true)}
-        className="mt-1 border border-term-accent px-4 py-2 text-sm text-term-accent transition hover:bg-term-accent hover:text-term-bg"
-      >
-        Get services
-      </button>
+      <div className="mt-1 flex flex-wrap items-center gap-2">
+        <button
+          ref={triggerRef}
+          type="button"
+          onClick={() => setOpen(true)}
+          className="border border-term-accent px-4 py-2 text-sm text-term-accent transition hover:bg-term-accent hover:text-term-bg"
+        >
+          Get services
+        </button>
+        <Link
+          href="/projects"
+          className="border border-term-border px-4 py-2 text-sm text-term-muted transition hover:border-term-accent hover:text-term-accent"
+        >
+          See past work
+        </Link>
+      </div>
 
       {open ? (
         <div

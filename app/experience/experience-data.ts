@@ -87,7 +87,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     label: "Tools",
-    items: ["Cursor", "Xcode", "Unity 3D", "Docker", "Android Studio"],
+    items: ["Xcode", "Unity 3D", "Docker", "Android Studio"],
   },
 ];
 
