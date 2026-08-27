@@ -121,8 +121,7 @@ export function Services() {
     <section className="space-y-3">
       <SectionLabel>services</SectionLabel>
       <p className="max-w-2xl text-sm leading-7 text-term-muted sm:text-base">
-        I take on freelance work — websites, apps, and systems. See past work,
-        then get in touch if it fits.
+        I take on freelance work: websites, apps, and systems.
       </p>
 
       <div className="divide-y divide-term-border border-t border-term-border">

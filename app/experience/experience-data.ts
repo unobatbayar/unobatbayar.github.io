@@ -43,9 +43,9 @@ export const experienceBasics = {
   location: "Ulaanbaatar, Mongolia",
   totalExp: "7 years",
   summary:
-    "Software engineer spanning mobile, frontend, and backend. Picks up new stacks quickly and ships across product teams.",
+    "Software engineer working on mobile, frontend, and backend.",
   objective:
-    "To use my technical skills to build efficient, scalable solutions while sharing knowledge and helping others grow in a collaborative team environment.",
+    "Build solid software and help teammates learn in a collaborative team.",
   profiles: [
     {
       network: "LeetCode",
@@ -101,7 +101,7 @@ export const workExperience: WorkItem[] = [
     isWorkingHere: true,
     bullets: [
       {
-        text: "Building frontend products across data visualization and LLM integrations.",
+        text: "Building frontend products: data visualization and LLM integrations.",
       },
     ],
   },
@@ -116,7 +116,7 @@ export const workExperience: WorkItem[] = [
     years: "5 years",
     bullets: [
       {
-        text: "Contributed to the development of the SEQTRAK application in Unity (supporting iOS/macOS/Android/Windows), integrating with musical hardware. Responsibilities included implementing the GUI, effect graphs, plugin development, and server/API connections over a two-year period.",
+        text: "Worked on SEQTRAK in Unity (iOS, macOS, Android, Windows), integrating with musical hardware. Built GUI, effect graphs, plugins, and server/API connections over two years.",
         links: [
           {
             label: "SEQTRAK",
@@ -125,7 +125,7 @@ export const workExperience: WorkItem[] = [
         ],
       },
       {
-        text: "Maintained and improved the Rec'n'Share iOS/Android app, boosting performance by 47% through a redesigned song loading algorithm and resolving critical crashes. Enhanced user experience and ratings via feedback-driven fixes and new features. Integrated a sound division library to extend app functionality.",
+        text: "Maintained Rec'n'Share for iOS and Android. Improved song loading performance by 47%, fixed crashes, and added features from user feedback. Integrated a sound division library.",
         links: [
           {
             label: "Rec'n'Share",
@@ -134,7 +134,7 @@ export const workExperience: WorkItem[] = [
         ],
       },
       {
-        text: "Implemented the GUI components for the Expanded SoftSynth VST plugin in C++ for the MONTAGE M synthesizer (v1.0, v2.0).",
+        text: "Built GUI components for the Expanded SoftSynth VST plugin in C++ for the MONTAGE M (v1.0, v2.0).",
         links: [
           {
             label: "Expanded SoftSynth",
@@ -143,7 +143,7 @@ export const workExperience: WorkItem[] = [
         ],
       },
       {
-        text: "Built and maintained Next.js full-stack applications for Yamaha’s product portfolio management and internal employee metrics tracking.",
+        text: "Built and maintained Next.js apps for Yamaha product portfolio management and internal employee metrics.",
       },
     ],
   },
@@ -158,11 +158,11 @@ export const workExperience: WorkItem[] = [
     years: "2 years",
     bullets: [
       {
-        text: "Contributed to Android development and successful launch of fintech application Simple.",
+        text: "Android development and launch of the Simple fintech app.",
         links: [{ label: "Simple", href: "https://simple.mn/" }],
       },
       {
-        text: "Refactored and debugged code for readability and efficiency.",
+        text: "Refactored and debugged code.",
       },
       {
         text: "Developed backend APIs using Spring Boot.",
@@ -189,7 +189,7 @@ export const workExperience: WorkItem[] = [
         ],
       },
       {
-        text: "Developed automated testing tool leveraging iOS, SwitchBot, and IFTTT for MONTAGE M.",
+        text: "Built an automated testing tool with iOS, SwitchBot, and IFTTT for MONTAGE M.",
         links: [
           {
             label: "MONTAGE M",
@@ -241,7 +241,7 @@ export function formatDateRange(
 ): string {
   const start = formatExperienceDate(startDate);
   if (isCurrent || !endDate) {
-    return `${start} – Present`;
+    return `${start} - Present`;
   }
-  return `${start} – ${formatExperienceDate(endDate)}`;
+  return `${start} - ${formatExperienceDate(endDate)}`;
 }

@@ -11,14 +11,14 @@ import {
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Selected software projects by Usukhbayar Batbayar across web, mobile, and interactive product development.",
+    "Software projects by Usukhbayar Batbayar: web, mobile, and apps.",
   alternates: {
     canonical: "/projects",
   },
   openGraph: {
     title: "Projects | Usukhbayar Batbayar",
     description:
-      "Selected software projects by Usukhbayar Batbayar across web, mobile, and interactive product development.",
+      "Software projects by Usukhbayar Batbayar: web, mobile, and apps.",
     url: "/projects",
     type: "website",
   },
@@ -81,7 +81,7 @@ export default function Projects() {
         <p className="cyber-text text-sm">// projects</p>
         <h1 className="text-2xl text-term-fg sm:text-3xl">Projects</h1>
         <p className="max-w-2xl text-sm leading-7 text-term-muted sm:text-base">
-          Things I&apos;ve built, shipped, and sometimes abandoned.
+          Projects I've built and shipped.
         </p>
       </header>
 

@@ -9,7 +9,6 @@ import {
   siMacos,
   siNextdotjs,
   siNodedotjs,
-  siOpenjdk,
   siSocketdotio,
   siSpringboot,
   siSwift,
@@ -64,6 +63,11 @@ const extras = {
     hex: "438EFF",
     path: "M12 1.5C6.201 1.5 1.5 6.201 1.5 12S6.201 22.5 12 22.5 22.5 17.799 22.5 12 17.799 1.5 12 1.5zm0 1.8A8.7 8.7 0 0 1 20.7 12 8.7 8.7 0 0 1 12 20.7 8.7 8.7 0 0 1 3.3 12 8.7 8.7 0 0 1 12 3.3zm-1.05 3.9v1.65h.3c1.8 0 2.85.9 2.85 2.4 0 1.35-.9 2.25-2.55 2.25h-1.95V16.5h1.35v-2.25h.9c2.55 0 4.2-1.5 4.2-3.9 0-2.4-1.65-3.15-4.05-3.15h-1.05z",
   },
+  java: {
+    title: "Java",
+    hex: "ED8B00",
+    path: "M7 6.2a.85.85 0 1 1-1.7 0 .85.85 0 0 1 1.7 0zm5-.4a.85.85 0 1 1-1.7 0 .85.85 0 0 1 1.7 0zm5 .4a.85.85 0 1 1-1.7 0 .85.85 0 0 1 1.7 0M6 10h10v6a5 5 0 0 1-10 0v-6zm11 2h1.4a2.5 2.5 0 0 1 0 5H17",
+  },
 } as const satisfies Record<string, TechIconData>;
 
 export const techIconMap = {
@@ -82,7 +86,7 @@ export const techIconMap = {
   Windows: extras.windows,
   macOS: fromSimple(siMacos, { invertInDark: true }),
   "Visual Studio Code": extras.visualstudiocode,
-  Java: fromSimple(siOpenjdk, { title: "Java", hex: "ED8B00" }),
+  Java: extras.java,
   "Android Studio": fromSimple(siAndroidstudio),
   "Spring Boot": fromSimple(siSpringboot),
   "Next.js": fromSimple(siNextdotjs, { invertInDark: true }),

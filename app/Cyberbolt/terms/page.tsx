@@ -5,7 +5,7 @@ const TermsAndConditionsPage = () => {
         <div>
             <strong>Terms &amp; Conditions</strong>
             <p>
-                By downloading or using the app, these terms will automatically apply to you – you should make sure therefore that you read them carefully before using the app. You’re not allowed to copy or modify the app, any part of the app, or our trademarks in any way. You’re not allowed to attempt to extract the source code of the app, and you also shouldn’t try to translate the app into other languages or make derivative versions. The app itself, and all the trademarks, copyright, database rights, and other intellectual property rights related to it, still belong to Usukhbayar Batbayar.
+                By downloading or using the app, these terms will automatically apply to you - you should make sure therefore that you read them carefully before using the app. You’re not allowed to copy or modify the app, any part of the app, or our trademarks in any way. You’re not allowed to attempt to extract the source code of the app, and you also shouldn’t try to translate the app into other languages or make derivative versions. The app itself, and all the trademarks, copyright, database rights, and other intellectual property rights related to it, still belong to Usukhbayar Batbayar.
             </p>
 
             <p>
@@ -41,7 +41,7 @@ const TermsAndConditionsPage = () => {
             </p>
 
             <p>
-                Along the same lines, Usukhbayar Batbayar cannot always take responsibility for the way you use the app i.e. You need to make sure that your device stays charged – if it runs out of battery and you can’t turn it on to avail the Service, Usukhbayar Batbayar cannot accept responsibility.
+                Along the same lines, Usukhbayar Batbayar cannot always take responsibility for the way you use the app i.e. You need to make sure that your device stays charged - if it runs out of battery and you can’t turn it on to avail the Service, Usukhbayar Batbayar cannot accept responsibility.
             </p>
 
             <p>
@@ -49,7 +49,7 @@ const TermsAndConditionsPage = () => {
             </p>
 
             <p>
-                At some point, we may wish to update the app. The app is currently available on iOS – the requirements for the system (and for any additional systems we decide to extend the availability of the app to) may change, and you’ll need to download the updates if you want to keep using the app. Usukhbayar Batbayar does not promise that it will always update the app so that it is relevant to you and/or works with the iOS version that you have installed on your device. However, you promise to always accept updates to the application when offered to you. We may also wish to stop providing the app, and may terminate use of it at any time without giving notice of termination to you. Unless we tell you otherwise, upon any termination, (a) the rights and licenses granted to you in these terms will end; (b) you must stop using the app, and (if needed) delete it from your device.
+                At some point, we may wish to update the app. The app is currently available on iOS - the requirements for the system (and for any additional systems we decide to extend the availability of the app to) may change, and you’ll need to download the updates if you want to keep using the app. Usukhbayar Batbayar does not promise that it will always update the app so that it is relevant to you and/or works with the iOS version that you have installed on your device. However, you promise to always accept updates to the application when offered to you. We may also wish to stop providing the app, and may terminate use of it at any time without giving notice of termination to you. Unless we tell you otherwise, upon any termination, (a) the rights and licenses granted to you in these terms will end; (b) you must stop using the app, and (if needed) delete it from your device.
             </p>
 
             <p><strong>Changes to This Terms and Conditions</strong></p>
