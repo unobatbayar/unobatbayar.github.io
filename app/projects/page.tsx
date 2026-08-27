@@ -86,9 +86,9 @@ export default function Projects() {
       </header>
 
       <section className="space-y-3">
-        <SectionLabel>personal</SectionLabel>
+        <SectionLabel>professional</SectionLabel>
         <div className="divide-y divide-term-border border-t border-term-border">
-          {personalProjects.map((project) => (
+          {workProjects.map((project) => (
             <ProjectArticle
               key={`${project.title}-${project.year}`}
               project={project}
@@ -98,9 +98,9 @@ export default function Projects() {
       </section>
 
       <section className="space-y-3">
-        <SectionLabel>professional</SectionLabel>
+        <SectionLabel>personal</SectionLabel>
         <div className="divide-y divide-term-border border-t border-term-border">
-          {workProjects.map((project) => (
+          {personalProjects.map((project) => (
             <ProjectArticle
               key={`${project.title}-${project.year}`}
               project={project}

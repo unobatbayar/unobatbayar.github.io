@@ -23,7 +23,7 @@ export const socialLinks = {
 
 export const homeContent = {
   name: "Usukhbayar Batbayar",
-  headline: "Hi, I'm Uno.",
+  headline: "Hi, I'm Usukhbayar.",
   intro:
     "I currently work at ODIN Tech Lab, building web products.",
   about:
