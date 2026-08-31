@@ -39,19 +39,19 @@ export const freelanceServices = [
   {
     id: "websites",
     name: "Websites",
-    price: "from ₮6M",
+    price: "from ₮5M",
     detail: "Business sites and landing pages",
   },
   {
     id: "apps",
     name: "Apps",
-    price: "from ₮9M",
+    price: "from ₮7M",
     detail: "iOS, Android, or both",
   },
   {
     id: "systems",
     name: "Systems",
-    price: "from ₮7M",
+    price: "from ₮6M",
     detail: "Internal tools and dashboards",
   },
 ] as const;
