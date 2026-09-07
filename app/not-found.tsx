@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CaseRedirect } from "./components/case-redirect";
 
 export const metadata: Metadata = {
   title: "404",
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <section className="space-y-3">
+      <CaseRedirect />
       <p className="cyber-text text-sm">// error</p>
       <h1 className="text-2xl text-term-fg">404 - page not found</h1>
       <p className="text-sm text-term-muted">
