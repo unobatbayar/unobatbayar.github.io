@@ -123,12 +123,12 @@ export const personalProjects: Project[] = [
     thumbnail: "/projects/cyber-bolt.jpg",
   },
   {
-    title: "Anomalor - Secure, Offline Password Generator",
-    year: 2021,
+    title: "Anomalor - Password generator and vault",
+    year: "2021–2026",
     description:
-      "Offline password generator for iOS.",
-    tools: ["Unity", "C#"],
-    url: "https://apps.apple.com/us/app/anomalor/id1534079451",
+      "On-device password generator and optional encrypted vault for iPhone and Mac.",
+    tools: ["Swift", "SwiftUI", "Xcode"],
+    url: "/anomalor",
     thumbnail: "/projects/anomalor.jpg",
   },
 ];

@@ -25,13 +25,20 @@ export const metadata: Metadata = {
 };
 
 function ProjectArticle({ project }: { project: Project }) {
+  const internal = project.url.startsWith("/");
+  const linkProps = internal
+    ? { href: project.url }
+    : {
+        href: project.url,
+        target: "_blank" as const,
+        rel: "noopener noreferrer",
+      };
+
   return (
     <article className="py-4">
       <div className="flex gap-3.5">
         <a
-          href={project.url}
-          target="_blank"
-          rel="noopener noreferrer"
+          {...linkProps}
           className="group relative mt-0.5 block h-11 w-11 shrink-0 overflow-hidden rounded-full border border-term-border bg-term-soft"
           aria-label={`${project.title} preview`}
         >
@@ -50,9 +57,7 @@ function ProjectArticle({ project }: { project: Project }) {
             <div className="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">
               <h3 className="text-base text-term-fg">
                 <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...linkProps}
                   className="hover:text-term-accent"
                 >
                   {project.title}

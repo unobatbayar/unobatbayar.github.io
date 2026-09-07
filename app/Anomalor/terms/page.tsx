@@ -1,51 +1,99 @@
-﻿// pages/terms.tsx
+﻿import type { Metadata } from "next";
+import Link from "next/link";
 
-import React from 'react';
-
-const TermsAndConditionsPage = () => {
-    return (
-        <div>
-            <strong>Terms &amp; Conditions</strong>
-            <p>
-                By downloading or using the app, these terms will automatically apply to you - you should make sure therefore that you read them carefully before using the app. You’re not allowed to copy or modify the app, any part of the app, or our trademarks in any way. You’re not allowed to attempt to extract the source code of the app, and you also shouldn’t try to translate the app into other languages or make derivative versions. The app itself, and all the trademarks, copyright, database rights, and other intellectual property rights related to it, still belong to Usukhbayar Batbayar.
-            </p>
-            <p>
-                Usukhbayar Batbayar is committed to ensuring that the app is as useful and efficient as possible. For that reason, we reserve the right to make changes to the app or to charge for its services, at any time and for any reason. We will never charge you for the app or its services without making it very clear to you exactly what you’re paying for.
-            </p>
-            <p>
-                The Anomalor app stores and processes personal data that you have provided to us, to provide my Service. It’s your responsibility to keep your phone and access to the app secure. We therefore recommend that you do not jailbreak or root your phone, which is the process of removing software restrictions and limitations imposed by the official operating system of your device. It could make your phone vulnerable to malware/viruses/malicious programs, compromise your phone’s security features, and it could mean that the Anomalor app won’t work properly or at all.
-            </p>
-            <p>
-                You should be aware that there are certain things that Usukhbayar Batbayar will not take responsibility for. Certain functions of the app will require the app to have an active internet connection. The connection can be Wi-Fi or provided by your mobile network provider, but Usukhbayar Batbayar cannot take responsibility for the app not working at full functionality if you don’t have access to Wi-Fi, and you don’t have any of your data allowance left.
-            </p>
-            <p>
-                If you’re using the app outside of an area with Wi-Fi, you should remember that the terms of the agreement with your mobile network provider will still apply. As a result, you may be charged by your mobile provider for the cost of data for the duration of the connection while accessing the app, or other third-party charges. In using the app, you’re accepting responsibility for any such charges, including roaming data charges if you use the app outside of your home territory (i.e., region or country) without turning off data roaming. If you are not the bill payer for the device on which you’re using the app, please be aware that we assume that you have received permission from the bill payer for using the app.
-            </p>
-            <p>
-                Along the same lines, Usukhbayar Batbayar cannot always take responsibility for the way you use the app i.e. You need to make sure that your device stays charged - if it runs out of battery and you can’t turn it on to avail the Service, Usukhbayar Batbayar cannot accept responsibility.
-            </p>
-            <p>
-                With respect to Usukhbayar Batbayar’s responsibility for your use of the app, when you’re using the app, it’s important to bear in mind that although we endeavor to ensure that it is updated and correct at all times, we do rely on third parties to provide information to us so that we can make it available to you. Usukhbayar Batbayar accepts no liability for any loss, direct or indirect, you experience as a result of relying wholly on this functionality of the app.
-            </p>
-            <p>
-                At some point, we may wish to update the app. The app is currently available on iOS - the requirements for the system (and for any additional systems we decide to extend the availability of the app to) may change, and you’ll need to download the updates if you want to keep using the app. Usukhbayar Batbayar does not promise that it will always update the app so that it is relevant to you and/or works with the iOS version that you have installed on your device. However, you promise to always accept updates to the application when offered to you. We may also wish to stop providing the app, and may terminate use of it at any time without giving notice of termination to you. Unless we tell you otherwise, upon any termination, (a) the rights and licenses granted to you in these terms will end; (b) you must stop using the app, and (if needed) delete it from your device.
-            </p>
-            <p><strong>Changes to These Terms and Conditions</strong></p>
-            <p>
-                I may update our Terms and Conditions from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Terms and Conditions on this page.
-            </p>
-            <p>
-                These terms and conditions are effective as of 2021-02-22
-            </p>
-            <p><strong>Contact Us</strong></p>
-            <p>
-                If you have any questions or suggestions about my Terms and Conditions, do not hesitate to <a href="mailto:unobatbayar@protonmail.com">contact me</a>.
-            </p>
-            <p>
-                This Terms and Conditions page was generated by <a href="https://app-privacy-policy-generator.nisrulz.com/" target="_blank" rel="noopener noreferrer">App Privacy Policy Generator</a>
-            </p>
-        </div>
-    );
+export const metadata: Metadata = {
+  title: "Anomalor Terms",
+  description:
+    "Terms for Anomalor, a password generator and encrypted vault for iPhone and Mac.",
+  alternates: {
+    canonical: "/Anomalor/terms",
+  },
 };
 
-export default TermsAndConditionsPage;
+export default function TermsPage() {
+  return (
+    <article className="prose prose-quoteless max-w-none prose-h1:text-2xl prose-h1:font-medium sm:prose-h1:text-3xl prose-h2:mt-8 prose-h2:text-lg">
+      <h1>Terms</h1>
+      <p>Effective date: 7 September 2026</p>
+      <p>
+        These terms apply when you download or use Anomalor, a password
+        generator and optional encrypted vault for iPhone and Mac published by
+        Usukhbayar Batbayar. If you do not agree, do not use the app.
+      </p>
+
+      <h2>The app</h2>
+      <p>
+        Anomalor generates passwords on your device. A vault is optional. The
+        app is sold as a paid product through the App Store and is provided as
+        is. I may change the app, charge for it differently in the future, or
+        stop offering it. I will not charge you extra without making it clear
+        what you are paying for.
+      </p>
+      <p>
+        Anomalor does not need an internet connection. Features such as
+        generation, strength estimates, checking, and the vault all run locally.
+      </p>
+
+      <h2>License</h2>
+      <p>
+        You get a personal, non-exclusive license to use Anomalor on devices you
+        own or control, under Apple’s App Store terms. The app, name, and
+        related intellectual property remain mine. You may not redistribute,
+        sublicense, or sell the app, or present it as your own product.
+      </p>
+
+      <h2>Your vault and backups</h2>
+      <p>
+        If you create a vault, you are responsible for the master password and
+        for any backup you save. I cannot reset, recover, or decrypt a vault.
+        Deleting the app or the vault on a device does not delete a backup file
+        you previously saved in Files.
+      </p>
+      <p>
+        Vaults are per device. Moving data to another iPhone or Mac requires an
+        encrypted backup that you restore with the same master password.
+      </p>
+
+      <h2>No guarantee of security outcomes</h2>
+      <p>
+        Strength ratings and crack-time estimates are local calculations and a
+        lower bound, not a promise that a password cannot be guessed or that an
+        account cannot be compromised. Keep your device updated, and do not
+        jailbreak or otherwise disable system security features if you want the
+        app and the OS protections to work as designed.
+      </p>
+
+      <h2>Limitation of liability</h2>
+      <p>
+        Anomalor is provided without warranties to the extent allowed by law,
+        including warranties of merchantability, fitness for a particular
+        purpose, and non-infringement. I am not liable for lost passwords, lost
+        vault data, forgotten master passwords, or other damages arising from
+        use of the app, except where liability cannot be excluded.
+      </p>
+
+      <h2>Updates and availability</h2>
+      <p>
+        The app currently supports iPhone and Mac. System requirements may
+        change. I do not promise that every future OS version will be supported,
+        or that the app will remain available indefinitely. If the app is
+        withdrawn, your license to use copies you already have still depends on
+        Apple’s App Store terms.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        I may update these terms by posting a new version on this page. The
+        effective date at the top is the date the current version took effect.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions:{" "}
+        <a href="mailto:unobatbayar@protonmail.com">unobatbayar@protonmail.com</a>
+        . Related:{" "}
+        <Link href="/Anomalor/privacy">Privacy Policy</Link>.
+      </p>
+    </article>
+  );
+}
