@@ -33,15 +33,6 @@ export const workProjects: Project[] = [
     freelance: true,
   },
   {
-    title: "Odin Mindmap",
-    year: 2026,
-    description:
-      "Mindmap workspace with network, dashboard, timeline, and portfolio views.",
-    tools: ["Next.js", "TypeScript", "Tailwind CSS"],
-    url: "https://odin-mindmap.vercel.app/mindmap",
-    thumbnail: "/projects/odin-mindmap.jpg",
-  },
-  {
     title: "Expanded Softsynth Plugin for MONTAGE M",
     year: "2024-2024",
     description:
@@ -98,21 +89,21 @@ export const personalProjects: Project[] = [
     thumbnail: "/projects/scanly.jpg",
   },
   {
-    title: "Konple - Chat With The World!",
-    year: 2025,
-    description:
-      "Real-time chat with rooms and join/leave notifications.",
-    tools: ["Node.js", "Socket.io"],
-    url: "https://www.konple.com",
-    thumbnail: "/projects/konple.jpg",
-  },
-  {
     title: "Progress Clock - A New Way to Experience Time",
     year: 2023,
     description: "iOS app and widget for time tracking.",
     tools: ["Swift", "SwiftUI", "Xcode"],
     url: "https://apps.apple.com/us/app/progress-clock/id6446752758",
     thumbnail: "/projects/progress-clock.jpg",
+  },
+  {
+    title: "Metronome Glow",
+    year: 2021,
+    description:
+      "iOS metronome with glow visuals, sound, and subtle vibration for practice timing.",
+    tools: ["Swift", "SwiftUI", "Xcode"],
+    url: "https://apps.apple.com/us/app/metronome-glow/id1556841242",
+    thumbnail: "/projects/metronome-glow.jpg",
   },
   {
     title: "Cyber Bolt - Arcade Game",
