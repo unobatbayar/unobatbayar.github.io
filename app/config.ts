@@ -20,32 +20,19 @@ export const socialLinks = {
   linkedin: "https://www.linkedin.com/in/rytx88jz24dm",
 };
 
-export const homeContent = {
-  name: "Usukhbayar Batbayar",
-  headline: "Hi, I'm Usukhbayar.",
-  intro:
-    "I currently work at ODIN Tech Lab, building web products.",
-  about:
-    "Before this, I worked on electronic music instrument apps at Yamaha. Interested in electronic music, digital products, and sports.",
+export const contact = {
+  phoneE164: "+97688856211",
+  phoneDisplay: "+976 8885 6211",
 };
 
 export const freelanceServices = [
   {
     id: "websites",
-    name: "Websites",
-    price: "from ₮5M",
-    detail: "Business sites and landing pages",
   },
   {
     id: "apps",
-    name: "Apps",
-    price: "from ₮7M",
-    detail: "iOS, Android, or both",
   },
   {
     id: "systems",
-    name: "Systems",
-    price: "from ₮6M",
-    detail: "Internal tools and dashboards",
   },
 ] as const;

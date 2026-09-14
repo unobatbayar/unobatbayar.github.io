@@ -1,14 +1,19 @@
+"use client";
+
 import Link from "next/link";
 import { ThemeSwitch } from "./theme-switch";
 import { socialLinks } from "../config";
+import { LanguageSwitch, useLanguage } from "./language";
 
 const navItems = [
-  { path: "/experience", label: "exp" },
-  { path: "/projects", label: "projects" },
-  { path: "/blog", label: "blog" },
-];
+  { path: "/experience", labelKey: "experience" },
+  { path: "/projects", labelKey: "projects" },
+  { path: "/blog", labelKey: "blog" },
+] as const;
 
 export function Navbar() {
+  const { t } = useLanguage();
+
   return (
     <nav className="mb-10 border-b border-term-border pb-5 pt-1">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
@@ -69,9 +74,10 @@ export function Navbar() {
               href={item.path}
               className="text-term-accent transition hover:underline"
             >
-              /{item.label}
+              /{t.nav[item.labelKey]}
             </Link>
           ))}
+          <LanguageSwitch />
           <ThemeSwitch />
         </div>
       </div>

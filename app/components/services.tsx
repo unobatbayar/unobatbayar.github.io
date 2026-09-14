@@ -1,7 +1,10 @@
+"use client";
+
 import Link from "next/link";
-import type { ReactNode } from "react";
-import { freelanceServices, socialLinks } from "../config";
+import { useEffect, useId, useRef, useState, type ReactNode } from "react";
+import { contact, freelanceServices } from "../config";
 import { SectionLabel } from "./section-label";
+import { useLanguage } from "./language";
 
 type ServiceId = (typeof freelanceServices)[number]["id"];
 
@@ -49,11 +52,78 @@ function ServiceIcon({ id }: { id: ServiceId }) {
 }
 
 export function Services() {
+  const { t } = useLanguage();
+  const [open, setOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const titleId = useId();
+  const copyReset = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeRef.current?.focus();
+
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+
+      const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
+        "a[href], button:not([disabled])"
+      );
+      if (!focusable?.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", onKey);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKey);
+      triggerRef.current?.focus();
+    };
+  }, [open]);
+
+  useEffect(() => {
+    return () => {
+      if (copyReset.current) window.clearTimeout(copyReset.current);
+    };
+  }, []);
+
+  const copyNumber = async () => {
+    try {
+      await navigator.clipboard.writeText(contact.phoneDisplay);
+      setCopied(true);
+      if (copyReset.current) window.clearTimeout(copyReset.current);
+      copyReset.current = window.setTimeout(() => setCopied(false), 1600);
+    } catch {
+      setCopied(false);
+    }
+  };
+
   return (
     <section className="space-y-3">
-      <SectionLabel>services</SectionLabel>
+      <SectionLabel>{t.services.label}</SectionLabel>
       <p className="max-w-2xl text-sm leading-7 text-term-muted sm:text-base">
-        I take on freelance work: websites, apps, and systems.
+        {t.services.intro}
       </p>
 
       <div className="divide-y divide-term-border border-t border-term-border">
@@ -67,33 +137,89 @@ export function Services() {
                 <ServiceIcon id={service.id} />
               </span>
               <div className="min-w-0">
-                <p className="text-sm text-term-fg">{service.name}</p>
-                <p className="text-sm text-term-faint">{service.detail}</p>
+                <p className="text-sm text-term-fg">
+                  {t.services.items[service.id].name}
+                </p>
+                <p className="text-sm text-term-faint">
+                  {t.services.items[service.id].detail}
+                </p>
               </div>
             </div>
             <p className="shrink-0 pl-11 text-sm text-term-muted sm:pl-0">
-              {service.price}
+              {t.services.items[service.id].price}
             </p>
           </div>
         ))}
       </div>
 
       <div className="mt-1 flex flex-wrap items-center gap-2">
-        <a
-          href={socialLinks.x}
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          ref={triggerRef}
+          type="button"
+          onClick={() => setOpen(true)}
           className="border border-term-accent px-4 py-2 text-sm text-term-accent transition hover:bg-term-accent hover:text-term-bg"
         >
-          Get services
-        </a>
+          {t.services.getServices}
+        </button>
         <Link
           href="/projects"
           className="border border-term-border px-4 py-2 text-sm text-term-muted transition hover:border-term-accent hover:text-term-accent"
         >
-          See past work
+          {t.services.seePastWork}
         </Link>
       </div>
+
+      {open ? (
+        <div
+          className="fixed inset-0 z-50 flex items-end justify-center bg-black/55 p-4 sm:items-center"
+          onClick={() => setOpen(false)}
+        >
+          <div
+            ref={dialogRef}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={titleId}
+            className="w-full max-w-sm border border-term-border bg-term-bg p-5 shadow-lg"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-start justify-between gap-4">
+              <h3 id={titleId} className="text-base text-term-fg">
+                {t.services.dialogTitle}
+              </h3>
+              <button
+                ref={closeRef}
+                type="button"
+                onClick={() => setOpen(false)}
+                className="text-sm text-term-faint transition hover:text-term-accent"
+                aria-label="Close"
+              >
+                {t.services.close}
+              </button>
+            </div>
+            <p className="mt-2 text-sm leading-6 text-term-muted">
+              {t.services.dialogCopy}
+            </p>
+            <p className="mt-4 font-mono text-xl tracking-wide text-term-fg">
+              {contact.phoneDisplay}
+            </p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              <a
+                href={`tel:${contact.phoneE164}`}
+                className="border border-term-accent bg-term-accent px-4 py-2 text-sm text-term-bg transition hover:opacity-90"
+              >
+                {t.services.call}
+              </a>
+              <button
+                type="button"
+                onClick={copyNumber}
+                className="border border-term-border px-4 py-2 text-sm text-term-muted transition hover:border-term-accent hover:text-term-accent"
+              >
+                {copied ? t.services.copied : t.services.copy}
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </section>
   );
 }

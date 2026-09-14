@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CustomMDX } from "app/components/mdx";
-import { formatDate, getBlogPosts } from "app/lib/posts";
+import { getBlogPosts } from "app/lib/posts";
 import { metaData, socialLinks } from "app/config";
+import { BlogArticleHeader } from "../blog-article-header";
 
 export async function generateStaticParams() {
   let posts = getBlogPosts();
@@ -121,17 +122,11 @@ export default async function Blog({ params }) {
           }),
         }}
       />
-      <div className="mb-8 border-b border-term-border pb-5">
-        <p className="cyber-text text-sm">// blog</p>
-        <h1 className="title mt-2 text-2xl text-term-fg sm:text-3xl">
-          {post.metadata.title}
-        </h1>
-        <div className="mt-2 flex items-center justify-between">
-          <p className="text-sm text-term-faint">
-            {formatDate(post.metadata.publishedAt)}
-          </p>
-        </div>
-      </div>
+      <BlogArticleHeader
+        slug={post.slug}
+        title={post.metadata.title}
+        publishedAt={post.metadata.publishedAt}
+      />
       <article className="prose prose-quoteless max-w-none">
         <CustomMDX source={post.content} />
       </article>
