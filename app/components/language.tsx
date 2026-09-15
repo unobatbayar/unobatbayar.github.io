@@ -54,17 +54,17 @@ export const translations = {
         websites: {
           name: "Websites",
           detail: "Business sites and landing pages",
-          price: "from ₮5M",
+          price: "from $1,400",
         },
         apps: {
           name: "Apps",
           detail: "iOS, Android, or both",
-          price: "from ₮7M",
+          price: "from $2,000",
         },
         systems: {
           name: "Systems",
           detail: "Internal tools and dashboards",
-          price: "from ₮6M",
+          price: "from $1,700",
         },
       },
     },
@@ -144,17 +144,17 @@ export const translations = {
         websites: {
           name: "Webサイト",
           detail: "ビジネスサイトとランディングページ",
-          price: "₮5Mから",
+          price: "22万円から",
         },
         apps: {
           name: "アプリ",
           detail: "iOS、Android、または両方",
-          price: "₮7Mから",
+          price: "31万円から",
         },
         systems: {
           name: "システム",
           detail: "社内ツールとダッシュボード",
-          price: "₮6Mから",
+          price: "27万円から",
         },
       },
     },
