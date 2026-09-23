@@ -180,9 +180,9 @@ export function ProjectsContent() {
       </header>
 
       <section className="space-y-3">
-        <SectionLabel>{copy.personal}</SectionLabel>
+        <SectionLabel>{copy.professional}</SectionLabel>
         <div className="divide-y divide-term-border border-t border-term-border">
-          {personalProjects.map((project) => (
+          {workProjects.map((project) => (
             <ProjectArticle
               key={`${project.title}-${project.year}`}
               project={project}
@@ -193,9 +193,9 @@ export function ProjectsContent() {
       </section>
 
       <section className="space-y-3">
-        <SectionLabel>{copy.professional}</SectionLabel>
+        <SectionLabel>{copy.personal}</SectionLabel>
         <div className="divide-y divide-term-border border-t border-term-border">
-          {workProjects.map((project) => (
+          {personalProjects.map((project) => (
             <ProjectArticle
               key={`${project.title}-${project.year}`}
               project={project}

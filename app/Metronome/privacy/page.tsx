@@ -1,5 +1,10 @@
 import React from 'react';
 
+export const metadata = {
+  title: "Metronome Glow Privacy Policy",
+  description: "Privacy policy for the Metronome Glow iPhone app.",
+};
+
 const PrivacyPolicyPage = () => {
     return (
         <div>

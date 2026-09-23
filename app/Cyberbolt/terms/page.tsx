@@ -1,5 +1,10 @@
 ﻿import React from 'react';
 
+export const metadata = {
+  title: "Cyber Bolt Terms",
+  description: "Terms for the Cyber Bolt arcade game.",
+};
+
 const TermsAndConditionsPage = () => {
     return (
         <div>

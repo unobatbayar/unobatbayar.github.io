@@ -1,0 +1,231 @@
+.galaxy-section {
+  margin-inline: -1rem;
+}
+
+@media (min-width: 640px) {
+  .galaxy-section {
+    margin-inline: -1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .galaxy-section {
+    margin-inline: -2rem;
+  }
+}
+
+.galaxy-stage {
+  --px: 0px;
+  --py: 0px;
+  --spin: 78s;
+  position: relative;
+  height: 14.5rem;
+  overflow: visible;
+  background: transparent;
+  user-select: none;
+}
+
+@media (min-width: 640px) {
+  .galaxy-stage {
+    height: 16rem;
+  }
+}
+
+.galaxy-parallax {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  transform: translate3d(var(--px), var(--py), 0);
+  transition: transform 0.45s ease-out;
+}
+
+.galaxy-orbit {
+  position: absolute;
+  inset: 0;
+}
+
+.galaxy-slot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: calc(var(--s) * 0.88);
+  height: calc(var(--s) * 0.88);
+  offset-path: ellipse(46% 28% at 50% 50%);
+  offset-distance: 0%;
+  offset-rotate: 0deg;
+  offset-anchor: center;
+  animation: galaxy-travel var(--spin) linear infinite;
+  animation-delay: calc(var(--turn) * var(--spin) * -1);
+}
+
+@media (min-width: 640px) {
+  .galaxy-slot {
+    width: var(--s);
+    height: var(--s);
+  }
+}
+
+.galaxy-bot {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  cursor: grab;
+  touch-action: none;
+  animation: galaxy-float 5.2s ease-in-out infinite;
+}
+
+.galaxy-bot:active {
+  cursor: grabbing;
+}
+
+.galaxy-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 22.5%;
+  background: var(--bg);
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--fg) 14%, transparent);
+  transition: transform 0.22s ease;
+}
+
+.galaxy-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.galaxy-float {
+  position: fixed;
+  z-index: 80;
+  pointer-events: none;
+  will-change: left, top, transform;
+}
+
+.galaxy-float .galaxy-icon {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 16px 36px color-mix(in srgb, var(--fg) 22%, transparent);
+}
+
+.galaxy-name {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 50%;
+  z-index: 8;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 0.65rem;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(4px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.galaxy-title {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.25rem;
+  pointer-events: none;
+}
+
+.galaxy-title h2 {
+  max-width: 22rem;
+  color: var(--fg);
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  text-align: center;
+}
+
+@media (max-width: 400px) {
+  .galaxy-title h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .galaxy-title h2 {
+    font-size: 1.7rem;
+  }
+}
+
+.galaxy-bot:focus-visible {
+  outline: none;
+}
+
+.galaxy-bot:focus-visible .galaxy-icon {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.galaxy-slot:focus-within {
+  z-index: 24;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .galaxy-bot:hover .galaxy-icon,
+  .galaxy-bot:focus-visible .galaxy-icon {
+    transform: scale(1.12);
+  }
+
+  .galaxy-bot:hover .galaxy-name,
+  .galaxy-bot:focus-visible .galaxy-name {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .galaxy-slot:hover {
+    z-index: 24;
+  }
+}
+
+@keyframes galaxy-travel {
+  to {
+    offset-distance: 100%;
+  }
+}
+
+@keyframes galaxy-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .galaxy-slot,
+  .galaxy-bot,
+  .galaxy-parallax {
+    animation: none;
+    transition: none;
+  }
+
+  .galaxy-slot {
+    offset-distance: calc(var(--turn) * 100%);
+  }
+
+  .galaxy-parallax {
+    transform: none;
+  }
+}

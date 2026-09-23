@@ -92,10 +92,11 @@ export default async function Blog({ params }) {
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
-            image: post.metadata.image
-              ? `${metaData.baseUrl}${post.metadata.image}`
-              : `${metaData.baseUrl}${metaData.ogImage}`,
-            url: `${metaData.baseUrl}/blog/${post.slug}`,
+            image: new URL(
+              post.metadata.image || metaData.ogImage,
+              metaData.baseUrl
+            ).href,
+            url: new URL(`blog/${post.slug}`, metaData.baseUrl).href,
             author: {
               "@type": "Person",
               name: metaData.name,

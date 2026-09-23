@@ -105,7 +105,7 @@ export default function RootLayout({
               "name": metaData.name,
               "url": metaData.baseUrl,
               "description": metaData.description,
-              "image": `${metaData.baseUrl}${metaData.ogImage}`,
+              "image": new URL(metaData.ogImage, metaData.baseUrl).href,
               "sameAs": [
                 socialLinks?.x,
                 socialLinks?.github,

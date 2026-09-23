@@ -1,5 +1,10 @@
 import React from 'react';
 
+export const metadata = {
+  title: "Metronome Glow Terms",
+  description: "Terms for the Metronome Glow iPhone app.",
+};
+
 const TermsAndConditionsPage = () => {
     return (
         <div>

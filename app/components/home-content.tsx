@@ -1,6 +1,7 @@
 "use client";
 
 import { socialLinks } from "../config";
+import { AppGalaxy } from "./app-galaxy";
 import { SectionLabel } from "./section-label";
 import { Services } from "./services";
 import { useLanguage } from "./language";
@@ -22,6 +23,8 @@ export function HomeContent() {
           {t.home.about}
         </p>
       </section>
+
+      <AppGalaxy />
 
       <Services />
 

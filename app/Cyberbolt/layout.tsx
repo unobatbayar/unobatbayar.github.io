@@ -1,28 +1,34 @@
-﻿// components/Layout.tsx
+﻿import type { Metadata } from "next";
+import Link from "next/link";
+import type { ReactNode } from "react";
+import { CyberboltNav } from "./nav";
 
-import React, { ReactNode } from 'react';
+export const metadata: Metadata = {
+  title: "Cyber Bolt",
+  description:
+    "A 3D endless-runner arcade game. Glide a lightning-powered spacecar, collect coins, and chase a high score.",
+};
 
-interface LayoutProps {
-    children: ReactNode;
+export default function CyberboltLayout({ children }: { children: ReactNode }) {
+  return (
+    <div className="space-y-10">
+      <header className="flex flex-col gap-4 border-b border-term-border pb-5 sm:flex-row sm:items-center sm:justify-between">
+        <Link
+          href="/Cyberbolt"
+          className="flex items-center gap-3 hover:opacity-90"
+        >
+          <img
+            src="/Cyberbolt/icon.jpg"
+            alt=""
+            width={40}
+            height={40}
+            className="h-10 w-10 rounded-[10px]"
+          />
+          <span className="text-base text-term-fg">Cyber Bolt</span>
+        </Link>
+        <CyberboltNav />
+      </header>
+      {children}
+    </div>
+  );
 }
-
-export const metadata = {
-    title: "Cyberbolt",
-    description: "Mobile Game",
-};
-
-const Layout = ({ children }: LayoutProps) => {
-    return (
-        <div>
-            <div style={{ textAlign: 'center' }}>
-                <p style={{ fontSize: '2rem', fontWeight: 'bold' }}>
-                    <a href="../Cyberbolt">Cyberbolt</a>
-                </p>
-            </div>
-            {/* Wrap the children with the shared layout */}
-            <div>{children}</div>
-        </div>
-    );
-};
-
-export default Layout;

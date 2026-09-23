@@ -1,5 +1,10 @@
 ﻿import React from 'react';
 
+export const metadata = {
+  title: "Cyber Bolt Privacy Policy",
+  description: "Privacy policy for the Cyber Bolt arcade game.",
+};
+
 const PrivacyPolicyPage = () => {
     return (
         <div>

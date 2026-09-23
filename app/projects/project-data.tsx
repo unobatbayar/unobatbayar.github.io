@@ -103,7 +103,7 @@ export const personalProjects: Project[] = [
     description:
       "iOS metronome with glow visuals, sound, and subtle vibration for practice timing.",
     tools: ["Swift", "SwiftUI", "Xcode"],
-    url: "https://apps.apple.com/us/app/metronome-glow/id1556841242",
+    url: "/Metronome",
     thumbnail: "/projects/metronome-glow.jpg",
   },
   {
@@ -111,7 +111,7 @@ export const personalProjects: Project[] = [
     year: 2020,
     description: "3D arcade game for iOS and Android.",
     tools: ["Unity", "C#"],
-    url: "https://apps.apple.com/us/app/cyber-bolt/id1532655861",
+    url: "/Cyberbolt",
     thumbnail: "/projects/cyber-bolt.jpg",
   },
   {
@@ -120,7 +120,7 @@ export const personalProjects: Project[] = [
     description:
       "On-device password generator and optional encrypted vault for iPhone and Mac.",
     tools: ["Swift", "SwiftUI", "Xcode"],
-    url: "/anomalor",
+    url: "/Anomalor",
     thumbnail: "/projects/anomalor.jpg",
   },
 ];
