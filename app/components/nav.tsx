@@ -22,7 +22,7 @@ export function Navbar() {
             href="/"
             className="block text-base text-term-fg transition hover:text-term-accent"
           >
-            unobatbayar.github.io
+            Usukhbayar Batbayar
           </Link>
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-term-muted">
             <a
