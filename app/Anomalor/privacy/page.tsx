@@ -1,14 +1,14 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
+import { pageSocialMetadata } from "../../lib/social-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageSocialMetadata({
   title: "Anomalor Privacy Policy",
   description:
     "Anomalor privacy policy. Passwords are generated on-device. Nothing is collected or uploaded.",
-  alternates: {
-    canonical: "/Anomalor/privacy",
-  },
-};
+  path: "/Anomalor/privacy",
+  image: { url: "/Anomalor/og.png", alt: "Anomalor" },
+});
 
 export default function PrivacyPolicyPage() {
   return (

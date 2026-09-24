@@ -1,23 +1,14 @@
 import type { Metadata } from "next";
 import { getBlogPosts } from "app/lib/posts";
-import { metaData } from "app/config";
+import { pageSocialMetadata } from "app/lib/social-metadata";
 import { BlogPostsContent } from "./blog-posts-content";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageSocialMetadata({
   title: "Blog",
   description:
     "Notes and writing by Usukhbayar Batbayar on things he finds interesting, including software, ideas, and whatever catches his attention.",
-  alternates: {
-    canonical: "/blog",
-  },
-  openGraph: {
-    title: `Blog | ${metaData.name}`,
-    description:
-      "Notes and writing by Usukhbayar Batbayar on things he finds interesting, including software, ideas, and whatever catches his attention.",
-    url: "/blog",
-    type: "website",
-  },
-};
+  path: "/blog",
+});
 
 export default function BlogPosts() {
   const allBlogs = getBlogPosts().sort((a, b) => {

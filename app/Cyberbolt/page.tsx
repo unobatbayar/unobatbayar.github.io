@@ -1,29 +1,17 @@
 ﻿import type { Metadata } from "next";
+import { landingSocialMetadata } from "../lib/social-metadata";
 import { CyberboltContent } from "./content";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = landingSocialMetadata({
   title: "Cyber Bolt",
   description:
     "A 3D endless-runner arcade game. Glide a lightning-powered spacecar, collect coins, unlock skins, and chase a high score.",
-  alternates: {
-    canonical: "/Cyberbolt",
+  path: "/Cyberbolt",
+  image: {
+    url: "/Cyberbolt/og.png",
+    alt: "Cyber Bolt",
   },
-  openGraph: {
-    title: "Cyber Bolt",
-    description:
-      "A 3D endless-runner arcade game. Glide a lightning-powered spacecar and chase a high score.",
-    url: "/Cyberbolt",
-    type: "website",
-    images: [
-      {
-        url: "/Cyberbolt/screen-1.jpg",
-        width: 621,
-        height: 1104,
-        alt: "Cyber Bolt",
-      },
-    ],
-  },
-};
+});
 
 export default function Cyberbolt() {
   return <CyberboltContent />;

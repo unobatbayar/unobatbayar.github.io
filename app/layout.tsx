@@ -39,10 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: metaData.title,
-    description: metaData.description,
     creator: metaData.twitterHandle,
-    images: [metaData.ogImage],
   },
   robots: {
     index: true,

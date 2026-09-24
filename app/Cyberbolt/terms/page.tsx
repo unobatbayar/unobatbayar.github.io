@@ -1,9 +1,12 @@
 ﻿import React from 'react';
+import { pageSocialMetadata } from "../../lib/social-metadata";
 
-export const metadata = {
+export const metadata = pageSocialMetadata({
   title: "Cyber Bolt Terms",
   description: "Terms for the Cyber Bolt arcade game.",
-};
+  path: "/Cyberbolt/terms",
+  image: { url: "/Cyberbolt/og.png", alt: "Cyber Bolt" },
+});
 
 const TermsAndConditionsPage = () => {
     return (

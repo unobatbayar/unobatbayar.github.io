@@ -1,14 +1,14 @@
 ﻿import type { Metadata } from "next";
 import Link from "next/link";
+import { pageSocialMetadata } from "../../lib/social-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageSocialMetadata({
   title: "Anomalor Terms",
   description:
     "Terms for Anomalor, a password generator and encrypted vault for iPhone and Mac.",
-  alternates: {
-    canonical: "/Anomalor/terms",
-  },
-};
+  path: "/Anomalor/terms",
+  image: { url: "/Anomalor/og.png", alt: "Anomalor" },
+});
 
 export default function TermsPage() {
   return (

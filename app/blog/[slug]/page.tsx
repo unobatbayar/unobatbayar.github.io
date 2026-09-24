@@ -46,7 +46,7 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url: `${metaData.baseUrl}/blog/${post.slug}`,
+      url: new URL(`blog/${post.slug}`, metaData.baseUrl).href,
       siteName: metaData.name,
       locale: "en_US",
       images: [

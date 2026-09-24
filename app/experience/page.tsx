@@ -1,21 +1,13 @@
 import type { Metadata } from "next";
+import { pageSocialMetadata } from "../lib/social-metadata";
 import { ExperienceContent } from "./experience-content";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageSocialMetadata({
   title: "Experience",
   description:
     "Work experience, skills, and education of software engineer Usukhbayar Batbayar.",
-  alternates: {
-    canonical: "/experience",
-  },
-  openGraph: {
-    title: "Experience | Usukhbayar Batbayar",
-    description:
-      "Work experience, skills, and education of software engineer Usukhbayar Batbayar.",
-    url: "/experience",
-    type: "website",
-  },
-};
+  path: "/experience",
+});
 
 export default function Experience() {
   return <ExperienceContent />;

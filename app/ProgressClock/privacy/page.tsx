@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageSocialMetadata } from "../../lib/social-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageSocialMetadata({
   title: "Progress Clock Privacy Policy",
   description:
     "Progress Clock privacy policy. Birthdate, goals, and settings stay on the device. No analytics.",
-  alternates: {
-    canonical: "/ProgressClock/privacy",
-  },
-};
+  path: "/ProgressClock/privacy",
+  image: { url: "/ProgressClock/og.png", alt: "Progress Clock" },
+});
 
 export default function PrivacyPolicyPage() {
   return (

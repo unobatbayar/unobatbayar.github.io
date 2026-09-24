@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageSocialMetadata } from "../../lib/social-metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageSocialMetadata({
   title: "Progress Clock Terms",
   description:
     "Terms for Progress Clock, including the optional Premium monthly subscription.",
-  alternates: {
-    canonical: "/ProgressClock/terms",
-  },
-};
+  path: "/ProgressClock/terms",
+  image: { url: "/ProgressClock/og.png", alt: "Progress Clock" },
+});
 
 export default function TermsPage() {
   return (

@@ -1,9 +1,12 @@
 import React from 'react';
+import { pageSocialMetadata } from "../../lib/social-metadata";
 
-export const metadata = {
+export const metadata = pageSocialMetadata({
   title: "Metronome Glow Privacy Policy",
   description: "Privacy policy for the Metronome Glow iPhone app.",
-};
+  path: "/Metronome/privacy",
+  image: { url: "/Metronome/og.png", alt: "Metronome Glow" },
+});
 
 const PrivacyPolicyPage = () => {
     return (
