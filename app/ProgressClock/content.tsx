@@ -5,7 +5,6 @@ import { type Language, useLanguage } from "../components/language";
 import {
   AppFeatures,
   AppLegalLinks,
-  AppScreens,
   AppStoreBadge,
 } from "../components/app-landing";
 
@@ -17,28 +16,13 @@ const copy = {
     headline: "See time as progress.",
     intro:
       "Progress Clock is a clock that shows how much of today has already passed — then the week, the month, the year, and a life. Use it as a reminder that the day is still open, not as a countdown to the end.",
-    screens: [
-      {
-        src: "/ProgressClock/clock.png",
-        label: "Clock",
-        alt: "Clock tab showing a day dial at 42 percent, analog hands, and week, month, and year bars",
-      },
-      {
-        src: "/ProgressClock/goal.png",
-        label: "Goal",
-        alt: "Goal tab with a countdown named Clean room at 8 percent, 28 days remaining",
-      },
-      {
-        src: "/ProgressClock/life.png",
-        label: "Life",
-        alt: "Life calendar of weeks lived, grouped by decade, with 1490 weeks filled in",
-      },
-    ],
+    screensAlt:
+      "Progress Clock on iPhone: arc clock, day dial with week, month, and year bars, life calendar of weeks lived, a Home Screen widget, and theme settings",
     features: [
       {
         name: "Clock",
         detail:
-          "A dial for today, analog hands, and bars for the week, month, and year. Remaining time under each one.",
+          "Arcs or a dial for today, with the week, month, and year alongside. Switch in Settings.",
       },
       {
         name: "Goal",
@@ -58,7 +42,7 @@ const copy = {
       {
         name: "Themes",
         detail:
-          "Progressium and Mono are free. The rest of the palettes, including dark and light, sit behind Premium.",
+          "Progressium is free. The other palettes are Premium. Light, dark, and Arcs or Dial are included.",
       },
       {
         name: "Local",
@@ -76,28 +60,13 @@ const copy = {
     headline: "Цагийг явц гэж хар.",
     intro:
       "Progress Clock өнөөдөр хэрхэн өнгөрснийг харуулдаг цаг — дараа нь долоо хоног, сар, жил, амьдрал. Өдөр дуусаагүй, одоо ч нээлттэй гэдгийг сануулна. Төгсгөлийн countdown биш.",
-    screens: [
-      {
-        src: "/ProgressClock/clock.png",
-        label: "Цаг",
-        alt: "Clock tab, өдрийн дугуй 42 хувь, analog зүү, долоо хоног сар жилийн мөрүүд",
-      },
-      {
-        src: "/ProgressClock/goal.png",
-        label: "Зорилго",
-        alt: "Goal tab, Clean room countdown 8 хувь, 28 хоног үлдсэн",
-      },
-      {
-        src: "/ProgressClock/life.png",
-        label: "Амьдрал",
-        alt: "Амьдарсан долоо хоногийн календарь, арван жилээр бүлэглэсэн, 1490 цэг",
-      },
-    ],
+    screensAlt:
+      "iPhone дээрх Progress Clock: нуман цаг, өдрийн дугуй, амьдралын долоо хоногийн календарь, Home Screen widget, theme тохиргоо",
     features: [
       {
         name: "Цаг",
         detail:
-          "Өнөөдрийн дугуй, analog зүү, долоо хоног сар жилийн мөр. Доор үлдсэн хугацаа.",
+          "Өнөөдрийг нум эсвэл дугуйгаар, хажууд нь долоо хоног, сар, жил. Settings-ээс солино.",
       },
       {
         name: "Зорилго",
@@ -117,7 +86,7 @@ const copy = {
       {
         name: "Theme",
         detail:
-          "Progressium болон Mono үнэгүй. Бусад palette, dark light бүгд Premium-д.",
+          "Progressium үнэгүй. Бусад palette нь Premium. Light, dark, Arcs эсвэл Dial багтана.",
       },
       {
         name: "Орон нутгийн",
@@ -135,28 +104,13 @@ const copy = {
     headline: "時間を進捗として見る。",
     intro:
       "Progress Clockは、今日がどれだけ過ぎたかを示す時計です。週、月、年、そして人生も。終わりのカウントダウンではなく、まだ今日が残っていることのリマインダーとして使えます。",
-    screens: [
-      {
-        src: "/ProgressClock/clock.png",
-        label: "時計",
-        alt: "Clockタブ。今日のダイヤルが42パーセント、analog針、週・月・年のバー",
-      },
-      {
-        src: "/ProgressClock/goal.png",
-        label: "目標",
-        alt: "Goalタブ。Clean roomのcountdownが8パーセント、残り28日",
-      },
-      {
-        src: "/ProgressClock/life.png",
-        label: "人生",
-        alt: "過ごした週のカレンダー。10年ごと、1490週が埋まっている",
-      },
-    ],
+    screensAlt:
+      "iPhoneのProgress Clock。アーク時計、今日のダイヤル、過ごした週のカレンダー、ホーム画面ウィジェット、テーマ設定",
     features: [
       {
         name: "時計",
         detail:
-          "今日のダイヤル、analog針、週・月・年のバー。それぞれの下に残り時間。",
+          "今日をアークかダイヤルで。週、月、年も並ぶ。Settingsで切り替え。",
       },
       {
         name: "目標",
@@ -176,7 +130,7 @@ const copy = {
       {
         name: "テーマ",
         detail:
-          "ProgressiumとMonoは無料。暗い・明るいを含む他のpaletteはPremium。",
+          "Progressiumは無料。他のpaletteはPremium。ライト、ダーク、ArcsとDialは含まれる。",
       },
       {
         name: "端末内",
@@ -206,12 +160,18 @@ export function ProgressClockContent() {
         <AppStoreBadge href={APP_STORE} src="/ProgressClock/app-store.svg" />
       </section>
 
-      <AppScreens
-        screens={[...page.screens]}
-        width={1179}
-        height={2556}
-        imageClassName="w-full rounded-[1.75rem] border border-term-border bg-white"
-      />
+      <section className="space-y-3">
+        <SectionLabel>{t.landing.screens}</SectionLabel>
+        <div className="-mx-4 overflow-x-auto overscroll-x-contain px-4 [scrollbar-width:none] md:mx-0 md:overflow-visible md:px-0 [&::-webkit-scrollbar]:hidden">
+          <img
+            src="/ProgressClock/screens.png"
+            alt={page.screensAlt}
+            width={1600}
+            height={682}
+            className="h-auto w-[40rem] max-w-none rounded-xl border border-term-border md:w-full"
+          />
+        </div>
+      </section>
 
       <AppFeatures features={[...page.features]} />
 
