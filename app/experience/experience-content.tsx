@@ -116,8 +116,10 @@ const experienceCopy = {
     },
     volunteer: {
       position: "Volunteer",
-      summary:
-        "Volunteered at Tokyo Pride 2025, assisting at the Yamaha Corporation booth.",
+      summaries: {
+        "1": "Volunteered at Tokyo Pride 2025, assisting at the Yamaha Corporation booth.",
+        "2": "Volunteered at Kids' AU 2026.",
+      },
     },
   },
   mn: {
@@ -220,8 +222,10 @@ const experienceCopy = {
     },
     volunteer: {
       position: "Сайн дурын ажилтан",
-      summary:
-        "Tokyo Pride 2025 дээр Yamaha Corporation-ийн booth-д тусалж сайн дурын ажил хийсэн.",
+      summaries: {
+        "1": "Tokyo Pride 2025 дээр Yamaha Corporation-ийн booth-д тусалж сайн дурын ажил хийсэн.",
+        "2": "Kids' AU 2026 дээр сайн дурын ажил хийсэн.",
+      },
     },
   },
   ja: {
@@ -325,8 +329,10 @@ const experienceCopy = {
     },
     volunteer: {
       position: "ボランティア",
-      summary:
-        "Tokyo Pride 2025でYamaha Corporationのブース運営をサポート。",
+      summaries: {
+        "1": "Tokyo Pride 2025でYamaha Corporationのブース運営をサポート。",
+        "2": "Kids' AU 2026でボランティアとして参加。",
+      },
     },
   },
 } as const satisfies Record<Language, Record<string, unknown>>;
@@ -402,6 +408,36 @@ function formatDateRange(
   }
 
   return `${start} - ${formatExperienceDate(endDate, language)}`;
+}
+
+function formatVolunteerDateRange(
+  startDate: string,
+  endDate: string,
+  language: Language
+): string {
+  const start = new Date(startDate);
+  const end = new Date(endDate);
+  const sameMonth =
+    start.getUTCFullYear() === end.getUTCFullYear() &&
+    start.getUTCMonth() === end.getUTCMonth();
+
+  if (!sameMonth || start.getUTCDate() === end.getUTCDate()) {
+    return formatDateRange(startDate, endDate, false, language, "");
+  }
+
+  const startDay = start.getUTCDate();
+  const endDay = end.getUTCDate();
+
+  if (language === "ja") {
+    return `${start.getUTCFullYear()}年${start.getUTCMonth() + 1}月${startDay}-${endDay}日`;
+  }
+
+  const month = new Intl.DateTimeFormat(languageOptions[language].locale, {
+    month: "short",
+    timeZone: "UTC",
+  }).format(start);
+
+  return `${month} ${startDay}-${endDay}, ${start.getUTCFullYear()}`;
 }
 
 export function ExperienceContent() {
@@ -551,21 +587,34 @@ export function ExperienceContent() {
                     {copy.volunteer.position}
                   </h3>
                   <p className="mt-1 text-sm text-term-muted">
-                    {item.organization}
+                    {item.url ? (
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-term-accent underline underline-offset-2 hover:opacity-80"
+                      >
+                        {item.organization}
+                      </a>
+                    ) : (
+                      item.organization
+                    )}
                   </p>
                 </div>
                 <p className="shrink-0 text-sm text-term-faint">
-                  {formatDateRange(
+                  {formatVolunteerDateRange(
                     item.startDate,
                     item.endDate,
-                    false,
-                    language,
-                    copy.current
+                    language
                   )}
                 </p>
               </div>
               <p className="mt-2 text-sm leading-6 text-term-muted">
-                {copy.volunteer.summary}
+                {
+                  copy.volunteer.summaries[
+                    item.id as keyof typeof copy.volunteer.summaries
+                  ]
+                }
               </p>
             </article>
           ))}

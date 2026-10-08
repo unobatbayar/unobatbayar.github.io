@@ -31,6 +31,7 @@ export interface EducationItem {
 export interface VolunteerItem {
   id: string;
   organization: string;
+  url?: string;
   position: string;
   startDate: string;
   endDate: string;
@@ -218,8 +219,17 @@ export const education: EducationItem[] = [
 
 export const volunteer: VolunteerItem[] = [
   {
+    id: "2",
+    organization: "Kids' AU 2026",
+    position: "Volunteer",
+    startDate: "2026-08-05T00:00:00.000Z",
+    endDate: "2026-08-08T00:00:00.000Z",
+    summary: "Volunteered at Kids' AU 2026.",
+  },
+  {
     id: "1",
     organization: "Tokyo Pride 2025",
+    url: "https://www.yamaha.com/en/sustainability/diversity-equity-inclusion/stories/tokyo-pride-2025.html",
     position: "Volunteer",
     startDate: "2025-06-06T15:00:00.000Z",
     endDate: "2025-06-07T15:00:00.000Z",
