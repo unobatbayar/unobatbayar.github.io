@@ -622,27 +622,31 @@ export function ExperienceContent() {
       </section>
 
       <section className="space-y-3">
-        <SectionLabel>{copy.sections.profiles}</SectionLabel>
-        <div className="flex flex-wrap gap-x-4 gap-y-2 border-t border-term-border pt-4 text-sm text-term-muted">
-          {experienceBasics.profiles.map((profile) =>
-            profile.url ? (
-              <a
-                key={profile.network}
-                href={profile.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-term-accent hover:underline"
-              >
-                {profile.network.toLowerCase()}
-              </a>
-            ) : (
-              <span key={profile.network}>
-                {profile.network.toLowerCase()}
-                {profile.username ? ` · ${profile.username}` : ""}
-              </span>
-            )
-          )}
-        </div>
+        {experienceBasics.profiles.length > 0 ? (
+          <>
+            <SectionLabel>{copy.sections.profiles}</SectionLabel>
+            <div className="flex flex-wrap gap-x-4 gap-y-2 border-t border-term-border pt-4 text-sm text-term-muted">
+              {experienceBasics.profiles.map((profile) =>
+                profile.url ? (
+                  <a
+                    key={profile.network}
+                    href={profile.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-term-accent hover:underline"
+                  >
+                    {profile.network.toLowerCase()}
+                  </a>
+                ) : (
+                  <span key={profile.network}>
+                    {profile.network.toLowerCase()}
+                    {profile.username ? ` · ${profile.username}` : ""}
+                  </span>
+                )
+              )}
+            </div>
+          </>
+        ) : null}
         <p className="max-w-2xl text-sm leading-6 text-term-faint">
           {copy.basics.objective}
         </p>

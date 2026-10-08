@@ -47,12 +47,7 @@ export const experienceBasics = {
     "Software engineer working on mobile, frontend, and backend.",
   objective:
     "Build solid software and help teammates learn in a collaborative team.",
-  profiles: [
-    {
-      network: "LeetCode",
-      url: "https://leetcode.com/u/xi76ibaw2m/",
-    },
-  ] as {
+  profiles: [] as {
     network: string;
     url?: string;
     username?: string;
