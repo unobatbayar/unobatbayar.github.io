@@ -79,7 +79,8 @@ const experienceCopy = {
         position: "Software Engineer",
         years: "",
         bullets: [
-          "Building frontend products: data visualization and LLM integrations.",
+          "Building full-stack products with Next.js frontends and backend APIs for object detection and data mining.",
+          "Side work on a video management system and AWS.",
         ],
       },
       "1": {
@@ -182,7 +183,8 @@ const experienceCopy = {
         position: "Software Engineer",
         years: "",
         bullets: [
-          "Фронтенд бүтээгдэхүүн хөгжүүлж байна: data visualization болон LLM integration.",
+          "Next.js frontend болон backend API-тай full-stack бүтээгдэхүүн хөгжүүлж байна. Object detection болон data mining дээр ажилладаг.",
+          "Хажуугаар нь video management system болон AWS дээр ажилладаг.",
         ],
       },
       "1": {
@@ -286,7 +288,8 @@ const experienceCopy = {
         position: "ソフトウェアエンジニア",
         years: "",
         bullets: [
-          "データ可視化とLLM連携を含むフロントエンドプロダクトを開発中。",
+          "Next.jsのフロントエンドとバックエンドAPIでフルスタック開発を担当。物体検出とデータマイニングに取り組んでいる。",
+          "同じ会社で、映像管理システムとAWSのサイドワークも担当。",
         ],
       },
       "1": {
