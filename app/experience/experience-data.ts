@@ -101,7 +101,7 @@ export const workExperience: WorkItem[] = [
     isWorkingHere: true,
     bullets: [
       {
-        text: "Building full-stack products with Next.js frontends and backend APIs for object detection and data mining.",
+        text: "Building full-stack products with Next.js frontends and backend APIs.",
       },
       {
         text: "Side work on a video management system and AWS.",
