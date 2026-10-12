@@ -68,7 +68,8 @@ export default function RefillPrivacyPage() {
         <a href="https://x.com/unoryas" target="_blank" rel="noopener noreferrer">
           @unoryas
         </a>
-        . Related: <Link href="/refill/support">Support</Link>.
+        . Related: <Link href="/refill/terms">Terms</Link>,{" "}
+        <Link href="/refill/support">Support</Link>.
       </p>
     </article>
   );

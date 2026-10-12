@@ -51,6 +51,8 @@ export const translations = {
       premium: "premium",
       privacyPolicy: "Privacy Policy",
       termsLabel: "Terms",
+      support: "support",
+      supportLabel: "Support",
       downloadAppStore: "Download on the App Store",
     },
     services: {
@@ -110,6 +112,8 @@ export const translations = {
       premium: "premium",
       privacyPolicy: "Нууцлалын бодлого",
       termsLabel: "Нөхцөл",
+      support: "тусламж",
+      supportLabel: "Тусламж",
       downloadAppStore: "App Store-с татах",
     },
     services: {
@@ -169,6 +173,8 @@ export const translations = {
       premium: "プレミアム",
       privacyPolicy: "プライバシーポリシー",
       termsLabel: "利用規約",
+      support: "サポート",
+      supportLabel: "サポート",
       downloadAppStore: "App Storeで入手",
     },
     services: {

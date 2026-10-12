@@ -9,13 +9,22 @@ function stripSlash(path: string) {
   return path.length > 1 && path.endsWith("/") ? path.slice(0, -1) : path;
 }
 
-export function AppLandingNav({ base }: { base: string }) {
+export function AppLandingNav({
+  base,
+  support = false,
+}: {
+  base: string;
+  support?: boolean;
+}) {
   const { t } = useLanguage();
   const pathname = stripSlash(usePathname() ?? "");
   const items = [
     { href: base, label: t.landing.overview },
     { href: `${base}/privacy`, label: t.landing.privacy },
     { href: `${base}/terms`, label: t.landing.terms },
+    ...(support
+      ? [{ href: `${base}/support`, label: t.landing.support }]
+      : []),
   ];
 
   return (
@@ -137,7 +146,13 @@ export function AppFeatures({
   );
 }
 
-export function AppLegalLinks({ base }: { base: string }) {
+export function AppLegalLinks({
+  base,
+  support = false,
+}: {
+  base: string;
+  support?: boolean;
+}) {
   const { t } = useLanguage();
 
   return (
@@ -151,6 +166,14 @@ export function AppLegalLinks({ base }: { base: string }) {
       <Link href={`${base}/terms`} className="text-term-accent hover:underline">
         {t.landing.termsLabel}
       </Link>
+      {support ? (
+        <Link
+          href={`${base}/support`}
+          className="text-term-accent hover:underline"
+        >
+          {t.landing.supportLabel}
+        </Link>
+      ) : null}
     </div>
   );
 }
