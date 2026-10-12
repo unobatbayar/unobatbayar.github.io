@@ -29,6 +29,10 @@ const projectCopy = {
       SEQTRAK:
         "Companion app for the SEQTRAK music production studio. Visual control of the hardware.",
       "Simple.mn": "Fintech app for payments and everyday banking in Mongolia.",
+      "Flashback Cam: Retro Digicam":
+        "Retro digicam and film camera for iPhone. Live looks on the device, a date stamp, and no cloud.",
+      "Refill - Home Supplies":
+        "Household consumables tracker. Exact specs, reminders, and a one-time unlock.",
       "Scanly - Scan food & beauty barcodes":
         "Barcode scanner for food and beauty products. Health score (0-100), ingredients, additives, and price estimates. Built for Mongolia.",
       "Progress Clock - A New Way to Experience Time":
@@ -59,6 +63,10 @@ const projectCopy = {
       SEQTRAK:
         "SEQTRAK music production studio-д зориулсан companion app. Hardware-ийг visual байдлаар удирдана.",
       "Simple.mn": "Монгол дахь төлбөр, өдөр тутмын banking-д зориулсан fintech app.",
+      "Flashback Cam: Retro Digicam":
+        "iPhone-д зориулсан retro digicam, film camera. Look төхөөрөмж дээр, date stamp-тай, cloud байхгүй.",
+      "Refill - Home Supplies":
+        "Гэрийн хэрэглээний нөөц хянагч. Яг spec, сануулга, нэг удаагийн unlock.",
       "Scanly - Scan food & beauty barcodes":
         "Хүнс болон beauty бүтээгдэхүүний barcode scanner. Health score, орц, additive, үнийн мэдээлэлтэй. Монголд зориулж хийсэн.",
       "Progress Clock - A New Way to Experience Time":
@@ -89,6 +97,10 @@ const projectCopy = {
       SEQTRAK:
         "SEQTRAK music production studioのcompanion app。ハードウェアをvisualに操作。",
       "Simple.mn": "モンゴル向けの決済・日常 banking fintech app。",
+      "Flashback Cam: Retro Digicam":
+        "iPhone向けのレトロなデジカメ／フィルムカメラ。ルックは端末内、日付スタンプ付き、クラウドなし。",
+      "Refill - Home Supplies":
+        "家庭の消耗品トラッカー。正確な仕様、リマインダー、買い切り。",
       "Scanly - Scan food & beauty barcodes":
         "食品・beauty商品のbarcode scanner。Health score、成分、添加物、価格推定に対応。モンゴル向けに開発。",
       "Progress Clock - A New Way to Experience Time":

@@ -37,7 +37,8 @@ export default function RefillSupportPage() {
       </p>
 
       <p>
-        See also: <Link href="/refill/privacy">Privacy Policy</Link>.
+        See also: <Link href="/refill/privacy">Privacy Policy</Link>,{" "}
+        <Link href="/refill/terms">Terms</Link>.
       </p>
     </article>
   );

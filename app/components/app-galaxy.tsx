@@ -23,6 +23,8 @@ type Body = {
 };
 
 const appIcons: Record<string, string> = {
+  "/flashbackcam": "/flashbackcam/icon.png",
+  "/refill": "/refill/icon.png",
   "/ProgressClock": "/ProgressClock/icon.png",
   "/Metronome": "/Metronome/icon.jpg",
   "/Cyberbolt": "/Cyberbolt/icon.jpg",
@@ -31,18 +33,20 @@ const appIcons: Record<string, string> = {
 
 const apps = personalProjects.map((project) => ({
   ...project,
-  name: project.title.split(" - ")[0] ?? project.title,
+  name: (project.title.split(" - ")[0] ?? project.title).split(":")[0].trim(),
   icon: appIcons[project.url] ?? project.thumbnail,
 }));
 
 type AppItem = (typeof apps)[number];
 
 const bodies: Body[] = [
-  { app: 1, angle: 18, radius: 1.0, size: 84 },
-  { app: 2, angle: 90, radius: 0.96, size: 72 },
-  { app: 0, angle: 162, radius: 1.02, size: 80 },
-  { app: 3, angle: 234, radius: 0.98, size: 78 },
-  { app: 4, angle: 306, radius: 1.0, size: 76 },
+  { app: 0, angle: 8, radius: 1.0, size: 76 },
+  { app: 3, angle: 59, radius: 0.98, size: 72 },
+  { app: 1, angle: 111, radius: 0.97, size: 74 },
+  { app: 4, angle: 162, radius: 0.96, size: 68 },
+  { app: 2, angle: 214, radius: 1.0, size: 74 },
+  { app: 5, angle: 265, radius: 0.97, size: 70 },
+  { app: 6, angle: 317, radius: 0.99, size: 72 },
 ];
 
 const DRAG_THRESHOLD = 7;

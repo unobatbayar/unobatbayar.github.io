@@ -80,6 +80,24 @@ export const workProjects: Project[] = [
 
 export const personalProjects: Project[] = [
   {
+    title: "Flashback Cam: Retro Digicam",
+    year: 2026,
+    description:
+      "Retro digicam and film camera for iPhone. Live looks on the device, a date stamp, and no cloud.",
+    tools: ["Swift", "SwiftUI", "Xcode"],
+    url: "/flashbackcam",
+    thumbnail: "/flashbackcam/icon.png",
+  },
+  {
+    title: "Refill - Home Supplies",
+    year: 2026,
+    description:
+      "Household consumables tracker. Exact specs, reminders, and a one-time unlock.",
+    tools: ["Swift", "SwiftUI", "Xcode"],
+    url: "/refill",
+    thumbnail: "/refill/icon.png",
+  },
+  {
     title: "Scanly - Scan food & beauty barcodes",
     year: 2026,
     description:
