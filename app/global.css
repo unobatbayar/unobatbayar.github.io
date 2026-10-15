@@ -74,6 +74,12 @@ a {
   line-height: 1.75;
 }
 
+/* Typography sets h1–h4, dt, and table headers to gray-900 via this token.
+   h2–h6 are recoloured below; h1 was not, so titles disappeared in dark mode. */
+.dark .prose {
+  --tw-prose-headings: var(--fg);
+}
+
 .prose .anchor {
   @apply absolute invisible no-underline;
   margin-left: -1em;
@@ -145,6 +151,10 @@ a {
   font-family: var(--font-geist-mono), ui-monospace, monospace;
   font-weight: 500;
   letter-spacing: -0.02em;
+  color: var(--fg);
+}
+
+.dark .prose h1 {
   color: var(--fg);
 }
 
