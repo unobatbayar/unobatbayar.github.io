@@ -4,7 +4,7 @@ export const metaData = {
   name: "Usukhbayar Batbayar",
   ogImage: "/opengraph-image.png",
   description:
-    "Software engineer at ODIN Tech Lab. Web, mobile, and backend projects.",
+    "Software engineer at ODIN Tech Lab. Frontend-only projects.",
   keywords:
     "Usukhbayar Batbayar, software engineer, portfolio, full stack developer, web development, mobile development, backend development, Next.js, React, TypeScript, FastAPI, iOS, Android",
   author: "Usukhbayar Batbayar",

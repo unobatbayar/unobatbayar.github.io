@@ -33,7 +33,7 @@ export const translations = {
     home: {
       aboutLabel: "about",
       headline: "Hi, I'm Usukhbayar.",
-      intro: "I currently work at ODIN Tech Lab, building full-stack products.",
+      intro: "I currently work at ODIN Tech Lab, building frontend-only products.",
       about:
         "Before this, I worked on electronic music instrument apps at Yamaha.",
       contactLabel: "contact",
@@ -94,7 +94,7 @@ export const translations = {
     home: {
       aboutLabel: "тухай",
       headline: "Сайн байна уу, намайг Өсөхбаяр гэдэг.",
-      intro: "Одоо ODIN Tech Lab-д full-stack бүтээгдэхүүн хөгжүүлж байна.",
+      intro: "Одоо ODIN Tech Lab-д frontend-only бүтээгдэхүүн хөгжүүлж байна.",
       about:
         "Үүнээс өмнө Yamaha-д электрон хөгжмийн хэрэгслийн аппууд дээр ажиллаж байсан.",
       contactLabel: "холбоо барих",
@@ -155,7 +155,7 @@ export const translations = {
     home: {
       aboutLabel: "自己紹介",
       headline: "こんにちは、ウスフバヤです。",
-      intro: "現在はODIN Tech Labでフルスタックプロダクトを開発しています。",
+      intro: "現在はODIN Tech Labでフロントエンドのみのプロダクトを開発しています。",
       about:
         "以前はYamahaで電子楽器向けアプリに携わっていました。",
       contactLabel: "連絡先",
