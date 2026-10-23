@@ -99,38 +99,147 @@ function getChoiceRank(choice: string, cardIndex: number) {
   return [...choice].reduce((total, char) => total + char.charCodeAt(0) * seed, 0);
 }
 
+function partOfSpeechFamily(example?: string) {
+  const value = example?.trim() ?? "";
+  if (!value) {
+    return "";
+  }
+  if (/\bVerb\b/.test(value)) {
+    return "verb";
+  }
+  if (/Pronoun/.test(value)) {
+    return "pronoun";
+  }
+  if (/\bAdverb\b/.test(value)) {
+    return "adverb";
+  }
+  if (/Adjective|adjectival/.test(value)) {
+    return "adjective";
+  }
+  if (/Expression/.test(value)) {
+    return "expression";
+  }
+  if (/\bNoun\b/.test(value)) {
+    return "noun";
+  }
+  return "other";
+}
+
+const relatedFamilies: Record<string, string[]> = {
+  verb: ["expression"],
+  adjective: ["adverb"],
+  adverb: ["pronoun", "adjective"],
+  pronoun: ["adverb"],
+  expression: ["adverb", "verb"],
+  noun: [],
+  other: [],
+};
+
+function answerShape(answer: string) {
+  if (hasJapaneseText(answer)) {
+    const compactLength = answer.replace(/\s/g, "").length;
+    if (compactLength <= 2) {
+      return "jp-short";
+    }
+    if (compactLength <= 5) {
+      return "jp-medium";
+    }
+    return "jp-long";
+  }
+
+  const text = answer.toLowerCase();
+  if (text.includes("~")) {
+    return "pattern";
+  }
+  if (/(^|[;,]\s*)to\s+\S/.test(text)) {
+    return "verb-gloss";
+  }
+
+  const senses = text.split(/[;,]/).map((part) => part.trim()).filter(Boolean);
+  if (senses.length >= 3) {
+    return "multi-gloss";
+  }
+  if (senses.length === 2) {
+    return "double-gloss";
+  }
+
+  const words = text.replace(/[()]/g, " ").trim().split(/\s+/).filter(Boolean);
+  if (words.length >= 3) {
+    return "long-phrase";
+  }
+  if (words.length === 2) {
+    return "two-words";
+  }
+  return "one-word";
+}
+
+function choiceScore(current: Flashcard, candidate: Flashcard) {
+  const currentFamily = partOfSpeechFamily(current.example);
+  const candidateFamily = partOfSpeechFamily(candidate.example);
+  let score = 0;
+
+  if (currentFamily && candidateFamily) {
+    if (currentFamily === candidateFamily) {
+      score += 120;
+    } else if (relatedFamilies[currentFamily]?.includes(candidateFamily)) {
+      score += 35;
+    } else {
+      score -= 80;
+    }
+  }
+
+  if (answerShape(current.answer) === answerShape(candidate.answer)) {
+    score += 45;
+  }
+
+  score += Math.max(0, 24 - Math.abs(current.answer.length - candidate.answer.length));
+  score += Math.max(
+    0,
+    16 - Math.abs(current.answer.split(/[;,]/).length - candidate.answer.split(/[;,]/).length) * 8,
+  );
+
+  return score;
+}
+
 function buildChoices(cards: Flashcard[], cardIndex: number) {
   const currentCard = cards[cardIndex];
   if (!currentCard) {
     return [];
   }
 
-  const currentAnswerHasJapanese = hasJapaneseText(currentCard.answer);
-  const choices = new Set<string>([currentCard.answer]);
   const normalizedPrompt = currentCard.prompt.toLowerCase();
-  const candidates = cards
-    .map((card) => card.answer)
-    .filter((answer) => {
-      const normalizedAnswer = answer.toLowerCase();
-      return (
-        answer &&
-        answer.length <= 160 &&
-        answer !== currentCard.answer &&
-        answer !== currentCard.prompt &&
-        hasJapaneseText(answer) === currentAnswerHasJapanese &&
-        !normalizedPrompt.includes(normalizedAnswer)
-      );
-    })
-    .sort((a, b) => getChoiceRank(a, cardIndex) - getChoiceRank(b, cardIndex));
+  const currentAnswerHasJapanese = hasJapaneseText(currentCard.answer);
+  const uniqueCandidates = new Map<string, { answer: string; score: number }>();
 
-  for (const answer of candidates) {
-    choices.add(answer);
-    if (choices.size >= 4) {
-      break;
+  for (const card of cards) {
+    const answer = card.answer;
+    const normalizedAnswer = answer.toLowerCase();
+    if (
+      !answer ||
+      answer.length > 160 ||
+      answer === currentCard.answer ||
+      answer === currentCard.prompt ||
+      hasJapaneseText(answer) !== currentAnswerHasJapanese ||
+      normalizedPrompt.includes(normalizedAnswer)
+    ) {
+      continue;
+    }
+
+    const score = choiceScore(currentCard, card);
+    const existing = uniqueCandidates.get(answer);
+    if (!existing || score > existing.score) {
+      uniqueCandidates.set(answer, { answer, score });
     }
   }
 
-  return Array.from(choices).sort((a, b) => getChoiceRank(a, cardIndex) - getChoiceRank(b, cardIndex));
+  const ranked = Array.from(uniqueCandidates.values()).sort(
+    (a, b) => b.score - a.score || getChoiceRank(a.answer, cardIndex) - getChoiceRank(b.answer, cardIndex),
+  );
+  const distractors = ranked.slice(0, 3).map((item) => item.answer);
+
+  return [currentCard.answer, ...distractors].sort(
+    (a, b) => getChoiceRank(a, cardIndex) - getChoiceRank(b, cardIndex),
+  );
 }
 
 export function FlashcardGame() {
