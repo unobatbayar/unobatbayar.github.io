@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="JLPT Flashcard Quest icon">
+  <defs>
+    <linearGradient id="bg" x1="78" y1="54" x2="438" y2="462" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff70a6"/>
+      <stop offset="0.48" stop-color="#70d6ff"/>
+      <stop offset="1" stop-color="#06d6a0"/>
+    </linearGradient>
+    <linearGradient id="card" x1="136" y1="120" x2="383" y2="383" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff7d6"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="118" fill="#231942"/>
+  <circle cx="104" cy="92" r="92" fill="#ff70a6"/>
+  <circle cx="419" cy="124" r="98" fill="#70d6ff"/>
+  <circle cx="394" cy="410" r="118" fill="#b8f7d4"/>
+  <rect x="74" y="70" width="364" height="364" rx="76" fill="url(#bg)"/>
+  <rect x="108" y="116" width="296" height="254" rx="44" fill="url(#card)" stroke="#231942" stroke-width="18"/>
+  <rect x="136" y="145" width="132" height="38" rx="19" fill="#ff70a6" stroke="#231942" stroke-width="10"/>
+  <path d="M152 255c43 0 74-32 74-73h36c0 41 31 73 74 73v37c-34 0-65-14-92-42-25 28-57 42-92 42v-37Z" fill="#231942"/>
+  <path d="M228 205h36v132h-36z" fill="#231942"/>
+  <text x="256" y="330" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="60" font-weight="900" fill="#231942">B</text>
+  <text x="255" y="414" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="42" font-weight="900" fill="#fff7d6" stroke="#231942" stroke-width="8" paint-order="stroke">JLPT</text>
+</svg>
