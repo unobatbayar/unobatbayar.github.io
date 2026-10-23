@@ -74,22 +74,132 @@
   margin: clamp(0.3rem, 0.8vh, 0.45rem) 0 0;
 }
 
-.portfolioLink {
-  background: #70d6ff;
-  border: 2px solid #231942;
-  border-radius: 999px;
-  box-shadow: 3px 3px 0 #231942;
-  color: #231942;
-  padding: 0.22rem 0.55rem;
-  text-decoration: none;
-  transition:
-    transform 140ms ease,
-    box-shadow 140ms ease;
+.creditRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.55rem;
+  margin-top: 0.28rem;
 }
 
-.portfolioLink:hover {
-  box-shadow: 1px 1px 0 #231942;
+.credit {
+  color: rgba(35, 25, 66, 0.55);
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.credit:hover {
+  color: #231942;
+  text-decoration: underline;
+}
+
+.desktopSetup {
+  display: contents;
+}
+
+.settingsButton,
+.mobileDeck {
+  display: none;
+}
+
+.settingsButton {
+  align-items: center;
+  background: #ffd166;
+  border: 3px solid #231942;
+  border-radius: 999px;
+  box-shadow: 4px 4px 0 #231942;
+  color: #231942;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 950;
+  gap: 0.35rem;
+  justify-content: center;
+  padding: 0.5rem 0.8rem;
+  white-space: nowrap;
+}
+
+.settingsButton svg {
+  flex: none;
+  height: 0.95rem;
+  width: 0.95rem;
+}
+
+.settingsButton:hover {
+  box-shadow: 2px 2px 0 #231942;
   transform: translate(2px, 2px);
+}
+
+.settingsBackdrop {
+  background: rgba(35, 25, 66, 0.45);
+  display: grid;
+  inset: 0;
+  justify-items: end;
+  position: absolute;
+  z-index: 5;
+}
+
+.settingsPanel {
+  align-content: start;
+  background: #fffdf8;
+  border-left: 3px solid #231942;
+  box-shadow: -8px 0 0 #231942;
+  display: grid;
+  gap: 1rem;
+  height: 100%;
+  overflow: auto;
+  padding: 1rem 1rem 1.4rem;
+  width: min(22rem, 92vw);
+}
+
+.settingsMeta {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.settingsSection {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.settingsSection h3 {
+  color: #ef476f;
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.settingsCount {
+  font-weight: 800;
+  margin: 0;
+}
+
+.settingsPanel .chooserGroup {
+  justify-content: stretch;
+  width: 100%;
+}
+
+.settingsPanel .levelChooser,
+.settingsPanel .categoryChooser {
+  display: grid;
+}
+
+.settingsPanel .levelChooser {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.settingsPanel .categoryChooser {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.settingsPanel .pill {
+  min-width: 0;
+  text-align: center;
+  width: 100%;
 }
 
 .soundToggle {
@@ -508,7 +618,7 @@
 @media (max-width: 860px) {
   .studyShell {
     align-content: start;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto minmax(0, 1fr);
     height: 100dvh;
     min-height: 100dvh;
     overflow-x: hidden;
@@ -525,7 +635,19 @@
   }
 
   .topBar {
-    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .headerCharm,
+  .desktopSetup,
+  .statsStrip {
+    display: none;
+  }
+
+  .settingsButton,
+  .mobileDeck {
+    display: inline-flex;
   }
 
   .chooserGroup {
@@ -612,7 +734,20 @@
   }
 
   .topBar h1 {
-    font-size: clamp(1.55rem, 8vw, 2rem);
+    font-size: clamp(1.45rem, 7vw, 1.85rem);
+  }
+
+  .settingsButton {
+    border-width: 2px;
+    box-shadow: 2px 2px 0 #231942;
+    font-size: 0.72rem;
+    gap: 0.28rem;
+    padding: 0.34rem 0.5rem;
+  }
+
+  .settingsButton svg {
+    height: 0.85rem;
+    width: 0.85rem;
   }
 
   .headerCharm {
@@ -621,7 +756,6 @@
     margin-top: 0.2rem;
   }
 
-  .portfolioLink,
   .soundToggle {
     box-shadow: 2px 2px 0 #231942;
     padding: 0.16rem 0.45rem;

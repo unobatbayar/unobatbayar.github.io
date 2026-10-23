@@ -150,8 +150,24 @@ export function FlashcardGame() {
   }, []);
 
   const [soundEnabled, setSoundEnabled] = useState(true);
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const [revisionOpen, setRevisionOpen] = useState(false);
   const audioContextRef = useRef<AudioContext | null>(null);
+
+  useEffect(() => {
+    if (!settingsOpen) {
+      return;
+    }
+
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setSettingsOpen(false);
+      }
+    }
+
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [settingsOpen]);
 
   const cards = useMemo(
     () => studyData[game.level][game.category].map(normalizeCard),
@@ -222,7 +238,7 @@ export function FlashcardGame() {
     };
 
     const master = context.createGain();
-    master.gain.setValueAtTime(0.26, context.currentTime);
+    master.gain.setValueAtTime(0.72, context.currentTime);
     master.connect(context.destination);
 
     for (const [frequency, delay, duration] of soundMap[kind]) {
@@ -235,7 +251,7 @@ export function FlashcardGame() {
       oscillator.frequency.exponentialRampToValueAtTime(frequency * 1.02, start + duration);
 
       gain.gain.setValueAtTime(0.0001, start);
-      gain.gain.exponentialRampToValueAtTime(kind === "wrong" ? 0.2 : 0.42, start + 0.012);
+      gain.gain.exponentialRampToValueAtTime(kind === "wrong" ? 0.46 : 0.8, start + 0.012);
       gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
 
       oscillator.connect(gain);
@@ -277,57 +293,104 @@ export function FlashcardGame() {
     }));
   }
 
+  function toggleSound() {
+    const nextSoundEnabled = !soundEnabled;
+    setSoundEnabled(nextSoundEnabled);
+    if (nextSoundEnabled) {
+      playSound("tap", true);
+    }
+  }
+
+  function renderLevelChooser() {
+    return (
+      <div className={`${styles.chooserGroup} ${styles.levelChooser}`} aria-label="Choose JLPT level">
+        {levels.map((level) => (
+          <button
+            className={`${styles.pill} ${game.level === level ? styles.active : ""}`}
+            key={level}
+            onClick={() => resetSession({ level })}
+            type="button"
+          >
+            {level}
+          </button>
+        ))}
+      </div>
+    );
+  }
+
+  function renderCategoryChooser() {
+    return (
+      <div className={`${styles.chooserGroup} ${styles.categoryChooser}`} aria-label="Choose study category">
+        {categoryKeys.map((category) => (
+          <button
+            className={`${styles.pill} ${game.category === category ? styles.active : ""}`}
+            key={category}
+            onClick={() => resetSession({ category })}
+            type="button"
+          >
+            {categories[category].label}
+          </button>
+        ))}
+      </div>
+    );
+  }
+
+  function renderSoundButton() {
+    return (
+      <button
+        className={`${styles.soundToggle} ${soundEnabled ? styles.soundOn : ""}`}
+        type="button"
+        aria-pressed={soundEnabled}
+        onClick={toggleSound}
+      >
+        sound {soundEnabled ? "on" : "off"}
+      </button>
+    );
+  }
+
   return (
     <section className={styles.studyShell}>
       <div className={styles.topBar} aria-label="Study setup">
         <div className={styles.titleBlock}>
           <p className={styles.eyebrow}>JLPT quiz game</p>
           <h1>Flashcard Quest</h1>
-          <p className={styles.headerCharm}>
-            <a className={styles.portfolioLink} href="/">
+          <p className={styles.creditRow}>
+            <a className={styles.credit} href="/">
               game by unobatbayar
             </a>
-            <button
-              className={`${styles.soundToggle} ${soundEnabled ? styles.soundOn : ""}`}
-              type="button"
-              aria-pressed={soundEnabled}
-              onClick={() => {
-                const nextSoundEnabled = !soundEnabled;
-                setSoundEnabled(nextSoundEnabled);
-                if (nextSoundEnabled) {
-                  playSound("tap", true);
-                }
-              }}
+            <a
+              className={styles.credit}
+              href="https://jlptsensei.com/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              sound {soundEnabled ? "on" : "off"}
-            </button>
+              data from JLPT Sensei
+            </a>
           </p>
+          <p className={styles.headerCharm}>{renderSoundButton()}</p>
         </div>
 
-        <div className={`${styles.chooserGroup} ${styles.levelChooser}`} aria-label="Choose JLPT level">
-          {levels.map((level) => (
-            <button
-              className={`${styles.pill} ${game.level === level ? styles.active : ""}`}
-              key={level}
-              onClick={() => resetSession({ level })}
-              type="button"
-            >
-              {level}
-            </button>
-          ))}
-        </div>
+        <button
+          className={styles.settingsButton}
+          type="button"
+          aria-expanded={settingsOpen}
+          aria-label={`Change deck, currently ${game.level} ${categories[game.category].label}`}
+          onClick={() => setSettingsOpen(true)}
+        >
+          <span>
+            {game.level} {categories[game.category].label}
+          </span>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M19.4 13.5a7.7 7.7 0 0 0 .1-1.5 7.7 7.7 0 0 0-.1-1.5l2-1.6a.6.6 0 0 0 .1-.7l-1.9-3.3a.6.6 0 0 0-.7-.3l-2.4 1a7.4 7.4 0 0 0-2.6-1.5l-.4-2.5a.6.6 0 0 0-.6-.5h-3.8a.6.6 0 0 0-.6.5l-.4 2.5a7.4 7.4 0 0 0-2.6 1.5l-2.4-1a.6.6 0 0 0-.7.3L1.6 8.2a.6.6 0 0 0 .1.7l2 1.6a7.7 7.7 0 0 0-.1 1.5 7.7 7.7 0 0 0 .1 1.5l-2 1.6a.6.6 0 0 0-.1.7l1.9 3.3a.6.6 0 0 0 .7.3l2.4-1a7.4 7.4 0 0 0 2.6 1.5l.4 2.5a.6.6 0 0 0 .6.5h3.8a.6.6 0 0 0 .6-.5l.4-2.5a7.4 7.4 0 0 0 2.6-1.5l2.4 1a.6.6 0 0 0 .7-.3l1.9-3.3a.6.6 0 0 0-.1-.7l-2-1.6ZM12 15.5A3.5 3.5 0 1 1 15.5 12 3.5 3.5 0 0 1 12 15.5Z"
+            />
+          </svg>
+        </button>
 
-        <div className={`${styles.chooserGroup} ${styles.categoryChooser}`} aria-label="Choose study category">
-          {categoryKeys.map((category) => (
-            <button
-              className={`${styles.pill} ${game.category === category ? styles.active : ""}`}
-              key={category}
-              onClick={() => resetSession({ category })}
-              type="button"
-            >
-              {categories[category].label}
-            </button>
-          ))}
+        <div className={styles.desktopSetup}>
+          {renderLevelChooser()}
+          {renderCategoryChooser()}
         </div>
       </div>
 
@@ -342,6 +405,7 @@ export function FlashcardGame() {
 
       <div className={styles.studyStage}>
         <div className={styles.statusBar}>
+          <span className={styles.mobileDeck}>{game.level} {categories[game.category].label}</span>
           <span>Question {Math.min(game.cardIndex + 1, cards.length)} / {cards.length}</span>
           <span>Score {game.correct} / {game.reviewed}</span>
         </div>
@@ -414,6 +478,56 @@ export function FlashcardGame() {
           )}
         </div>
       </div>
+
+      {settingsOpen && (
+        <div
+          className={styles.settingsBackdrop}
+          role="presentation"
+          onClick={() => setSettingsOpen(false)}
+        >
+          <div
+            className={styles.settingsPanel}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Game settings"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className={styles.revisionHeader}>
+              <div>
+                <p className={styles.eyebrow}>study setup</p>
+                <h2>Settings</h2>
+              </div>
+              <button className={styles.secondary} type="button" onClick={() => setSettingsOpen(false)}>
+                close
+              </button>
+            </div>
+
+            <div className={styles.settingsMeta}>{renderSoundButton()}</div>
+
+            <section className={styles.settingsSection}>
+              <h3>Level</h3>
+              {renderLevelChooser()}
+            </section>
+
+            <section className={styles.settingsSection}>
+              <h3>Category</h3>
+              {renderCategoryChooser()}
+            </section>
+
+            <button
+              className={styles.revisionButton}
+              type="button"
+              onClick={() => {
+                setSettingsOpen(false);
+                setRevisionOpen(true);
+              }}
+            >
+              Revision list
+            </button>
+            <p className={styles.settingsCount}>{cards.length.toLocaleString()} questions in this deck</p>
+          </div>
+        </div>
+      )}
 
       {revisionOpen && (
         <div className={styles.revisionBackdrop} role="dialog" aria-modal="true" aria-label="Japanese revision list">
