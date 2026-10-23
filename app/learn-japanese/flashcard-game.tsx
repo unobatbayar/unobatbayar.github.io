@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   categories,
   levels,
@@ -39,6 +39,9 @@ const initialGameState: GameState = {
 
 const categoryKeys = Object.keys(categories) as StudyCategory[];
 
+const hiraganaList = "あ い う え お か き く け こ さ し す せ そ た ち つ て と な に ぬ ね の は ひ ふ へ ほ ま み む め も や ゆ よ ら り る れ ろ わ を ん が ぎ ぐ げ ご ざ じ ず ぜ ぞ だ ぢ づ で ど ば び ぶ べ ぼ ぱ ぴ ぷ ぺ ぽ きゃ きゅ きょ しゃ しゅ しょ ちゃ ちゅ ちょ にゃ にゅ にょ ひゃ ひゅ ひょ みゃ みゅ みょ りゃ りゅ りょ ぎゃ ぎゅ ぎょ じゃ じゅ じょ びゃ びゅ びょ ぴゃ ぴゅ ぴょ".split(" ");
+const katakanaList = "ア イ ウ エ オ カ キ ク ケ コ サ シ ス セ ソ タ チ ツ テ ト ナ ニ ヌ ネ ノ ハ ヒ フ ヘ ホ マ ミ ム メ モ ヤ ユ ヨ ラ リ ル レ ロ ワ ヲ ン ガ ギ グ ゲ ゴ ザ ジ ズ ゼ ゾ ダ ヂ ヅ デ ド バ ビ ブ ベ ボ パ ピ プ ペ ポ キャ キュ キョ シャ シュ ショ チャ チュ チョ ニャ ニュ ニョ ヒャ ヒュ ヒョ ミャ ミュ ミョ リャ リュ リョ ギャ ギュ ギョ ジャ ジュ ジョ ビャ ビュ ビョ ピャ ピュ ピョ".split(" ");
+
 const japaneseTextPattern = /[\u3040-\u30ff\u3400-\u9fff]/;
 const scrapedTextMarkers = [
   " JLPT N",
@@ -57,8 +60,21 @@ function cleanStudyText(value: string, field: "prompt" | "answer") {
     }
   }
 
-  if (field === "prompt" && /^Which .* means:/.test(cleaned) && !/[?？]$/.test(cleaned)) {
-    return `${cleaned}?`;
+  if (field === "prompt") {
+    const reversePrompt = cleaned.match(/^Which\s+N[1-5]\s+.+?\s+means:\s+(.+?)[?？]*$/);
+    if (reversePrompt?.[1]) {
+      const meaning = reversePrompt[1]
+        .replace(/\(spoken Japanese\)/gi, "(spoken)")
+        .replace(/\bam, is, are, were, used to\b/gi, "to be")
+        .replace(/\?+$/g, "?")
+        .trim();
+
+      return `Pick Japanese: ${meaning}`;
+    }
+
+    if (/^Which .* means:/.test(cleaned) && !/[?？]$/.test(cleaned)) {
+      return `${cleaned}?`;
+    }
   }
 
   return cleaned;
@@ -119,7 +135,22 @@ function buildChoices(cards: Flashcard[], cardIndex: number) {
 
 export function FlashcardGame() {
   const [game, setGame] = useState<GameState>(initialGameState);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const previousMinWidth = root.style.minWidth;
+    const previousOverflowX = root.style.overflowX;
+    root.style.minWidth = "0";
+    root.style.overflowX = "hidden";
+
+    return () => {
+      root.style.minWidth = previousMinWidth;
+      root.style.overflowX = previousOverflowX;
+    };
+  }, []);
+
   const [soundEnabled, setSoundEnabled] = useState(true);
+  const [revisionOpen, setRevisionOpen] = useState(false);
   const audioContextRef = useRef<AudioContext | null>(null);
 
   const cards = useMemo(
@@ -128,6 +159,21 @@ export function FlashcardGame() {
   );
 
   const currentCard = cards[game.cardIndex];
+  const revisionKanji = useMemo(() => {
+    const seen = new Set<string>();
+    return levels.flatMap((level) =>
+      studyData[level].kanji
+        .map(normalizeCard)
+        .map((card) => card.prompt)
+        .filter((prompt) => {
+          if (seen.has(prompt) || !hasJapaneseText(prompt)) {
+            return false;
+          }
+          seen.add(prompt);
+          return true;
+        }),
+    );
+  }, []);
   const isFinished = game.cardIndex >= cards.length;
   const progress = cards.length === 0 ? 0 : Math.round((game.reviewed / cards.length) * 100);
   const choices = useMemo(() => buildChoices(cards, game.cardIndex), [cards, game.cardIndex]);
@@ -176,7 +222,7 @@ export function FlashcardGame() {
     };
 
     const master = context.createGain();
-    master.gain.setValueAtTime(0.16, context.currentTime);
+    master.gain.setValueAtTime(0.26, context.currentTime);
     master.connect(context.destination);
 
     for (const [frequency, delay, duration] of soundMap[kind]) {
@@ -189,7 +235,7 @@ export function FlashcardGame() {
       oscillator.frequency.exponentialRampToValueAtTime(frequency * 1.02, start + duration);
 
       gain.gain.setValueAtTime(0.0001, start);
-      gain.gain.exponentialRampToValueAtTime(kind === "wrong" ? 0.16 : 0.34, start + 0.012);
+      gain.gain.exponentialRampToValueAtTime(kind === "wrong" ? 0.2 : 0.42, start + 0.012);
       gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
 
       oscillator.connect(gain);
@@ -238,8 +284,9 @@ export function FlashcardGame() {
           <p className={styles.eyebrow}>JLPT quiz game</p>
           <h1>Flashcard Quest</h1>
           <p className={styles.headerCharm}>
-            <span>あ → ア</span>
-            <span>daily JLPT practice</span>
+            <a className={styles.portfolioLink} href="/">
+              game by unobatbayar
+            </a>
             <button
               className={`${styles.soundToggle} ${soundEnabled ? styles.soundOn : ""}`}
               type="button"
@@ -257,7 +304,7 @@ export function FlashcardGame() {
           </p>
         </div>
 
-        <div className={styles.chooserGroup} aria-label="Choose JLPT level">
+        <div className={`${styles.chooserGroup} ${styles.levelChooser}`} aria-label="Choose JLPT level">
           {levels.map((level) => (
             <button
               className={`${styles.pill} ${game.level === level ? styles.active : ""}`}
@@ -270,7 +317,7 @@ export function FlashcardGame() {
           ))}
         </div>
 
-        <div className={styles.chooserGroup} aria-label="Choose study category">
+        <div className={`${styles.chooserGroup} ${styles.categoryChooser}`} aria-label="Choose study category">
           {categoryKeys.map((category) => (
             <button
               className={`${styles.pill} ${game.category === category ? styles.active : ""}`}
@@ -288,6 +335,9 @@ export function FlashcardGame() {
         <strong>{game.level} {categories[game.category].label}</strong>
         <span>{cards.length.toLocaleString()} questions</span>
         <span>{progress}% done</span>
+        <button className={styles.revisionButton} type="button" onClick={() => setRevisionOpen(true)}>
+          Revision list
+        </button>
       </div>
 
       <div className={styles.studyStage}>
@@ -304,7 +354,9 @@ export function FlashcardGame() {
           <div className={styles.quizCard}>
             <div className={styles.questionPanel}>
               <span className={styles.cardLabel}>Question</span>
-              <strong>{currentCard.prompt}</strong>
+              <strong className={currentCard.prompt.length > 30 ? styles.compactPrompt : ""}>
+                {currentCard.prompt}
+              </strong>
               <em>{currentCard.hint}</em>
               {answered && currentCard.reading && <small>Reading: {currentCard.reading}</small>}
             </div>
@@ -362,6 +414,55 @@ export function FlashcardGame() {
           )}
         </div>
       </div>
+
+      {revisionOpen && (
+        <div className={styles.revisionBackdrop} role="dialog" aria-modal="true" aria-label="Japanese revision list">
+          <div className={styles.revisionSheet}>
+            <div className={styles.revisionHeader}>
+              <div>
+                <p className={styles.eyebrow}>revision deck</p>
+                <h2>Kana + Kanji list</h2>
+              </div>
+              <button className={styles.secondary} type="button" onClick={() => setRevisionOpen(false)}>
+                close
+              </button>
+            </div>
+
+            <section className={styles.revisionSection}>
+              <h3>Hiragana</h3>
+              <div className={styles.symbolGrid}>
+                {hiraganaList.map((symbol) => (
+                  <span className={styles.symbolTile} key={`hiragana-${symbol}`}>
+                    {symbol}
+                  </span>
+                ))}
+              </div>
+            </section>
+
+            <section className={styles.revisionSection}>
+              <h3>Katakana</h3>
+              <div className={styles.symbolGrid}>
+                {katakanaList.map((symbol) => (
+                  <span className={styles.symbolTile} key={`katakana-${symbol}`}>
+                    {symbol}
+                  </span>
+                ))}
+              </div>
+            </section>
+
+            <section className={styles.revisionSection}>
+              <h3>Kanji</h3>
+              <div className={`${styles.symbolGrid} ${styles.kanjiGrid}`}>
+                {revisionKanji.map((symbol) => (
+                  <span className={styles.symbolTile} key={`kanji-${symbol}`}>
+                    {symbol}
+                  </span>
+                ))}
+              </div>
+            </section>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

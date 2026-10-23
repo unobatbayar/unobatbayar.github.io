@@ -39,15 +39,20 @@ const apps = personalProjects.map((project) => ({
 
 type AppItem = (typeof apps)[number];
 
-const bodies: Body[] = [
-  { app: 0, angle: 8, radius: 1.0, size: 76 },
-  { app: 3, angle: 59, radius: 0.98, size: 72 },
-  { app: 1, angle: 111, radius: 0.97, size: 74 },
-  { app: 4, angle: 162, radius: 0.96, size: 68 },
-  { app: 2, angle: 214, radius: 1.0, size: 74 },
-  { app: 5, angle: 265, radius: 0.97, size: 70 },
-  { app: 6, angle: 317, radius: 0.99, size: 72 },
-];
+const orbitPresets = [
+  { angle: 8, radius: 1.0, size: 76 },
+  { angle: 59, radius: 0.98, size: 72 },
+  { angle: 111, radius: 0.97, size: 74 },
+  { angle: 162, radius: 0.96, size: 68 },
+  { angle: 214, radius: 1.0, size: 74 },
+  { angle: 265, radius: 0.97, size: 70 },
+  { angle: 317, radius: 0.99, size: 72 },
+] satisfies Array<Omit<Body, "app">>;
+
+const bodies: Body[] = apps.map((_, app) => ({
+  app,
+  ...orbitPresets[app % orbitPresets.length],
+}));
 
 const DRAG_THRESHOLD = 7;
 const MAX_SPEED = 68;

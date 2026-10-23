@@ -83,10 +83,10 @@ export const personalProjects: Project[] = [
     title: "JLPT Flashcard Quest",
     year: 2026,
     description:
-      "Japanese learning flashcard game for JLPT grammar, kanji, and vocabulary practice.",
+      "Japanese learning flashcard game by unobatbayar for JLPT grammar, kanji, and vocabulary practice.",
     tools: ["Next.js", "TypeScript", "Tailwind CSS"],
     url: "/learn-japanese",
-    thumbnail: "/opengraph-image.png",
+    thumbnail: "/projects/jlpt-flashcard-quest.svg",
   },
   /*
   {

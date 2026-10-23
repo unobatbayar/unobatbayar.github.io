@@ -30,7 +30,7 @@ const projectCopy = {
         "Companion app for the SEQTRAK music production studio. Visual control of the hardware.",
       "Simple.mn": "Fintech app for payments and everyday banking in Mongolia.",
       "JLPT Flashcard Quest":
-        "Japanese learning flashcard game for JLPT grammar, kanji, and vocabulary practice.",
+        "Japanese learning flashcard game by unobatbayar for JLPT grammar, kanji, and vocabulary practice.",
       "Flashback Cam: Retro Digicam":
         "Retro digicam and film camera for iPhone. Live looks on the device, a date stamp, and no cloud.",
       "Refill - Home Supplies":
@@ -66,7 +66,7 @@ const projectCopy = {
         "SEQTRAK music production studio-д зориулсан companion app. Hardware-ийг visual байдлаар удирдана.",
       "Simple.mn": "Монгол дахь төлбөр, өдөр тутмын banking-д зориулсан fintech app.",
       "JLPT Flashcard Quest":
-        "JLPT grammar, kanji, vocabulary давтах япон хэлний flashcard game.",
+        "JLPT grammar, kanji, vocabulary давтах unobatbayar-ийн япон хэлний flashcard game.",
       "Flashback Cam: Retro Digicam":
         "iPhone-д зориулсан retro digicam, film camera. Look төхөөрөмж дээр, date stamp-тай, cloud байхгүй.",
       "Refill - Home Supplies":
@@ -102,7 +102,7 @@ const projectCopy = {
         "SEQTRAK music production studioのcompanion app。ハードウェアをvisualに操作。",
       "Simple.mn": "モンゴル向けの決済・日常 banking fintech app。",
       "JLPT Flashcard Quest":
-        "JLPTの文法・漢字・語彙を練習する日本語学習フラッシュカードゲーム。",
+        "unobatbayarによるJLPTの文法・漢字・語彙を練習する日本語学習フラッシュカードゲーム。",
       "Flashback Cam: Retro Digicam":
         "iPhone向けのレトロなデジカメ／フィルムカメラ。ルックは端末内、日付スタンプ付き、クラウドなし。",
       "Refill - Home Supplies":
