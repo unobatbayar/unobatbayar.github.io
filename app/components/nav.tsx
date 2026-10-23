@@ -8,6 +8,7 @@ import { LanguageSwitch, useLanguage } from "./language";
 const navItems = [
   { path: "/experience", labelKey: "experience" },
   { path: "/projects", labelKey: "projects" },
+  { path: "/learn-japanese", labelKey: "japanese" },
   { path: "/blog", labelKey: "blog" },
 ] as const;
 

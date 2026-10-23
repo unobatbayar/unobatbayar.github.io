@@ -28,6 +28,7 @@ export const translations = {
     nav: {
       experience: "exp",
       projects: "projects",
+      japanese: "japanese",
       blog: "blog",
     },
     home: {
@@ -89,6 +90,7 @@ export const translations = {
     nav: {
       experience: "туршлага",
       projects: "төслүүд",
+      japanese: "япон хэл",
       blog: "блог",
     },
     home: {
@@ -150,6 +152,7 @@ export const translations = {
     nav: {
       experience: "経歴",
       projects: "作品",
+      japanese: "日本語",
       blog: "ブログ",
     },
     home: {
