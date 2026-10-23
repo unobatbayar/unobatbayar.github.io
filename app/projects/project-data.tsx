@@ -80,6 +80,16 @@ export const workProjects: Project[] = [
 
 export const personalProjects: Project[] = [
   {
+    title: "JLPT Flashcard Quest",
+    year: 2026,
+    description:
+      "Japanese learning flashcard game for JLPT grammar, kanji, and vocabulary practice.",
+    tools: ["Next.js", "TypeScript", "Tailwind CSS"],
+    url: "/learn-japanese",
+    thumbnail: "/opengraph-image.png",
+  },
+  /*
+  {
     title: "Flashback Cam: Retro Digicam",
     year: 2026,
     description:
@@ -97,6 +107,7 @@ export const personalProjects: Project[] = [
     url: "/refill",
     thumbnail: "/refill/icon.png",
   },
+  */
   {
     title: "Scanly - Scan food & beauty barcodes",
     year: 2026,

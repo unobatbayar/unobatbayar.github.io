@@ -1,28 +1,21 @@
 .studyShell {
-  color: #231942;
-  display: grid;
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  gap: 0.85rem;
-  grid-template-rows: auto auto 1fr;
-  margin-left: 50%;
-  min-height: min(820px, calc(100vh - 7rem));
-  padding: 0.85rem;
-  transform: translateX(-50%);
-  width: min(1120px, calc(100vw - 1.5rem));
-}
-
-.studyShell::before {
   background:
     radial-gradient(circle at 8% 10%, #ff70a6 0 8rem, transparent 8.2rem),
     radial-gradient(circle at 92% 12%, #70d6ff 0 10rem, transparent 10.2rem),
     radial-gradient(circle at 85% 92%, #b8f7d4 0 11rem, transparent 11.2rem),
     linear-gradient(135deg, #fff7d6 0%, #ffd6e8 45%, #d9f7ff 100%);
-  border: 3px solid #231942;
-  border-radius: 2rem;
-  box-shadow: 10px 10px 0 #231942;
-  content: "";
-  grid-area: 1 / 1 / -1 / -1;
-  z-index: -1;
+  color: #231942;
+  display: grid;
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  gap: clamp(0.45rem, 1.2vh, 0.85rem);
+  grid-template-rows: auto auto 1fr;
+  height: 100dvh;
+  inset: 0;
+  overflow: hidden;
+  padding: clamp(0.45rem, 1.4vw, 0.85rem);
+  position: fixed;
+  width: 100vw;
+  z-index: 50;
 }
 
 .topBar,
@@ -37,9 +30,9 @@
 .topBar {
   align-items: center;
   display: grid;
-  gap: 0.8rem;
+  gap: clamp(0.45rem, 1.2vw, 0.8rem);
   grid-template-columns: 1fr auto auto;
-  padding: 0.9rem;
+  padding: clamp(0.55rem, 1.2vw, 0.9rem);
 }
 
 .eyebrow {
@@ -60,7 +53,62 @@
 }
 
 .topBar h1 {
-  font-size: clamp(1.7rem, 4vw, 3rem);
+  font-size: clamp(1.6rem, 3.2vw, 2.7rem);
+}
+
+.titleBlock {
+  min-width: 0;
+}
+
+.headerCharm {
+  align-items: center;
+  color: #231942;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: clamp(0.72rem, 1.2vw, 0.9rem);
+  font-weight: 900;
+  gap: 0.4rem;
+  letter-spacing: 0.02em;
+  margin: clamp(0.3rem, 0.8vh, 0.45rem) 0 0;
+}
+
+.headerCharm span {
+  background: #fff7d6;
+  border: 2px solid #231942;
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 #231942;
+  padding: 0.22rem 0.55rem;
+}
+
+.headerCharm span:first-child {
+  background: #ff70a6;
+  color: white;
+}
+
+.soundToggle {
+  background: #ffffff;
+  border: 2px solid #231942;
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 #231942;
+  color: #231942;
+  cursor: pointer;
+  font: inherit;
+  font-size: inherit;
+  font-weight: 950;
+  padding: 0.22rem 0.55rem;
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    background 140ms ease;
+}
+
+.soundToggle:hover {
+  box-shadow: 1px 1px 0 #231942;
+  transform: translate(2px, 2px);
+}
+
+.soundOn {
+  background: #b8f7d4;
 }
 
 .finishedCard h2 {
@@ -96,7 +144,7 @@
   background: #ffffff;
   color: #231942;
   min-width: 3rem;
-  padding: 0.55rem 0.78rem;
+  padding: clamp(0.38rem, 0.9vw, 0.55rem) clamp(0.58rem, 1vw, 0.78rem);
 }
 
 .pill:nth-child(1) {
@@ -144,7 +192,7 @@
 
 .statsStrip {
   background: #06d6a0;
-  padding: 0.7rem 0.9rem;
+  padding: clamp(0.45rem, 1vw, 0.7rem) 0.9rem;
 }
 
 .statsStrip strong,
@@ -158,17 +206,17 @@
 
 .studyStage {
   display: grid;
-  gap: 0.7rem;
+  gap: clamp(0.4rem, 1vh, 0.7rem);
   grid-template-rows: auto auto minmax(0, 1fr) auto;
   min-height: 0;
-  padding: 0.9rem;
+  padding: clamp(0.55rem, 1.2vw, 0.9rem);
 }
 
 .progressTrack {
   background: white;
   border: 3px solid #231942;
   border-radius: 999px;
-  height: 1rem;
+  height: clamp(0.55rem, 1.4vh, 1rem);
   overflow: hidden;
 }
 
@@ -181,8 +229,9 @@
 
 .quizCard {
   display: grid;
-  gap: 0.8rem;
+  gap: clamp(0.45rem, 1vw, 0.8rem);
   grid-template-columns: minmax(0, 1fr) minmax(280px, 0.9fr);
+  grid-template-rows: minmax(0, 1fr) auto;
   min-height: 0;
 }
 
@@ -193,10 +242,10 @@
   border: 3px solid #231942;
   border-radius: 1.6rem;
   display: grid;
-  gap: 0.8rem;
+  gap: clamp(0.45rem, 1.2vh, 0.8rem);
   min-height: 0;
   overflow: auto;
-  padding: clamp(1rem, 4vw, 2.4rem);
+  padding: clamp(0.8rem, 3vw, 2.1rem);
   text-align: center;
 }
 
@@ -207,7 +256,7 @@
 }
 
 .questionPanel strong {
-  font-size: clamp(2.2rem, 7vw, 5.5rem);
+  font-size: clamp(2rem, 6vw, 5.1rem);
   letter-spacing: -0.06em;
   line-height: 1;
   overflow-wrap: anywhere;
@@ -237,16 +286,20 @@
 
 .choiceGrid {
   display: grid;
-  gap: 0.7rem;
+  gap: clamp(0.45rem, 1vh, 0.7rem);
+  grid-template-rows: repeat(4, minmax(0, 1fr));
+  min-height: 0;
 }
 
 .choiceButton {
   background: #ffffff;
   border-radius: 1.2rem;
   color: #231942;
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: clamp(0.92rem, 1.55vw, 1.18rem);
   line-height: 1.3;
-  padding: 1rem;
+  min-height: 0;
+  overflow: hidden;
+  padding: clamp(0.65rem, 1.2vw, 1rem);
   text-align: left;
 }
 
@@ -265,7 +318,9 @@
 .feedback {
   background: #fff7d6;
   grid-column: 1 / -1;
-  padding: 0.8rem;
+  max-height: 17dvh;
+  overflow: auto;
+  padding: clamp(0.55rem, 1vw, 0.8rem);
 }
 
 .feedback strong {
@@ -299,7 +354,7 @@
 
 .actions button {
   color: #231942;
-  padding: 0.78rem 1rem;
+  padding: clamp(0.55rem, 1vw, 0.78rem) 1rem;
 }
 
 .actions button:disabled {
@@ -318,8 +373,8 @@
 
 @media (max-width: 860px) {
   .studyShell {
-    min-height: 100vh;
-    width: min(100vw - 1rem, 100%);
+    min-height: 100dvh;
+    overflow: auto;
   }
 
   .topBar {
@@ -331,10 +386,19 @@
   }
 
   .studyStage {
-    min-height: 65vh;
+    min-height: min(65vh, 42rem);
   }
 
   .quizCard {
     grid-template-columns: 1fr;
+    grid-template-rows: minmax(16rem, auto) auto auto;
+  }
+
+  .choiceGrid {
+    grid-template-rows: none;
+  }
+
+  .feedback {
+    max-height: none;
   }
 }

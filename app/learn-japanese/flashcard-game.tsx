@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import {
   categories,
   levels,
@@ -20,6 +20,14 @@ type GameState = {
   reviewed: number;
 };
 
+type SoundKind = "correct" | "wrong" | "next" | "finish" | "tap";
+
+declare global {
+  interface Window {
+    webkitAudioContext?: typeof AudioContext;
+  }
+}
+
 const initialGameState: GameState = {
   level: "N5",
   category: "grammar",
@@ -31,33 +39,91 @@ const initialGameState: GameState = {
 
 const categoryKeys = Object.keys(categories) as StudyCategory[];
 
+const japaneseTextPattern = /[\u3040-\u30ff\u3400-\u9fff]/;
+const scrapedTextMarkers = [
+  " JLPT N",
+  " / Currently viewing",
+  " Member Benefits",
+  " #mailpoet",
+  " {\"prefetch\"",
+];
+
+function cleanStudyText(value: string, field: "prompt" | "answer") {
+  let cleaned = value.replace(/\s+/g, " ").trim();
+  for (const marker of scrapedTextMarkers) {
+    const markerIndex = cleaned.indexOf(marker);
+    if (markerIndex > -1) {
+      cleaned = cleaned.slice(0, markerIndex).trim();
+    }
+  }
+
+  if (field === "prompt" && /^Which .* means:/.test(cleaned) && !/[?？]$/.test(cleaned)) {
+    return `${cleaned}?`;
+  }
+
+  return cleaned;
+}
+
+function normalizeCard(card: Flashcard): Flashcard {
+  return {
+    ...card,
+    prompt: cleanStudyText(card.prompt, "prompt"),
+    answer: cleanStudyText(card.answer, "answer"),
+    reading: card.reading?.replace(/\s+/g, " ").trim(),
+    example: card.example?.replace(/\s+/g, " ").trim(),
+  };
+}
+
+function hasJapaneseText(value: string) {
+  return japaneseTextPattern.test(value);
+}
+
+function getChoiceRank(choice: string, cardIndex: number) {
+  const seed = cardIndex + 1;
+  return [...choice].reduce((total, char) => total + char.charCodeAt(0) * seed, 0);
+}
+
 function buildChoices(cards: Flashcard[], cardIndex: number) {
   const currentCard = cards[cardIndex];
   if (!currentCard) {
     return [];
   }
 
+  const currentAnswerHasJapanese = hasJapaneseText(currentCard.answer);
   const choices = new Set<string>([currentCard.answer]);
-  let offset = 1;
+  const normalizedPrompt = currentCard.prompt.toLowerCase();
+  const candidates = cards
+    .map((card) => card.answer)
+    .filter((answer) => {
+      const normalizedAnswer = answer.toLowerCase();
+      return (
+        answer &&
+        answer.length <= 160 &&
+        answer !== currentCard.answer &&
+        answer !== currentCard.prompt &&
+        hasJapaneseText(answer) === currentAnswerHasJapanese &&
+        !normalizedPrompt.includes(normalizedAnswer)
+      );
+    })
+    .sort((a, b) => getChoiceRank(a, cardIndex) - getChoiceRank(b, cardIndex));
 
-  while (choices.size < 4 && offset < cards.length) {
-    choices.add(cards[(cardIndex + offset) % cards.length].answer);
-    offset += 1;
+  for (const answer of candidates) {
+    choices.add(answer);
+    if (choices.size >= 4) {
+      break;
+    }
   }
 
-  return Array.from(choices).sort((a, b) => {
-    const seed = cardIndex + 1;
-    const scoreA = [...a].reduce((total, char) => total + char.charCodeAt(0) * seed, 0);
-    const scoreB = [...b].reduce((total, char) => total + char.charCodeAt(0) * seed, 0);
-    return scoreA - scoreB;
-  });
+  return Array.from(choices).sort((a, b) => getChoiceRank(a, cardIndex) - getChoiceRank(b, cardIndex));
 }
 
 export function FlashcardGame() {
   const [game, setGame] = useState<GameState>(initialGameState);
+  const [soundEnabled, setSoundEnabled] = useState(true);
+  const audioContextRef = useRef<AudioContext | null>(null);
 
   const cards = useMemo(
-    () => studyData[game.level][game.category],
+    () => studyData[game.level][game.category].map(normalizeCard),
     [game.category, game.level],
   );
 
@@ -68,7 +134,73 @@ export function FlashcardGame() {
   const answered = game.selectedAnswer !== null;
   const wasCorrect = answered && game.selectedAnswer === currentCard?.answer;
 
+  function getAudioContext() {
+    const AudioContextConstructor = window.AudioContext || window.webkitAudioContext;
+    audioContextRef.current ??= new AudioContextConstructor();
+    return audioContextRef.current;
+  }
+
+  function playSound(kind: SoundKind, force = false) {
+    if (!force && !soundEnabled) {
+      return;
+    }
+
+    const context = getAudioContext();
+    if (context.state === "suspended") {
+      void context.resume();
+    }
+
+    const soundMap: Record<SoundKind, Array<[number, number, number]>> = {
+      correct: [
+        [523.25, 0, 0.08],
+        [659.25, 0.07, 0.08],
+        [783.99, 0.14, 0.12],
+        [1046.5, 0.22, 0.14],
+      ],
+      wrong: [
+        [220, 0, 0.11],
+        [164.81, 0.09, 0.15],
+      ],
+      next: [
+        [440, 0, 0.04],
+        [880, 0.04, 0.06],
+      ],
+      finish: [
+        [523.25, 0, 0.1],
+        [659.25, 0.08, 0.1],
+        [783.99, 0.16, 0.1],
+        [1046.5, 0.24, 0.18],
+        [1318.51, 0.34, 0.22],
+      ],
+      tap: [[660, 0, 0.05]],
+    };
+
+    const master = context.createGain();
+    master.gain.setValueAtTime(0.16, context.currentTime);
+    master.connect(context.destination);
+
+    for (const [frequency, delay, duration] of soundMap[kind]) {
+      const start = context.currentTime + delay;
+      const oscillator = context.createOscillator();
+      const gain = context.createGain();
+
+      oscillator.type = kind === "wrong" ? "sawtooth" : "triangle";
+      oscillator.frequency.setValueAtTime(frequency, start);
+      oscillator.frequency.exponentialRampToValueAtTime(frequency * 1.02, start + duration);
+
+      gain.gain.setValueAtTime(0.0001, start);
+      gain.gain.exponentialRampToValueAtTime(kind === "wrong" ? 0.16 : 0.34, start + 0.012);
+      gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+
+      oscillator.connect(gain);
+      gain.connect(master);
+      oscillator.start(start);
+      oscillator.stop(start + duration + 0.03);
+    }
+  }
+
   function resetSession(nextState: Partial<Pick<GameState, "level" | "category">> = {}) {
+    playSound("tap");
     setGame((current) => ({
       ...initialGameState,
       level: nextState.level ?? current.level,
@@ -81,6 +213,7 @@ export function FlashcardGame() {
       return;
     }
 
+    playSound(answer === currentCard.answer ? "correct" : "wrong");
     setGame((current) => ({
       ...current,
       selectedAnswer: answer,
@@ -90,6 +223,7 @@ export function FlashcardGame() {
   }
 
   function nextQuestion() {
+    playSound(game.cardIndex + 1 >= cards.length ? "finish" : "next");
     setGame((current) => ({
       ...current,
       cardIndex: current.cardIndex + 1,
@@ -100,9 +234,27 @@ export function FlashcardGame() {
   return (
     <section className={styles.studyShell}>
       <div className={styles.topBar} aria-label="Study setup">
-        <div>
+        <div className={styles.titleBlock}>
           <p className={styles.eyebrow}>JLPT quiz game</p>
           <h1>Flashcard Quest</h1>
+          <p className={styles.headerCharm}>
+            <span>あ → ア</span>
+            <span>daily JLPT practice</span>
+            <button
+              className={`${styles.soundToggle} ${soundEnabled ? styles.soundOn : ""}`}
+              type="button"
+              aria-pressed={soundEnabled}
+              onClick={() => {
+                const nextSoundEnabled = !soundEnabled;
+                setSoundEnabled(nextSoundEnabled);
+                if (nextSoundEnabled) {
+                  playSound("tap", true);
+                }
+              }}
+            >
+              sound {soundEnabled ? "on" : "off"}
+            </button>
+          </p>
         </div>
 
         <div className={styles.chooserGroup} aria-label="Choose JLPT level">
